@@ -1,7 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
-import { autoPlayGif } from 'mastodon/initial_state';
+import { autoPlayGif, showStaffBadge } from 'mastodon/initial_state';
 
 export default class DisplayName extends React.PureComponent {
 
@@ -55,7 +55,7 @@ export default class DisplayName extends React.PureComponent {
   render () {
     const { others, localDomain } = this.props;
 
-    let displayName, suffix, account;
+    let displayName, suffix, account, staffBadge;
 
     if (others && others.size > 1) {
       displayName = others.take(2).map(a => <bdi key={a.get('id')}><strong className='display-name__html' dangerouslySetInnerHTML={{ __html: a.get('display_name_html') }} /></bdi>).reduce((prev, cur) => [prev, ', ', cur]);
@@ -78,11 +78,22 @@ export default class DisplayName extends React.PureComponent {
 
       displayName = <bdi><strong className='display-name__html' dangerouslySetInnerHTML={{ __html: account.get('display_name_html') }} /></bdi>;
       suffix      = <span className='display-name__account'>@{acct}</span>;
+
+      if(showStaffBadge){
+        if (account.get('user_staff')) {
+          if (account.get('user_admin')){
+            staffBadge = <div className='account-role admin'>Admin</div>;
+          }
+          else if (account.get('user_moderator')){
+            staffBadge = <div className='account-role moderator'>Moderator</div>;
+          }
+        }
+      }
     }
 
     return (
       <span className='display-name' ref={this.setRef}>
-        {displayName} {suffix}
+        {displayName} {staffBadge} {suffix}
       </span>
     );
   }
