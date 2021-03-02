@@ -56,6 +56,7 @@ class Form::StatusBatch
         end
       end
     end
+    
     true
   rescue ActiveRecord::RecordInvalid
     false
