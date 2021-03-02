@@ -12,6 +12,8 @@ class Form::StatusBatch
       change_sensitive(action == 'nsfw_on')
     when 'delete'
       delete_statuses
+    when 'disable_replies', 'enable_replies'
+      change_replies(action == 'disable_replies')
     end
   end
 
@@ -41,5 +43,22 @@ class Form::StatusBatch
     end
 
     true
+  end
+
+  def change_replies(replies_disabled)
+    ApplicationRecord.transaction do
+      Status.where(id: status_ids).reorder(nil).find_each do |status|
+        if replies_disabled
+          ConversationRepliesDisabled.find_or_create_by!(conversation_id: status.conversation_id)
+        else 
+          disabled = ConversationRepliesDisabled.find_by(conversation_id: status.conversation_id)
+          disabled&.destroy!
+        end
+      end
+    end
+    
+    true
+  rescue ActiveRecord::RecordInvalid
+    false
   end
 end

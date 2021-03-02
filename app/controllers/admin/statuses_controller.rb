@@ -70,6 +70,10 @@ module Admin
         'nsfw_off'
       elsif params[:delete]
         'delete'
+      elsif params[:disable_replies]
+        'disable_replies'
+      elsif params[:enable_replies]
+        'enable_replies'
       end
     end
   end

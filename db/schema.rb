@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_054746) do
+ActiveRecord::Schema.define(version: 2021_02_24_050123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -285,6 +285,11 @@ ActiveRecord::Schema.define(version: 2020_12_18_054746) do
     t.bigint "conversation_id", null: false
     t.bigint "account_id", null: false
     t.index ["account_id", "conversation_id"], name: "index_conversation_mutes_on_account_id_and_conversation_id", unique: true
+  end
+
+  create_table "conversation_replies_disableds", force: :cascade do |t|
+    t.bigint "conversation_id", null: false
+    t.index ["conversation_id"], name: "index_conversation_replies_disableds_on_conversation_id", unique: true
   end
 
   create_table "conversations", force: :cascade do |t|
