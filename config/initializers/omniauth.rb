@@ -4,12 +4,12 @@ end
 
 Devise.setup do |config|
   # Devise omniauth strategies
-  options = {}
-  options[:redirect_at_sign_in] = ENV['OAUTH_REDIRECT_AT_SIGN_IN'] == 'true'
 
   # CAS strategy
   if ENV['CAS_ENABLED'] == 'true'
-    cas_options = options
+    cas_options = {}
+    cas_options[:redirect_at_sign_in] = ENV['OAUTH_REDIRECT_AT_SIGN_IN'] == 'true'
+    cas_options[:display_name] = ENV['CAS_DISPLAY_NAME'] || 'cas'
     cas_options[:url] = ENV['CAS_URL'] if ENV['CAS_URL']
     cas_options[:host] = ENV['CAS_HOST'] if ENV['CAS_HOST']
     cas_options[:port] = ENV['CAS_PORT'] if ENV['CAS_PORT']
@@ -35,7 +35,9 @@ Devise.setup do |config|
 
   # SAML strategy
   if ENV['SAML_ENABLED'] == 'true'
-    saml_options = options
+    saml_options = {}
+    saml_options[:redirect_at_sign_in] = ENV['OAUTH_REDIRECT_AT_SIGN_IN'] == 'true'
+    saml_options[:display_name] = ENV['SAML_DISPLAY_NAME'] || 'saml'
     saml_options[:assertion_consumer_service_url] = ENV['SAML_ACS_URL'] if ENV['SAML_ACS_URL']
     saml_options[:issuer] = ENV['SAML_ISSUER'] if ENV['SAML_ISSUER']
     saml_options[:idp_sso_target_url] = ENV['SAML_IDP_SSO_TARGET_URL'] if ENV['SAML_IDP_SSO_TARGET_URL']
@@ -65,7 +67,9 @@ Devise.setup do |config|
 
   # OpenID Connect Strategy
   if ENV['OIDC_ENABLED'] == 'true'
-    oidc_options = options
+    oidc_options = {}
+    oidc_options[:redirect_at_sign_in] = ENV['OAUTH_REDIRECT_AT_SIGN_IN'] == 'true'
+    oidc_options[:display_name] = ENV['OIDC_DISPLAY_NAME'] || 'openid_connect' #OPTIONAL
     oidc_options[:name] = ENV['OIDC_PROVIDER_NAME'] if ENV['OIDC_PROVIDER_NAME'] #OPTIONAL (default: openid_connect)
     oidc_options[:issuer] = ENV['OIDC_ISSUER'] if ENV['OIDC_ISSUER'] #NEED
     oidc_options[:discovery] = ENV['OIDC_DISCOVERY'] if ENV['OIDC_DISCOVERY'] #OPTIONAL (default: false)
