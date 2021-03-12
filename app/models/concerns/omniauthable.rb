@@ -72,7 +72,7 @@ module Omniauthable
         agreement: true,
         external: true,
         account_attributes: {
-          username: ensure_unique_username(auth.uid),
+          username: ensure_unique_username(ensure_valid_username(auth.uid)),
           display_name: auth.info.full_name || [auth.info.first_name, auth.info.last_name].join(' '),
         },
       }
@@ -88,6 +88,12 @@ module Omniauthable
       end
 
       username
+    end
+
+    def ensure_valid_username(starting_username)
+      temp_username = starting_username.match(/\A[a-z0-9_]+\z/i) ? starting_username : starting_username.gsub(/[^a-z0-9_]+/i, '')
+      validated_username = temp_username.truncate(30, :omission => "")
+      validated_username
     end
   end
 end
