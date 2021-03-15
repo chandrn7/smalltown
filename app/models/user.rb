@@ -412,7 +412,7 @@ class User < ApplicationRecord
       if sign_up_from_ip_requires_approval?
         false
       else
-        open_registrations? || valid_invitation? || external?
+        open_registrations? || valid_invitation?
       end
     end
   end

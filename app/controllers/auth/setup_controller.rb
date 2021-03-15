@@ -13,7 +13,11 @@ class Auth::SetupController < ApplicationController
   def show
     flash.now[:notice] = begin
       if @user.pending?
-        I18n.t('devise.registrations.signed_up_but_pending')
+        if @user.confirmed?
+          "We will review your application. You will be notified if it is approved."
+        else
+          I18n.t('devise.registrations.signed_up_but_pending')
+        end
       else
         I18n.t('devise.registrations.signed_up_but_unconfirmed')
       end
