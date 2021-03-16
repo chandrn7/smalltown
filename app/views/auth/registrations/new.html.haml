@@ -46,6 +46,6 @@
       - User.omniauth_providers.each do |provider|
         = link_to t("auth.providers.#{Devise.omniauth_configs[provider].strategy.display_name}", default: Devise.omniauth_configs[provider].strategy.display_name.to_s.chomp("_oauth2").capitalize), omniauth_authorize_path(:user, provider), class: "button button-#{Devise.omniauth_configs[provider].strategy.display_name}", method: :post
 
-%p.lead= content_tag(:strong, t('auth.checkbox_agreement_html', rules_path: about_more_path, terms_path: terms_path))
+%p.lead= t('auth.checkbox_agreement_html', rules_path: about_more_path, terms_path: terms_path)
 
 .form-footer= render 'auth/shared/links'
