@@ -18,11 +18,18 @@
         = f.simple_fields_for :invite_request do |invite_request_fields|
           = invite_request_fields.input :text, as: :text, wrapper: :with_block_label, required: Setting.require_invite_text
 
-    .fields-group
-      = f.input :agreement, as: :boolean, wrapper: :with_label, label: t('auth.checkbox_agreement_html', rules_path: about_more_path, terms_path: terms_path), required: true, disabled: closed_registrations?
-
     .actions
       = f.button :button, sign_up_message, type: :submit, class: 'button button-primary', disabled: closed_registrations?
+
+  - if Devise.mappings[:user].omniauthable? and User.omniauth_providers.any?
+    .simple_form.alternative-login
+      %h4= "Or sign up with"
+
+      .actions
+        - User.omniauth_providers.each do |provider|
+          = link_to t("auth.providers.#{Devise.omniauth_configs[provider].strategy.display_name}", default: Devise.omniauth_configs[provider].strategy.display_name.to_s.chomp("_oauth2").capitalize), omniauth_authorize_path(:user, provider), class: "button button-#{Devise.omniauth_configs[provider].strategy.display_name}", method: :post, disabled: closed_registrations?
+
+  %p.lead= t('auth.checkbox_agreement_html', rules_path: about_more_path, terms_path: terms_path)
 
   - if closed_registrations? && @instance_presenter.closed_registrations_message.present?
     .simple_form__overlay-area__overlay

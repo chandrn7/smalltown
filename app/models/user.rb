@@ -88,7 +88,7 @@ class User < ApplicationRecord
   validates :locale, inclusion: I18n.available_locales.map(&:to_s), if: :locale?
   validates_with BlacklistedEmailValidator, on: :create
   validates_with EmailMxValidator, if: :validate_email_dns?
-  validates :agreement, acceptance: { allow_nil: false, accept: [true, 'true', '1'] }, on: :create
+  validates :agreement, acceptance: { allow_nil: true, accept: [true, 'true', '1'] }, on: :create
 
   # Those are honeypot/antispam fields
   attr_accessor :registration_form_time, :website, :confirm_password
