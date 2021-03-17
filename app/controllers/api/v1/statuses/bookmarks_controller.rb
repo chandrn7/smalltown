@@ -6,6 +6,7 @@ class Api::V1::Statuses::BookmarksController < Api::BaseController
   before_action -> { doorkeeper_authorize! :write, :'write:bookmarks' }
   before_action :require_user!
   before_action :set_status, only: [:create]
+  before_action :require_open_federation!
 
   def create
     current_account.bookmarks.find_or_create_by!(account: current_account, status: @status)
@@ -30,6 +31,10 @@ class Api::V1::Statuses::BookmarksController < Api::BaseController
   end
 
   private
+
+  def require_open_federation!
+    not_found if whitelist_mode?
+  end
 
   def set_status
     @status = Status.find(params[:status_id])

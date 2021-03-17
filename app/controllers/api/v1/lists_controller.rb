@@ -6,6 +6,7 @@ class Api::V1::ListsController < Api::BaseController
 
   before_action :require_user!
   before_action :set_list, except: [:index, :create]
+  before_action :require_open_federation!
 
   def index
     @lists = List.where(account: current_account).all
@@ -32,6 +33,10 @@ class Api::V1::ListsController < Api::BaseController
   end
 
   private
+
+  def require_open_federation!
+    not_found if whitelist_mode?
+  end
 
   def set_list
     @list = List.where(account: current_account).find(params[:id])
