@@ -32,10 +32,6 @@ class Api::V1::Statuses::BookmarksController < Api::BaseController
 
   private
 
-  def require_open_federation!
-    not_found if whitelist_mode?
-  end
-
   def set_status
     @status = Status.find(params[:status_id])
     authorize @status, :show?

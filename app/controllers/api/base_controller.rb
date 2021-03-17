@@ -107,6 +107,10 @@ class Api::BaseController < ApplicationController
     end
   end
 
+  def require_open_federation!
+    not_found if whitelist_mode?
+  end
+
   def render_empty
     render json: {}, status: 200
   end

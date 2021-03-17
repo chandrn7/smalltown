@@ -32,10 +32,6 @@ class Api::V1::Lists::AccountsController < Api::BaseController
 
   private
 
-  def require_open_federation!
-    not_found if whitelist_mode?
-  end
-
   def set_list
     @list = List.where(account: current_account).find(params[:list_id])
   end

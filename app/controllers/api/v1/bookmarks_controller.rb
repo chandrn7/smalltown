@@ -13,10 +13,6 @@ class Api::V1::BookmarksController < Api::BaseController
 
   private
 
-  def require_open_federation!
-    not_found if whitelist_mode?
-  end
-
   def load_statuses
     cached_bookmarks
   end
