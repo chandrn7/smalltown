@@ -28,6 +28,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       trends: Setting.trends,
       show_staff_badge: Setting.show_staff_badge,
       completely_siloed: Rails.configuration.x.whitelist_mode && DomainAllow.count() == 0,
+      whitelist_mode: Rails.configuration.x.whitelist_mode,
     }
 
     if object.current_account

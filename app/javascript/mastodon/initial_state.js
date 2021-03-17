@@ -28,5 +28,6 @@ export const cropImages = getMeta('crop_images');
 export const disableSwiping = getMeta('disable_swiping');
 export const showStaffBadge = getMeta('show_staff_badge');
 export const completelySiloed = getMeta('completely_siloed');
+export const whitelistMode = getMeta('whitelist_mode');
 
 export default initialState;
