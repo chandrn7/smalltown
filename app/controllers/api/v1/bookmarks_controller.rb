@@ -4,6 +4,7 @@ class Api::V1::BookmarksController < Api::BaseController
   before_action -> { doorkeeper_authorize! :read, :'read:bookmarks' }
   before_action :require_user!
   after_action :insert_pagination_headers
+  before_action :require_open_federation!
 
   def index
     @statuses = load_statuses
