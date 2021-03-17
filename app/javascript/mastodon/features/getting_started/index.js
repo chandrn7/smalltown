@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { me, profile_directory, showTrends } from '../../initial_state';
+import { me, profile_directory, showTrends, completelySiloed } from '../../initial_state';
 import { fetchFollowRequests } from 'mastodon/actions/accounts';
 import { List as ImmutableList } from 'immutable';
 import NavigationContainer from '../compose/containers/navigation_container';
@@ -99,7 +99,7 @@ class GettingStarted extends ImmutablePureComponent {
       navItems.push(
         <ColumnSubheading key='header-discover' text={intl.formatMessage(messages.discover)} />,
         <ColumnLink key='community_timeline' icon='users' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />,
-        <ColumnLink key='public_timeline' icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />,
+        ... !completelySiloed ? [<ColumnLink key='public_timeline' icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />] : [],
       );
 
       height += 34 + 48*2;

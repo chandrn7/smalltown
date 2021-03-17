@@ -2,6 +2,7 @@
 
 class Api::V1::Timelines::PublicController < Api::BaseController
   before_action :require_user!, only: [:show], if: :require_auth?
+  before_action :require_local!, only: :show
   after_action :insert_pagination_headers, unless: -> { @statuses.empty? }
 
   def show
@@ -13,6 +14,14 @@ class Api::V1::Timelines::PublicController < Api::BaseController
 
   def require_auth?
     !Setting.timeline_preview
+  end
+
+  def completely_siloed?
+    whitelist_mode? && DomainAllow.count() == 0
+  end
+
+  def require_local!
+    return not_found if completely_siloed? && !params[:local]
   end
 
   def load_statuses
