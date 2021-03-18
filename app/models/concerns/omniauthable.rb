@@ -91,6 +91,7 @@ module Omniauthable
     end
 
     def ensure_valid_username(starting_username)
+      starting_username = starting_username.split('@')[0]
       temp_username = starting_username.match(/\A[a-z0-9_]+\z/i) ? starting_username : starting_username.gsub(/[^a-z0-9_]+/i, '')
       validated_username = temp_username.truncate(30, :omission => "")
       validated_username
