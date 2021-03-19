@@ -8,6 +8,7 @@ class Api::V1::StatusesController < Api::BaseController
   before_action :require_user!, except:  [:show, :context]
   before_action :set_status, only:       [:show, :context]
   before_action :set_thread, only:       [:create]
+  before_action :check_visibility!, only: [:create]
 
   override_rate_limit_headers :create, family: :statuses
 
@@ -75,6 +76,17 @@ class Api::V1::StatusesController < Api::BaseController
     @thread = status_params[:in_reply_to_id].blank? ? nil : Status.find(status_params[:in_reply_to_id])
   rescue ActiveRecord::RecordNotFound
     render json: { error: I18n.t('statuses.errors.in_reply_not_found') }, status: 404
+  end
+
+  def check_visibility!
+    if whitelist_mode?
+      if params[:visibility] == 'unlisted' || params[:visibility] == 'private'
+        not_found
+      end
+      if !Setting.dms_enabled && params[:visibility] == 'direct'
+        not_found
+      end
+    end
   end
 
   def status_params

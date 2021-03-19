@@ -5,7 +5,7 @@ import IconButton from '../../../components/icon_button';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import DropdownMenuContainer from '../../../containers/dropdown_menu_container';
 import { defineMessages, injectIntl } from 'react-intl';
-import { me, isStaff, whitelistMode } from '../../../initial_state';
+import { me, isStaff, whitelistMode, dmsEnabled } from '../../../initial_state';
 import classNames from 'classnames';
 
 const messages = defineMessages({
@@ -211,7 +211,7 @@ class ActionBar extends React.PureComponent {
       menu.push({ text: intl.formatMessage(messages.redraft), action: this.handleRedraftClick });
     } else {
       menu.push({ text: intl.formatMessage(messages.mention, { name: status.getIn(['account', 'username']) }), action: this.handleMentionClick });
-      menu.push({ text: intl.formatMessage(messages.direct, { name: status.getIn(['account', 'username']) }), action: this.handleDirectClick });
+      if (dmsEnabled) { menu.push({ text: intl.formatMessage(messages.direct, { name: status.getIn(['account', 'username']) }), action: this.handleDirectClick }); }
       menu.push(null);
 
       if (relationship && relationship.get('muting')) {

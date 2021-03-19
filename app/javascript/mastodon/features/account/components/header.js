@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import Button from 'mastodon/components/button';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { autoPlayGif, me, isStaff, showStaffBadge, whitelistMode } from 'mastodon/initial_state';
+import { autoPlayGif, me, isStaff, showStaffBadge, whitelistMode, dmsEnabled } from 'mastodon/initial_state';
 import classNames from 'classnames';
 import Icon from 'mastodon/components/icon';
 import IconButton from 'mastodon/components/icon_button';
@@ -192,7 +192,7 @@ class Header extends ImmutablePureComponent {
 
     if (account.get('id') !== me) {
       menu.push({ text: intl.formatMessage(messages.mention, { name: account.get('username') }), action: this.props.onMention });
-      menu.push({ text: intl.formatMessage(messages.direct, { name: account.get('username') }), action: this.props.onDirect });
+      if (dmsEnabled) { menu.push({ text: intl.formatMessage(messages.direct, { name: account.get('username') }), action: this.props.onDirect }); }
       menu.push(null);
     }
 
