@@ -36,6 +36,7 @@ class Form::AdminSettings
     show_domain_blocks_rationale
     noindex
     require_invite_text
+    dms_enabled
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -53,6 +54,7 @@ class Form::AdminSettings
     trendable_by_default
     noindex
     require_invite_text
+    dms_enabled
   ).freeze
 
   UPLOAD_KEYS = %i(
