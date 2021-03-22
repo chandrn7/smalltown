@@ -437,6 +437,7 @@
   "status.unpin": "Unpin from profile",
   "suggestions.dismiss": "Dismiss suggestion",
   "suggestions.header": "You might be interested in…",
+  "tabs_bar.featured_topics": "Featured topics",
   "tabs_bar.federated_timeline": "Federated",
   "tabs_bar.home": "Home",
   "tabs_bar.local_timeline": "Local",
