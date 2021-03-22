@@ -301,6 +301,8 @@ Rails.application.routes.draw do
         post :batch
       end
     end
+
+    resources :featured_topics, only: [:index, :create, :destroy]
   end
 
   get '/admin', to: redirect('/admin/dashboard', status: 302)

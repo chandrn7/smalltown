@@ -30,5 +30,6 @@ export const showStaffBadge = getMeta('show_staff_badge');
 export const completelySiloed = getMeta('completely_siloed');
 export const whitelistMode = getMeta('whitelist_mode');
 export const dmsEnabled = getMeta('dms_enabled');
+export const featuredTopics = getMeta('featured_topics');
 
 export default initialState;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_050123) do
+ActiveRecord::Schema.define(version: 2021_03_19_220853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -410,6 +410,14 @@ ActiveRecord::Schema.define(version: 2021_02_24_050123) do
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_featured_tags_on_account_id"
     t.index ["tag_id"], name: "index_featured_tags_on_tag_id"
+  end
+
+  create_table "featured_topics", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_featured_topics_on_tag_id"
   end
 
   create_table "follow_requests", force: :cascade do |t|

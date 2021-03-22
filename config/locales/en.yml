@@ -440,6 +440,8 @@ en:
         create: Add domain
         title: Block new e-mail domain
       title: Blocked e-mail domains
+    featured_topics:
+      title: Featured topics
     instances:
       by_domain: Domain
       delivery_available: Delivery is available
@@ -867,6 +869,9 @@ en:
     errors:
       limit: You have already featured the maximum amount of hashtags
     hint_html: "<strong>What are featured hashtags?</strong> They are displayed prominently on your public profile and allow people to browse your public posts specifically under those hashtags. They are a great tool for keeping track of creative works or long-term projects."
+  featured_topics:
+    add_new: Add new
+    hint_html: "<strong>What are featured topics?</strong> They are hashtags that are displayed in the ''Featured topics'' tab of your instance, making it easy for people to browse the posts under those hashtags. They are a great tool for highlighting commonly-used or important topics."
   filters:
     contexts:
       account: Profiles
