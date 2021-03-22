@@ -1,0 +1,27 @@
+- content_for :page_title do
+  = t('admin.featured_topics.title')
+
+%p= t('featured_topics.hint_html')
+
+%hr.spacer/
+
+= simple_form_for @featured_topic, url: admin_featured_topics_path do |f|
+  = render 'shared/error_messages', object: @featured_topic
+
+  .fields-group
+    = f.input :name, wrapper: :with_block_label
+
+  .actions
+    = f.button :button, t('featured_topics.add_new'), type: :submit
+
+%hr.spacer/
+
+- @featured_topics.each do |featured_topic|
+  .directory__tag{ class: params[:tag] == featured_topic.name ? 'active' : nil }
+    %div
+      %h4
+        = fa_icon 'hashtag'
+        = featured_topic.name
+        %small
+          = table_link_to 'trash', t('filters.index.delete'), admin_featured_topic_path(featured_topic), method: :delete, data: { confirm: t('admin.accounts.are_you_sure') }
+      .trends__item__current= number_to_human featured_topic.tag.history.first[:uses], strip_insignificant_zeros: true

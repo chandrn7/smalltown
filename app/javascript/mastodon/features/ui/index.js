@@ -51,6 +51,7 @@ import {
   Lists,
   Search,
   Directory,
+  FeaturedTopics,
 } from './util/async-components';
 import { me, whitelistMode } from '../../initial_state';
 import { previewState as previewMediaState } from './components/media_modal';
@@ -162,6 +163,7 @@ class SwitchingColumnsArea extends React.PureComponent {
           <WrappedRoute path='/timelines/direct' component={DirectTimeline} content={children} componentParams={{ shouldUpdateScroll: this.shouldUpdateScroll }} />
           <WrappedRoute path='/timelines/tag/:id' component={HashtagTimeline} content={children} componentParams={{ shouldUpdateScroll: this.shouldUpdateScroll }} />
           <WrappedRoute path='/timelines/list/:id' component={ListTimeline} content={children} componentParams={{ shouldUpdateScroll: this.shouldUpdateScroll }} />
+          <WrappedRoute path='/featured_topics' component={FeaturedTopics} content={children} componentParams={{ shouldUpdateScroll: this.shouldUpdateScroll }} />
 
           <WrappedRoute path='/notifications' component={Notifications} content={children} componentParams={{ shouldUpdateScroll: this.shouldUpdateScroll }} />
           <WrappedRoute path='/favourites' component={FavouritedStatuses} content={children} componentParams={{ shouldUpdateScroll: this.shouldUpdateScroll }} />

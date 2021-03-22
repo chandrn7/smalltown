@@ -153,3 +153,7 @@ export function Audio () {
 export function Directory () {
   return import(/* webpackChunkName: "features/directory" */'../../directory');
 }
+
+export function FeaturedTopics () {
+  return import(/* webpackChunkName: "features/featured_topics" */'../../featured_topics');
+}

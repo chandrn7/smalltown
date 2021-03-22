@@ -36,6 +36,7 @@ const messages = defineMessages({
   security: { id: 'navigation_bar.security', defaultMessage: 'Security' },
   menu: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
   profile_directory: { id: 'getting_started.directory', defaultMessage: 'Profile directory' },
+  featured_topics: { id: 'navigation_bar.featured_topics', defaultMessage: 'Featured topics' },
 });
 
 const mapStateToProps = state => ({
@@ -100,6 +101,7 @@ class GettingStarted extends ImmutablePureComponent {
         <ColumnSubheading key='header-discover' text={intl.formatMessage(messages.discover)} />,
         <ColumnLink key='community_timeline' icon='users' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />,
         ... !completelySiloed ? [<ColumnLink key='public_timeline' icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />] : [],
+        <ColumnLink key='featured_topics' icon='hashtag' text={intl.formatMessage(messages.featured_topics)} to='/featured_topics'/>,
       );
 
       height += 34 + 48*2;

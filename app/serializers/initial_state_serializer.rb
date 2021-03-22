@@ -30,6 +30,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       completely_siloed: Rails.configuration.x.whitelist_mode && DomainAllow.count() == 0,
       whitelist_mode: Rails.configuration.x.whitelist_mode,
       dms_enabled: Setting.dms_enabled,
+      featured_topics: ActiveModelSerializers::SerializableResource.new(FeaturedTopic.order(created_at: :desc), each_serializer: REST::FeaturedTopicSerializer)
     }
 
     if object.current_account
