@@ -414,7 +414,6 @@ ActiveRecord::Schema.define(version: 2021_03_19_220853) do
 
   create_table "featured_topics", force: :cascade do |t|
     t.bigint "tag_id"
-    t.bigint "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tag_id"], name: "index_featured_topics_on_tag_id"
@@ -1002,6 +1001,7 @@ ActiveRecord::Schema.define(version: 2021_03_19_220853) do
   add_foreign_key "favourites", "statuses", name: "fk_b0e856845e", on_delete: :cascade
   add_foreign_key "featured_tags", "accounts", on_delete: :cascade
   add_foreign_key "featured_tags", "tags", on_delete: :cascade
+  add_foreign_key "featured_topics", "tags", on_delete: :cascade
   add_foreign_key "follow_requests", "accounts", column: "target_account_id", name: "fk_9291ec025d", on_delete: :cascade
   add_foreign_key "follow_requests", "accounts", name: "fk_76d644b0e7", on_delete: :cascade
   add_foreign_key "follows", "accounts", column: "target_account_id", name: "fk_745ca29eac", on_delete: :cascade
