@@ -2,7 +2,7 @@
 
 SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |n|
-    n.item :web, safe_join([fa_icon('chevron-left fw'), t('settings.back')]), root_url
+    n.item :web, safe_join([fa_icon('chevron-left fw'), t('settings.back', title: site_title)]), root_url
 
     n.item :profile, safe_join([fa_icon('user fw'), t('settings.profile')]), settings_profile_url, if: -> { current_user.functional? } do |s|
       s.item :profile, safe_join([fa_icon('pencil fw'), t('settings.appearance')]), settings_profile_url

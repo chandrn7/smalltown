@@ -9,7 +9,7 @@
         %nav.header
           .nav-left
             = link_to root_url, class: 'brand' do
-              = svg_logo_full
+              = site_title
 
             - unless whitelist_mode?
               = link_to t('directories.directory'), explore_path, class: 'nav-link optional' if Setting.profile_directory
@@ -20,7 +20,7 @@
 
           .nav-right
             - if user_signed_in?
-              = link_to t('settings.back'), root_url, class: 'nav-link nav-button webapp-btn'
+              = link_to t('settings.back', title: site_title), root_url, class: 'nav-link nav-button webapp-btn'
             - else
               = link_to t('auth.login'), new_user_session_path, class: 'webapp-btn nav-link nav-button'
               = link_to t('auth.register'), available_sign_up_path, class: 'webapp-btn nav-link nav-button'
@@ -35,9 +35,11 @@
             %ul
               %li= link_to t('about.terms'), terms_path
               %li= link_to t('about.privacy_policy'), terms_path
+          .column-1
           .column-2
             %h4= link_to t('about.what_is_mastodon'), 'https://joinmastodon.org/'
             = link_to svg_logo, root_url, class: 'brand'
+          .column-3
           .column-4
             %h4= site_hostname
             %ul

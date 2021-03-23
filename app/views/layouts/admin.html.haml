@@ -7,8 +7,7 @@
     .sidebar-wrapper
       .sidebar-wrapper__inner
         .sidebar
-          = link_to root_path do
-            = image_pack_tag 'logo.svg', class: 'logo', alt: 'Mastodon'
+          %div{:class => ("logo")}
 
           .sidebar__toggle
             .sidebar__toggle__logo

@@ -38,7 +38,7 @@ const messages = defineMessages({
   showReblogs: { id: 'account.show_reblogs', defaultMessage: 'Show boosts from @{name}' },
   enableNotifications: { id: 'account.enable_notifications', defaultMessage: 'Notify me when @{name} posts' },
   disableNotifications: { id: 'account.disable_notifications', defaultMessage: 'Stop notifying me when @{name} posts' },
-  pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned toots' },
+  pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned posts' },
   preferences: { id: 'navigation_bar.preferences', defaultMessage: 'Preferences' },
   follow_requests: { id: 'navigation_bar.follow_requests', defaultMessage: 'Follow requests' },
   favourites: { id: 'navigation_bar.favourites', defaultMessage: 'Favourites' },
@@ -349,7 +349,7 @@ class Header extends ImmutablePureComponent {
                 </div>
               )}
 
-              {account.get('id') !== me && !suspended && <AccountNoteContainer account={account} />}
+              {account.get('id') !== me && !suspended && !whitelistMode && <AccountNoteContainer account={account} />}
 
               {account.get('note').length > 0 && account.get('note') !== '<p></p>' && <div className='account__header__content' dangerouslySetInnerHTML={content} />}
             </div>

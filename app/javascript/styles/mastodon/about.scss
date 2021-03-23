@@ -688,6 +688,8 @@ $small-breakpoint: 960px;
     justify-content: center;
     align-items: center;
     padding: 50px;
+    font-family: $font-display, sans-serif;
+    font-weight: bold;
 
     svg {
       fill: $primary-text-color;
@@ -864,6 +866,16 @@ $small-breakpoint: 960px;
 .brand {
   position: relative;
   text-decoration: none;
+  color: $secondary-text-color;
+}
+
+a.brand {
+  color: $primary-text-color;
+}
+
+h1 a.brand {
+  color: $secondary-text-color;
+  font-size: 3.8em;
 }
 
 .brand__tagline {
