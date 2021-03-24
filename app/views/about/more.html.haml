@@ -21,14 +21,14 @@
               %strong= number_to_human @instance_presenter.status_count, strip_insignificant_zeros: true
               %span= t 'about.status_count_after', count: @instance_presenter.status_count
         .row__mascot
-          - if whitelist_mode?
+          - if !whitelist_mode?
+            .landing-page__mascot
+              = image_tag @instance_presenter.mascot&.file&.url || asset_pack_path('media/images/elephant_ui_plane.svg'), alt: ''
+          - else
             .landing__brand
               %h1
                 = link_to root_url, class: 'brand' do
-                  = site_title
-          - else
-            .landing-page__mascot
-              = image_tag @instance_presenter.mascot&.file&.url || asset_pack_path('media/images/elephant_ui_plane.svg'), alt: ''
+                  = t('about.about_this') + ' ' + site_title
 
   .column-2
     .contact-widget

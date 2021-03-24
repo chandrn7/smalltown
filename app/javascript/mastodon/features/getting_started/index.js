@@ -105,6 +105,7 @@ class GettingStarted extends ImmutablePureComponent {
       );
 
       height += 34 + 48*2;
+      if (!completelySiloed) { height += 48; }
 
       if (profile_directory) {
         navItems.push(
