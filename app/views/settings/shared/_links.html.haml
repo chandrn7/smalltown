@@ -7,4 +7,4 @@
     %li= link_to t('auth.change_password'), edit_user_registration_path
   - if controller_name != 'two_factor_authentications'
     %li= link_to t('settings.two_factor_authentication'), settings_two_factor_authentication_path
-  %li= link_to t('settings.back'), root_path
+  %li= link_to t('settings.back', title: site_title), root_path

@@ -7,9 +7,9 @@
 
 .landing
   .landing__brand
-    = link_to root_url, class: 'brand' do
-      = svg_logo_full
-      %span.brand__tagline=t 'about.tagline'
+    %h1
+      = link_to root_url, class: 'brand' do
+        = site_title
 
   .landing__grid
     .landing__grid__column.landing__grid__column-registration
@@ -35,7 +35,7 @@
               %h4
                 = fa_icon 'globe fw'
                 = t('about.see_whats_happening')
-                %small= t('about.browse_public_posts')
+                %small= t('about.browse_public_posts', title: site_title)
 
         - if !whitelist_mode?
           .directory__tag
@@ -43,7 +43,7 @@
               %h4
                 = fa_icon 'tablet fw'
                 = t('about.get_apps')
-                %small= t('about.apps_platforms')
+                %small= t('about.apps_platforms', title: site_title)
 
     .landing__grid__column.landing__grid__column-login
       .box-widget
@@ -55,7 +55,7 @@
 
         .hero-widget__text
           %p
-            = @instance_presenter.site_short_description.html_safe.presence || t('about.about_mastodon_html')
+            = @instance_presenter.site_short_description.html_safe.presence || t('about.about_mastodon_html', title: site_title)
             = link_to about_more_path do
               = t('about.learn_more')
               = fa_icon 'angle-double-right'
