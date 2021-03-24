@@ -53,7 +53,7 @@ import {
   Directory,
   FeaturedTopics,
 } from './util/async-components';
-import { me, whitelistMode } from '../../initial_state';
+import { me } from '../../initial_state';
 import { previewState as previewMediaState } from './components/media_modal';
 import { previewState as previewVideoState } from './components/video_modal';
 
@@ -148,8 +148,7 @@ class SwitchingColumnsArea extends React.PureComponent {
 
   render () {
     const { children, mobile } = this.props;
-    const mobileRedirectPath = whitelistMode ? '/timelines/public/local' : '/timelines/home';
-    const redirect = mobile ? <Redirect from='/' to={mobileRedirectPath} exact /> : <Redirect from='/' to='/getting-started' exact />;
+    const redirect = mobile ? <Redirect from='/' to={'/timelines/home'} exact /> : <Redirect from='/' to='/getting-started' exact />;
 
     return (
       <ColumnsAreaContainer ref={this.setRef} singleColumn={mobile}>
