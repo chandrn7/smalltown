@@ -64,7 +64,7 @@
     .fields-group
       = f.input :show_known_fediverse_at_about_page, as: :boolean, wrapper: :with_label, label: t('admin.settings.show_known_fediverse_at_about_page.title'), hint: t('admin.settings.show_known_fediverse_at_about_page.desc_html')
   
-  - if whitelist_mode?
+  - if completely_siloed?
     .fields-group
       = f.input :dms_enabled, as: :boolean, wrapper: :with_label, label: "Enable direct messages", hint: "Allow users to send direct messages"
 

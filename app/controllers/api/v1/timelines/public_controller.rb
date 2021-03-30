@@ -16,10 +16,6 @@ class Api::V1::Timelines::PublicController < Api::BaseController
     !Setting.timeline_preview
   end
 
-  def completely_siloed?
-    whitelist_mode? && DomainAllow.count() == 0
-  end
-
   def check_local!
     return not_found if completely_siloed? && (!params.has_key?(:local) || params[:local] == "false")
   end
