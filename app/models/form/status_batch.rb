@@ -54,6 +54,7 @@ class Form::StatusBatch
           disabled = ConversationRepliesDisabled.find_by(conversation_id: status.conversation_id)
           disabled&.destroy!
         end
+        log_action :update, status
       end
     end
     
