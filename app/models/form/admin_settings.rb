@@ -37,6 +37,7 @@ class Form::AdminSettings
     noindex
     require_invite_text
     dms_enabled
+    non_staff_development
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -55,6 +56,7 @@ class Form::AdminSettings
     noindex
     require_invite_text
     dms_enabled
+    non_staff_development
   ).freeze
 
   UPLOAD_KEYS = %i(

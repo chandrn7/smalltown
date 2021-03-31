@@ -639,6 +639,12 @@ en:
       trends:
         desc_html: Publicly display previously reviewed hashtags that are currently trending
         title: Trending hashtags
+      dms_enabled:
+        desc_html: Allow users to send direct messages
+        title: Enable direct messages
+      non_staff_development:
+        desc_html: Allow non-staff users to create applications with API access through the UI
+        title: Enable the development tab for non-staff
     site_uploads:
       delete: Delete uploaded file
       destroyed_msg: Site upload successfully deleted!

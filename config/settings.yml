@@ -72,6 +72,7 @@ defaults: &defaults
   show_domain_blocks_rationale: 'disabled'
   require_invite_text: false
   dms_enabled: true
+  non_staff_development: true
 
 development:
   <<: *defaults
