@@ -38,6 +38,7 @@ class Form::AdminSettings
     require_invite_text
     dms_enabled
     non_staff_development
+    featured_tags
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -57,6 +58,7 @@ class Form::AdminSettings
     require_invite_text
     dms_enabled
     non_staff_development
+    featured_tags
   ).freeze
 
   UPLOAD_KEYS = %i(

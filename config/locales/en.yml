@@ -645,6 +645,9 @@ en:
       non_staff_development:
         desc_html: Allow non-staff users to create applications with API access through the UI
         title: Enable the development tab for non-staff
+      featured_tags:
+        desc_html: Allow users to feature hashtags on their profile
+        title: Enable featured hashtags
     site_uploads:
       delete: Delete uploaded file
       destroyed_msg: Site upload successfully deleted!
