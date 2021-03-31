@@ -73,6 +73,7 @@ defaults: &defaults
   require_invite_text: false
   dms_enabled: true
   non_staff_development: true
+  featured_tags: true
 
 development:
   <<: *defaults

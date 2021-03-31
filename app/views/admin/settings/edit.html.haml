@@ -71,6 +71,8 @@
   - if whitelist_mode?
     .fields-group
       = f.input :non_staff_development, as: :boolean, wrapper: :with_label, label: t('admin.settings.non_staff_development.title'), hint: t('admin.settings.non_staff_development.desc_html')
+    .fields-group
+      = f.input :featured_tags, as: :boolean, wrapper: :with_label, label: t('admin.settings.featured_tags.title'), hint: t('admin.settings.featured_tags.desc_html')
 
   .fields-group
     = f.input :show_staff_badge, as: :boolean, wrapper: :with_label, label: t('admin.settings.show_staff_badge.title'), hint: t('admin.settings.show_staff_badge.desc_html')
