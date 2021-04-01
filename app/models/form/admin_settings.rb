@@ -39,6 +39,7 @@ class Form::AdminSettings
     dms_enabled
     non_staff_development
     featured_tags
+    sso_auto_approval
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -59,6 +60,7 @@ class Form::AdminSettings
     dms_enabled
     non_staff_development
     featured_tags
+    sso_auto_approval
   ).freeze
 
   UPLOAD_KEYS = %i(

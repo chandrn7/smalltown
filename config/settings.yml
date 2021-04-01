@@ -74,6 +74,7 @@ defaults: &defaults
   dms_enabled: true
   non_staff_development: true
   featured_tags: true
+  sso_auto_approval: false
 
 development:
   <<: *defaults
