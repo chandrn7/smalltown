@@ -46,15 +46,6 @@
             = fields_f.input :name, placeholder: t('simple_form.labels.account.fields.name'), input_html: { maxlength: 255 }
             = fields_f.input :value, placeholder: t('simple_form.labels.account.fields.value'), input_html: { maxlength: 255 }
 
-    .fields-row__column.fields-group.fields-row__column-6
-      %h6= t('verification.verification')
-      %p.hint= t('verification.explanation_html', instance: site_hostname)
-
-      .input-copy
-        .input-copy__wrapper
-          %input{ type: :text, maxlength: '999', spellcheck: 'false', readonly: 'true', value: link_to('Mastodon', ActivityPub::TagManager.instance.url_for(@account), rel: 'me').to_str }
-        %button{ type: :button }= t('generic.copy')
-
   .actions
     = f.button :button, t('generic.save_changes'), type: :submit
 

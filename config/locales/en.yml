@@ -560,6 +560,9 @@ en:
       default_noindex:
         desc_html: Affects all users who have not changed this setting themselves
         title: Opt users out of search engine indexing by default
+      dms_enabled:
+        desc_html: Allow users to send direct messages
+        title: Enable direct messages
       domain_blocks:
         all: To everyone
         disabled: To no one
@@ -570,12 +573,18 @@ en:
       enable_bootstrap_timeline_accounts:
         desc_html: Make new users automatically follow configured accounts so their home feed doesn't start out empty
         title: Enable default follows for new users
+      featured_tags:
+        desc_html: Allow users to feature hashtags on their profile
+        title: Enable featured hashtags
       hero:
         desc_html: Displayed on the frontpage. At least 600x100px recommended. When not set, falls back to server thumbnail
         title: Hero image
       mascot:
         desc_html: Displayed on multiple pages. At least 293×205px recommended. When not set, falls back to default mascot
         title: Mascot image
+      non_staff_development:
+        desc_html: Allow non-staff users to create applications with API access through the UI
+        title: Enable the development tab for non-staff
       peers_api_enabled:
         desc_html: Domain names this server has encountered in the fediverse
         title: Publish list of discovered servers
@@ -642,15 +651,9 @@ en:
       trends:
         desc_html: Publicly display previously reviewed hashtags that are currently trending
         title: Trending hashtags
-      dms_enabled:
-        desc_html: Allow users to send direct messages
-        title: Enable direct messages
-      non_staff_development:
-        desc_html: Allow non-staff users to create applications with API access through the UI
-        title: Enable the development tab for non-staff
-      featured_tags:
-        desc_html: Allow users to feature hashtags on their profile
-        title: Enable featured hashtags
+      user_filter_languages:
+        desc_html: Only posts in selected languages will be displayed in a user's public timelines
+        title: Allow users to filter languages
     site_uploads:
       delete: Delete uploaded file
       destroyed_msg: Site upload successfully deleted!

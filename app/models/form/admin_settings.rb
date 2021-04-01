@@ -40,6 +40,7 @@ class Form::AdminSettings
     non_staff_development
     featured_tags
     sso_auto_approval
+    user_filter_languages
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -61,6 +62,7 @@ class Form::AdminSettings
     non_staff_development
     featured_tags
     sso_auto_approval
+    user_filter_languages
   ).freeze
 
   UPLOAD_KEYS = %i(
