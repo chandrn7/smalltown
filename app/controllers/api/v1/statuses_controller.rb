@@ -80,11 +80,13 @@ class Api::V1::StatusesController < Api::BaseController
 
   def check_visibility!
     if whitelist_mode?
-      if params[:visibility] == 'unlisted' || params[:visibility] == 'private'
+      if params[:visibility] == 'unlisted'
         not_found
       end
-      if !Setting.dms_enabled && params[:visibility] == 'direct'
-        not_found
+      if completely_siloed?
+        if !Setting.dms_enabled && params[:visibility] == 'direct'
+          not_found
+        end
       end
     end
   end

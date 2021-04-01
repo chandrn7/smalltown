@@ -272,7 +272,7 @@ class Status < ApplicationRecord
     def selectable_visibilities
       selectable = visibilities.keys - %w(direct limited)
       if Rails.configuration.x.whitelist_mode
-        selectable = visibilities.keys - %w(direct limited private unlisted)
+        selectable = visibilities.keys - %w(direct limited unlisted)
       end
     end
 
