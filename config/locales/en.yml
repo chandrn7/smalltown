@@ -598,6 +598,9 @@ en:
         require_invite_text:
           desc_html: When registrations require manual approval, make the “Why do you want to join?” text input mandatory rather than optional
           title: Require new users to enter a reason to join
+        sso_auto_approval:
+          desc_html: When registrations require manual approval, allow SSO users to register without manual approval
+          title: Automatically approve SSO users
       registrations_mode:
         modes:
           approved: Approval required for sign up

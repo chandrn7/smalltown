@@ -412,7 +412,7 @@ class User < ApplicationRecord
       if sign_up_from_ip_requires_approval?
         false
       else
-        open_registrations? || valid_invitation?
+        open_registrations? || valid_invitation? || (Setting.sso_auto_approval && external?)
       end
     end
   end
