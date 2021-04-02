@@ -2,6 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import { autoPlayGif, showStaffBadge } from 'mastodon/initial_state';
+import { FormattedMessage } from 'react-intl';
 
 export default class DisplayName extends React.PureComponent {
 
@@ -82,10 +83,10 @@ export default class DisplayName extends React.PureComponent {
       if(showStaffBadge){
         if (account.get('user_staff')) {
           if (account.get('user_admin')){
-            staffBadge = <div className='account-role admin'>Admin</div>;
+            staffBadge = <div className='account-role admin'><FormattedMessage id='account.badges.admin' defaultMessage='Admin' /></div>;
           }
           else if (account.get('user_moderator')){
-            staffBadge = <div className='account-role moderator'>Moderator</div>;
+            staffBadge = <div className='account-role moderator'><FormattedMessage id='account.badges.moderator' defaultMessage='Moderator' /></div>;
           }
         }
       }

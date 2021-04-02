@@ -83,7 +83,7 @@ en:
       admin: Admin
       bot: Bot
       group: Group
-      moderator: Mod
+      moderator: Moderator
     unavailable: Profile unavailable
     unfollow: Unfollow
   admin:
@@ -661,6 +661,8 @@ en:
       back_to_account: Back to account page
       batch:
         delete: Delete
+        disable_replies: Disable replies
+        enable_replies: Enable replies
         nsfw_off: Mark as not sensitive
         nsfw_on: Mark as sensitive
       deleted: Deleted
@@ -1248,6 +1250,7 @@ en:
         one: "%{count} vote"
         other: "%{count} votes"
       vote: Vote
+    replies_disabled: Replies disabled
     show_more: Show more
     show_newer: Show newer
     show_older: Show older
