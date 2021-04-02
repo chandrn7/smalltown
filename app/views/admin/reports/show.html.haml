@@ -113,8 +113,8 @@
           = f.button safe_join([fa_icon('eye-slash'), t('admin.statuses.batch.nsfw_on')]), name: :nsfw_on, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
           = f.button safe_join([fa_icon('eye'), t('admin.statuses.batch.nsfw_off')]), name: :nsfw_off, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
           - if completely_siloed?
-            = f.button safe_join([fa_icon('comments-o'), 'Disable replies']), name: :disable_replies, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
-            = f.button safe_join([fa_icon('comments'), 'Enable replies']), name: :enable_replies, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
+            = f.button safe_join([fa_icon('comments-o'), t('admin.statuses.batch.disable_replies')]), name: :disable_replies, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
+            = f.button safe_join([fa_icon('comments'), t('admin.statuses.batch.enable_replies')]), name: :enable_replies, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
           = f.button safe_join([fa_icon('trash'), t('admin.statuses.batch.delete')]), name: :delete, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
       .batch-table__body
         = render partial: 'admin/reports/status', collection: @report.statuses, locals: { f: f }

@@ -83,7 +83,7 @@ en:
       admin: Admin
       bot: Bot
       group: Group
-      moderator: Mod
+      moderator: Moderator
     unavailable: Profile unavailable
     unfollow: Unfollow
   admin:
@@ -661,6 +661,8 @@ en:
       back_to_account: Back to account page
       batch:
         delete: Delete
+        disable_replies: Disable replies
+        enable_replies: Enable replies
         nsfw_off: Mark as not sensitive
         nsfw_on: Mark as sensitive
       deleted: Deleted
@@ -762,6 +764,7 @@ en:
     migrate_account: Move to a different account
     migrate_account_html: If you wish to redirect this account to a different one, you can <a href="%{path}">configure it here</a>.
     or_log_in_with: Or log in with
+    or_sign_up_with: Or sign up with
     providers:
       cas: CAS
       saml: SAML
@@ -1248,6 +1251,7 @@ en:
         one: "%{count} vote"
         other: "%{count} votes"
       vote: Vote
+    replies_disabled: Replies disabled
     show_more: Show more
     show_newer: Show newer
     show_older: Show older
