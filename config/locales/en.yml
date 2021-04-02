@@ -764,6 +764,7 @@ en:
     migrate_account: Move to a different account
     migrate_account_html: If you wish to redirect this account to a different one, you can <a href="%{path}">configure it here</a>.
     or_log_in_with: Or log in with
+    or_sign_up_with: Or sign up with
     providers:
       cas: CAS
       saml: SAML

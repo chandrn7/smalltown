@@ -40,7 +40,7 @@
 
 - if Devise.mappings[:user].omniauthable? and User.omniauth_providers.any?
   .simple_form.alternative-login
-    %h4= "Or sign up with"
+    %h4= t('auth.or_sign_up_with')
 
     .actions
       - User.omniauth_providers.each do |provider|
