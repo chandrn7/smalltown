@@ -41,6 +41,7 @@ class Form::AdminSettings
     featured_tags
     sso_auto_approval
     user_filter_languages
+    support_url
   ).freeze
 
   BOOLEAN_KEYS = %i(
