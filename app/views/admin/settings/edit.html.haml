@@ -26,6 +26,9 @@
       = f.input :site_contact_email, wrapper: :with_label, label: t('admin.settings.contact_information.email')
 
   .fields-group
+    = f.input :support_url, wrapper: :with_block_label, label: t('admin.settings.support_url.title'), hint: t('admin.settings.support_url.desc_html')
+
+  .fields-group
     = f.input :site_short_description, wrapper: :with_block_label, as: :text, label: t('admin.settings.site_short_description.title'), hint: t('admin.settings.site_short_description.desc_html'), input_html: { rows: 2 }
 
   .fields-group

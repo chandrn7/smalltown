@@ -31,5 +31,6 @@ export const completelySiloed = getMeta('completely_siloed');
 export const whitelistMode = getMeta('whitelist_mode');
 export const dmsEnabled = getMeta('dms_enabled');
 export const featuredTopics = getMeta('featured_topics');
+export const support_url = getMeta('support_url');
 
 export default initialState;

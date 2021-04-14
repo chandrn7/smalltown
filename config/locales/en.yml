@@ -638,6 +638,9 @@ en:
       spam_check_enabled:
         desc_html: Mastodon can auto-report accounts that send repeated unsolicited messages. There may be false positives.
         title: Anti-spam automation
+      support_url: 
+        desc_html: Displayed in the link footer. Provide a URL where people can go to help fund your site. The appropriate HTTP prefix is required.
+        title: Link to fund
       thumbnail:
         desc_html: Used for previews via OpenGraph and API. 1200x630px recommended
         title: Server thumbnail

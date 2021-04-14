@@ -3017,7 +3017,7 @@
         "id": "getting_started.security"
       },
       {
-        "defaultMessage": "About this server",
+        "defaultMessage": "About this site",
         "id": "navigation_bar.info"
       },
       {
@@ -3043,6 +3043,10 @@
       {
         "defaultMessage": "Mastodon is open source software. You can contribute or report issues on GitHub at {github}.",
         "id": "getting_started.open_source_notice"
+      },
+      {
+        "defaultMessage": "Support this site",
+        "id": "getting_started.support"
       }
     ],
     "path": "app/javascript/mastodon/features/ui/components/link_footer.json"
