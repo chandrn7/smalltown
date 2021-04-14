@@ -15,7 +15,6 @@ import { changeComposing } from '../../actions/compose';
 import { openModal } from 'mastodon/actions/modal';
 import elephantUIPlane from '../../../images/elephant_ui_plane.svg';
 import { mascot, completelySiloed } from '../../initial_state';
-import { completelySiloed } from '../../initial_state';
 import Icon from 'mastodon/components/icon';
 import { logOut } from 'mastodon/utils/log_out';
 
