@@ -19,7 +19,7 @@ const FrameWelcome = ({ domain, onNext }) => (
 
     <div className='introduction__text introduction__text--centered'>
       <h3><FormattedMessage id='introduction.welcome.headline' defaultMessage='First steps' /></h3>
-      <p><FormattedMessage id='introduction.welcome.text' defaultMessage="Welcome to the fediverse! In a few moments, you'll be able to broadcast messages and talk to your friends across a wide variety of servers. But this server, {domain}, is special—it hosts your profile, so remember its name." values={{ domain: <code>{domain}</code> }} /></p>
+      <p><FormattedMessage id='introduction.welcome.text' defaultMessage="Welcome! In a few moments, you'll be able to participate in the conversation on {domain}." values={{ domain: <code>{domain}</code> }} /></p>
     </div>
 
     <div className='introduction__action'>
@@ -33,7 +33,7 @@ FrameWelcome.propTypes = {
   onNext: PropTypes.func.isRequired,
 };
 
-const FrameFederation = ({ onNext }) => (
+const FrameFederation = ({ domain, onNext }) => (
   <div className='introduction__frame'>
     <div className='introduction__illustration'>
       <img src={screenFederation} alt='' />
@@ -42,17 +42,17 @@ const FrameFederation = ({ onNext }) => (
     <div className='introduction__text introduction__text--columnized'>
       <div>
         <h3><FormattedMessage id='introduction.federation.home.headline' defaultMessage='Home' /></h3>
-        <p><FormattedMessage id='introduction.federation.home.text' defaultMessage='Posts from people you follow will appear in your home feed. You can follow anyone on any server!' /></p>
+        <p><FormattedMessage id='introduction.federation.home.text' defaultMessage='Posts from people you follow will appear in your home feed.' /></p>
       </div>
 
       <div>
         <h3><FormattedMessage id='introduction.federation.local.headline' defaultMessage='Local' /></h3>
-        <p><FormattedMessage id='introduction.federation.local.text' defaultMessage='Public posts from people on the same server as you will appear in the local timeline.' /></p>
+        <p><FormattedMessage id='introduction.federation.local.text' defaultMessage='Public posts from everyone on {domain} will appear in the local feed.' values={{ domain: <code>{domain}</code> }} /></p>
       </div>
 
       <div>
         <h3><FormattedMessage id='introduction.federation.federated.headline' defaultMessage='Federated' /></h3>
-        <p><FormattedMessage id='introduction.federation.federated.text' defaultMessage='Public posts from other servers of the fediverse will appear in the federated timeline.' /></p>
+        <p><FormattedMessage id='introduction.federation.federated.text' defaultMessage='If your site chooses to interact with other social media sites, posts from the other sites will appear in the federated feed.' /></p>
       </div>
     </div>
 
@@ -63,6 +63,7 @@ const FrameFederation = ({ onNext }) => (
 );
 
 FrameFederation.propTypes = {
+  domain: PropTypes.string.isRequired,
   onNext: PropTypes.func.isRequired,
 };
 
@@ -114,7 +115,7 @@ class Introduction extends React.PureComponent {
   componentWillMount () {
     this.pages = [
       <FrameWelcome domain={this.props.domain} onNext={this.handleNext} />,
-      <FrameFederation onNext={this.handleNext} />,
+      <FrameFederation domain={this.props.domain} onNext={this.handleNext} />,
       <FrameInteractions onNext={this.handleFinish} />,
     ];
   }

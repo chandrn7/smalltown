@@ -1914,7 +1914,7 @@
         "id": "introduction.welcome.headline"
       },
       {
-        "defaultMessage": "Welcome to the fediverse! In a few moments, you'll be able to broadcast messages and talk to your friends across a wide variety of servers. But this server, {domain}, is special—it hosts your profile, so remember its name.",
+        "defaultMessage": "Welcome! In a few moments, you'll be able to participate in the conversation on {domain}.",
         "id": "introduction.welcome.text"
       },
       {
@@ -1926,7 +1926,7 @@
         "id": "introduction.federation.home.headline"
       },
       {
-        "defaultMessage": "Posts from people you follow will appear in your home feed. You can follow anyone on any server!",
+        "defaultMessage": "Posts from people you follow will appear in your home feed.",
         "id": "introduction.federation.home.text"
       },
       {
@@ -1934,7 +1934,7 @@
         "id": "introduction.federation.local.headline"
       },
       {
-        "defaultMessage": "Public posts from people on the same server as you will appear in the local timeline.",
+        "defaultMessage": "Public posts from everyone on {domain} will appear in the local feed.",
         "id": "introduction.federation.local.text"
       },
       {
@@ -1942,7 +1942,7 @@
         "id": "introduction.federation.federated.headline"
       },
       {
-        "defaultMessage": "Public posts from other servers of the fediverse will appear in the federated timeline.",
+        "defaultMessage": "If your site chooses to interact with other social media sites, posts from the other sites will appear in the federated feed.",
         "id": "introduction.federation.federated.text"
       },
       {
