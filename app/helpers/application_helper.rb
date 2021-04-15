@@ -78,6 +78,10 @@ module ApplicationHelper
     instance_presenter.safari_svg&.file&.url
   end
 
+  def safari_svg_color
+    Setting.safari_svg_color == '' ? '#000000' : Setting.safari_svg_color
+  end
+
   def title
     Rails.env.production? ? site_title : "#{site_title} (Dev)"
   end

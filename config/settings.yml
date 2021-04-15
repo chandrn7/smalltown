@@ -77,6 +77,7 @@ defaults: &defaults
   sso_auto_approval: false
   user_filter_languages: true
   support_url: ''
+  safari_svg_color: ''
 
 development:
   <<: *defaults

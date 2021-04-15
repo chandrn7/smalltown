@@ -46,6 +46,7 @@ class Form::AdminSettings
     ios_icon
     android_icon
     safari_svg
+    safari_svg_color
   ).freeze
 
   BOOLEAN_KEYS = %i(
