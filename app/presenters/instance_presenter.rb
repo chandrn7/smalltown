@@ -55,4 +55,20 @@ class InstancePresenter
   def mascot
     @mascot ||= Rails.cache.fetch('site_uploads/mascot') { SiteUpload.find_by(var: 'mascot') }
   end
+
+  def favicon
+    @favicon ||= Rails.cache.fetch('site_uploads/favicon') { SiteUpload.find_by(var: 'favicon') }
+  end
+
+  def ios_icon
+    @ios_icon ||= Rails.cache.fetch('site_uploads/ios_icon') { SiteUpload.find_by(var: 'ios_icon') }
+  end
+
+  def android_icon
+    @android_icon ||= Rails.cache.fetch('site_uploads/android_icon') { SiteUpload.find_by(var: 'android_icon') }
+  end
+
+  def safari_svg
+    @safari_svg ||= Rails.cache.fetch('site_uploads/safari_svg') { SiteUpload.find_by(var: 'safari_svg') }
+  end
 end

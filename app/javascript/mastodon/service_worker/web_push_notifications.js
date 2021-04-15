@@ -1,6 +1,7 @@
 import IntlMessageFormat from 'intl-messageformat';
 import locales from './web_push_locales';
 import { unescape } from 'lodash';
+import { android_icon } from 'mastodon/initial_state';
 
 const MAX_NOTIFICATIONS = 5;
 const GROUP_TAG = 'tag';
@@ -11,8 +12,7 @@ const notify = options =>
       const group = {
         title: formatMessage('notifications.group', options.data.preferred_locale, { count: notifications.length + 1 }),
         body: notifications.sort((n1, n2) => n1.timestamp < n2.timestamp).map(notification => notification.title).join('\n'),
-        badge: '/badge.png',
-        icon: '/android-chrome-192x192.png',
+        icon: android_icon,
         tag: GROUP_TAG,
         data: {
           url: (new URL('/web/notifications', self.location)).href,
@@ -88,7 +88,6 @@ const handlePush = (event) => {
       options.icon      = notification.account.avatar_static;
       options.timestamp = notification.created_at && new Date(notification.created_at);
       options.tag       = notification.id;
-      options.badge     = '/badge.png';
       options.image     = notification.status && notification.status.media_attachments.length > 0 && notification.status.media_attachments[0].preview_url || undefined;
       options.data      = { access_token, preferred_locale, id: notification.status ? notification.status.id : notification.account.id, url: notification.status ? `/web/statuses/${notification.status.id}` : `/web/accounts/${notification.account.id}` };
 
@@ -114,7 +113,6 @@ const handlePush = (event) => {
         icon,
         tag: notification_id,
         timestamp: new Date(),
-        badge: '/badge.png',
         data: { access_token, preferred_locale, url: '/web/notifications' },
       });
     }),

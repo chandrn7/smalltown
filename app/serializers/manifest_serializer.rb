@@ -24,7 +24,7 @@ class ManifestSerializer < ActiveModel::Serializer
   def icons
     [
       {
-        src: '/android-chrome-192x192.png',
+        src: object.android_icon&.file&.url,
         sizes: '192x192',
         type: 'image/png',
       },

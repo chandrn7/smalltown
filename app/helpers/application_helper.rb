@@ -59,8 +59,23 @@ module ApplicationHelper
   end
 
   def favicon_path
-    env_suffix = Rails.env.production? ? '' : '-dev'
-    "/favicon#{env_suffix}.ico"
+    instance_presenter = InstancePresenter.new
+    instance_presenter.favicon&.file&.url
+  end
+
+  def ios_icon_path
+    instance_presenter = InstancePresenter.new
+    instance_presenter.ios_icon&.file&.url
+  end
+
+  def android_icon_path
+    instance_presenter = InstancePresenter.new
+    instance_presenter.android_icon&.file&.url
+  end
+
+  def safari_svg_path
+    instance_presenter = InstancePresenter.new
+    instance_presenter.safari_svg&.file&.url
   end
 
   def title
