@@ -43,6 +43,20 @@
   .fields-row
     .fields-row__column.fields-row__column-6.fields-group
       = f.input :mascot, as: :file, wrapper: :with_block_label, label: t('admin.settings.mascot.title'), hint: site_upload_delete_hint(t('admin.settings.mascot.desc_html'), :mascot)
+    .fields-row__column.fields-row__column-6.fields-group
+      = f.input :favicon, as: :file, wrapper: :with_block_label, label: t('admin.settings.favicon.title'), hint: site_upload_delete_hint(t('admin.settings.favicon.desc_html'), :favicon)
+
+  .fields-row
+    .fields-row__column.fields-row__column-6.fields-group
+      = f.input :ios_icon, as: :file, wrapper: :with_block_label, label: t('admin.settings.ios_icon.title'), hint: site_upload_delete_hint(t('admin.settings.ios_icon.desc_html'), :ios_icon)
+    .fields-row__column.fields-row__column-6.fields-group
+      = f.input :android_icon, as: :file, wrapper: :with_block_label, label: t('admin.settings.android_icon.title'), hint: site_upload_delete_hint(t('admin.settings.android_icon.desc_html'), :android_icon)
+
+  .fields-row
+    .fields-row__column.fields-row__column-6.fields-group
+      = f.input :safari_svg, as: :file, wrapper: :with_block_label, label: t('admin.settings.safari_svg.title'), hint: site_upload_delete_hint(t('admin.settings.safari_svg.desc_html'), :safari_svg)
+    .fields-row__column.fields-row__column-6.fields-group
+      = f.input :safari_svg_color, wrapper: :with_block_label, label: t('admin.settings.safari_svg_color.title'), hint: t('admin.settings.safari_svg_color.desc_html')
 
   %hr.spacer/
 

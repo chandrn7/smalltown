@@ -42,6 +42,11 @@ class Form::AdminSettings
     sso_auto_approval
     user_filter_languages
     support_url
+    favicon
+    ios_icon
+    android_icon
+    safari_svg
+    safari_svg_color
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -70,6 +75,10 @@ class Form::AdminSettings
     thumbnail
     hero
     mascot
+    favicon
+    ios_icon
+    android_icon
+    safari_svg
   ).freeze
 
   attr_accessor(*KEYS)

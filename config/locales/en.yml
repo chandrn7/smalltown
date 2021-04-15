@@ -548,6 +548,9 @@ en:
       activity_api_enabled:
         desc_html: Counts of locally posted statuses, active users, and new registrations in weekly buckets
         title: Publish aggregate statistics about user activity
+      android_icon:
+        desc_html: Displayed when someone pins your site to their homescreen on Android. 192x192px recommended. (ex. android-chrome-192x192.png)
+        title: Android icon
       bootstrap_timeline_accounts:
         desc_html: Separate multiple usernames by comma. Only local and unlocked accounts will work. Default when empty is all local admins.
         title: Default follows for new users
@@ -573,12 +576,18 @@ en:
       enable_bootstrap_timeline_accounts:
         desc_html: Make new users automatically follow configured accounts so their home feed doesn't start out empty
         title: Enable default follows for new users
+      favicon:
+        desc_html: Customize your favicon by providing a favicon file (ex. favicon.ico)
+        title: Favicon image
       featured_tags:
         desc_html: Allow users to feature hashtags on their profile
         title: Enable featured hashtags
       hero:
         desc_html: Displayed on the frontpage. At least 600x100px recommended. When not set, falls back to server thumbnail
         title: Hero image
+      ios_icon:
+        desc_html: Displayed when someone pins your site to their homescreen on iOS. 180x180px recommended. (ex. apple-touch-icon.png)
+        title: iOS icon
       mascot:
         desc_html: Displayed on multiple pages. At least 293×205px recommended. When not set, falls back to default mascot
         title: Mascot image
@@ -616,6 +625,12 @@ en:
           none: Nobody can sign up
           open: Anyone can sign up
         title: Registrations mode
+      safari_svg:
+        desc_html: Displayed on Safari tabs (ex. safari-pinned-tab.svg)
+        title: Safari tab icon
+      safari_svg_color:
+        desc_html: "Color used to draw the Safari tab svg (ex. #2B90D9)"
+        title: Safari tab icon color
       show_known_fediverse_at_about_page:
         desc_html: When disabled, restricts the public timeline linked from the landing page to showing only local content
         title: Include federated content on unauthenticated public timeline page
