@@ -11,6 +11,105 @@ code {
   margin: 0 auto;
 }
 
+.moderation_form {
+
+  .input {
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+
+  .input.with_block_label {
+    max-width: none;
+
+    & > label {
+      font-family: inherit;
+      font-size: 16px;
+      color: $primary-text-color;
+      display: block;
+      font-weight: 500;
+      padding-top: 5px;
+    }
+
+    .hint {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      columns: 2;
+    }
+  }
+
+  .title {
+    color: #d9e1e8;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .hint {
+    color: $darker-text-color;
+
+    a {
+      color: $highlight-text-color;
+    }
+
+    code {
+      border-radius: 3px;
+      padding: 0.2em 0.4em;
+      background: darken($ui-base-color, 12%);
+    }
+
+    li {
+      list-style: disc;
+      margin-left: 18px;
+    }
+  }
+
+  span.hint {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  textarea {
+    box-sizing: border-box;
+    font-size: 16px;
+    color: $primary-text-color;
+    display: block;
+    width: 100%;
+    outline: 0;
+    font-family: inherit;
+    resize: vertical;
+    background: darken($ui-base-color, 10%);
+    border: 1px solid darken($ui-base-color, 14%);
+    border-radius: 4px;
+    padding: 10px;
+
+    &::placeholder {
+      color: lighten($darker-text-color, 4%);
+    }
+
+    &:invalid {
+      box-shadow: none;
+    }
+
+    &:required:valid {
+      border-color: $valid-value-color;
+    }
+
+    &:hover {
+      border-color: darken($ui-base-color, 20%);
+    }
+
+    &:active,
+    &:focus {
+      border-color: $highlight-text-color;
+      background: darken($ui-base-color, 8%);
+    }
+  }
+}
+
 .simple_form {
   &.hidden {
     display: none;

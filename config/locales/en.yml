@@ -523,6 +523,8 @@ en:
       comment:
         none: None
       created_at: Reported
+      email_form:
+        desc_html: Optional. Send an email that explains why you are taking moderation action on the post(s). When you click an action, text in the box will be sent to the affected user. If the box is empty, no email will be sent. This is NOT for account-level actions like "Freeze." This IS for post-level actions like "Delete."
       forwarded: Forwarded
       forwarded_to: Forwarded to %{domain}
       mark_as_resolved: Mark as resolved
@@ -684,6 +686,9 @@ en:
         nsfw_off: Mark as not sensitive
         nsfw_on: Mark as sensitive
       deleted: Deleted
+      email_form:
+        desc_html: Optional. Send an email that explains why you are taking moderation action. When you click an action, text in the box will be sent to the affected user. If the box is empty, no email will be sent.
+        title: Explanation email
       failed_to_execute: Failed to execute
       media:
         title: Media
@@ -1412,6 +1417,11 @@ en:
         sensitive: Your uploaded media files and linked media will be treated as sensitive.
         silence: You can still use your account but only people who are already following you will see your posts on this server, and you may be excluded from various public listings. However, others may still manually follow you.
         suspend: You can no longer use your account, and your profile and other data are no longer accessible. You can still login to request a backup of your data until the data is fully removed, but we will retain some data to prevent you from evading the suspension.
+        delete: Your post has been deleted.
+        nsfw_on: Your post has been marked as sensitive. Media will be hidden behind a content warning.
+        nsfw_off: Your post has been marked as not sensitive. Media will no longer be hidden behind a content warning.
+        disable_replies: Replies have been turned off for your post. No one will be able to reply to your original post or any existing replies.
+        enable_replies: Replies have been turned on for your post. People will be able to reply to your original post and any existing replies.
       get_in_touch: You can reply to this e-mail to get in touch with the staff of %{instance}.
       review_server_policies: Review server policies
       statuses: 'Specifically, for:'
@@ -1421,12 +1431,22 @@ en:
         sensitive: Your account %{acct} posting media has been marked as sensitive
         silence: Your account %{acct} has been limited
         suspend: Your account %{acct} has been suspended
+        delete: Your post has been deleted
+        nsfw_on: Your post has been marked as sensitive
+        nsfw_off: Your post has been marked as not sensitive
+        disable_replies: Replies have been turned off for your post
+        enable_replies: Replies have been turned on for your post
       title:
         disable: Account frozen
         none: Warning
         sensitive: Your media has been marked as sensitive
         silence: Account limited
         suspend: Account suspended
+        delete: Post deleted
+        nsfw_on: Post marked sensitive
+        nsfw_off: Post marked not sensitive
+        disable_replies: Replies disabled for your post
+        enable_replies: Replies enabled for your post
     welcome:
       edit_profile_action: Setup profile
       edit_profile_step: You can customize your profile by uploading an avatar, header, changing your display name and more. If you’d like to review new followers before they’re allowed to follow you, you can lock your account.

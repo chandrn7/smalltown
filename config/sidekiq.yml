@@ -33,6 +33,10 @@
     cron: '<%= Random.rand(0..59) %> <%= Random.rand(4..6) %> * * *'
     class: Scheduler::UserCleanupScheduler
     queue: scheduler
+  status_cleanup_scheduler:
+    cron: '<%= Random.rand(0..59) %> <%= Random.rand(4..6) %> * * *'
+    class: Scheduler::StatusCleanupScheduler
+    queue: scheduler
   ip_cleanup_scheduler:
     cron: '<%= Random.rand(0..59) %> <%= Random.rand(3..5) %> * * *'
     class: Scheduler::IpCleanupScheduler

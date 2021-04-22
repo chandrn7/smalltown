@@ -11,9 +11,15 @@
 
 %hr.spacer/
 
-= form_for(@form, url: admin_account_statuses_path(@account.id)) do |f|
+= form_for(@form, url: admin_account_statuses_path(@account.id), html: { class: 'moderation_form' }) do |f|
   = hidden_field_tag :page, params[:page]
   = hidden_field_tag :media, params[:media]
+
+  = f.simple_fields_for :email_text do |email_form|
+    .fields-group
+      = email_form.input :text, as: :text, wrapper: :with_block_label, label: t('admin.statuses.email_form.title'), hint: t('admin.statuses.email_form.desc_html'), required: false
+
+  %hr.spacer/
 
   .batch-table
     .batch-table__toolbar

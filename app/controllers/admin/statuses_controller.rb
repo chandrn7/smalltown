@@ -35,6 +35,7 @@ module Admin
       authorize :status, :update?
 
       @form         = Form::StatusBatch.new(form_status_batch_params.merge(current_account: current_account, action: action_from_button))
+      @form.target_account  = @account
       flash[:alert] = I18n.t('admin.statuses.failed_to_execute') unless @form.save
 
       redirect_to admin_account_statuses_path(@account.id, current_params)
@@ -47,7 +48,7 @@ module Admin
     private
 
     def form_status_batch_params
-      params.require(:form_status_batch).permit(:action, status_ids: [])
+      params.require(:form_status_batch).permit(:action, :email_text => [:text], status_ids: [])
     end
 
     def set_account
