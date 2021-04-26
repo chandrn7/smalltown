@@ -528,6 +528,7 @@ en:
       email_form:
         send_email_notification:
           desc_html: The user will receive an explanation of what happened with their post(s). This is NOT for account-level actions like "Freeze." This IS for post-level actions like "Delete."
+      forwarded: Forwarded
       forwarded_to: Forwarded to %{domain}
       mark_as_resolved: Mark as resolved
       mark_as_unresolved: Mark as unresolved

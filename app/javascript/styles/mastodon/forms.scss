@@ -55,12 +55,6 @@ code {
           text-decoration: none;
         }
       }
-
-      .recommended {
-        position: absolute;
-        margin: 0 4px;
-        margin-top: -2px;
-      }
     }
   }
 
@@ -79,10 +73,6 @@ code {
     .hint {
       margin-bottom: 15px;
     }
-
-    ul {
-      columns: 2;
-    }
   }
 
   .input.with_label {
@@ -99,10 +89,6 @@ code {
     .hint {
       margin-top: 6px;
     }
-
-    ul {
-      flex: 390px;
-    }
   }
 
   .title {
@@ -118,17 +104,6 @@ code {
 
     a {
       color: $highlight-text-color;
-    }
-
-    code {
-      border-radius: 3px;
-      padding: 0.2em 0.4em;
-      background: darken($ui-base-color, 12%);
-    }
-
-    li {
-      list-style: disc;
-      margin-left: 18px;
     }
   }
 
@@ -154,24 +129,6 @@ code {
 
     &::placeholder {
       color: lighten($darker-text-color, 4%);
-    }
-
-    &:invalid {
-      box-shadow: none;
-    }
-
-    &:required:valid {
-      border-color: $valid-value-color;
-    }
-
-    &:hover {
-      border-color: darken($ui-base-color, 20%);
-    }
-
-    &:active,
-    &:focus {
-      border-color: $highlight-text-color;
-      background: darken($ui-base-color, 8%);
     }
   }
 }
