@@ -31,7 +31,7 @@ class Admin::ActionLog < ApplicationRecord
 
   def set_changes
     case action
-    when :destroy, :create
+    when :destroy, :create, :restore
       self.recorded_changes = target.attributes
     when :update, :promote, :demote
       self.recorded_changes = target.previous_changes

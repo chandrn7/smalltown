@@ -35,6 +35,7 @@ class Admin::ActionLogFilter
     reopen_report: { target_type: 'Report', action: 'reopen' }.freeze,
     reset_password_user: { target_type: 'User', action: 'reset_password' }.freeze,
     resolve_report: { target_type: 'Report', action: 'resolve' }.freeze,
+    restore_status: { target_type: 'Status', action: 'restore' }.freeze,
     sensitive_account: { target_type: 'Account', action: 'sensitive' }.freeze,
     silence_account: { target_type: 'Account', action: 'silence' }.freeze,
     suspend_account: { target_type: 'Account', action: 'suspend' }.freeze,

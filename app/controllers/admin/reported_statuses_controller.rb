@@ -8,6 +8,7 @@ module Admin
       authorize :status, :update?
 
       @form         = Form::StatusBatch.new(form_status_batch_params.merge(current_account: current_account, action: action_from_button))
+      @form.target_account  = @report.target_account
       flash[:alert] = I18n.t('admin.statuses.failed_to_execute') unless @form.save
 
       redirect_to admin_report_path(@report)
@@ -24,7 +25,7 @@ module Admin
     end
 
     def form_status_batch_params
-      params.require(:form_status_batch).permit(status_ids: [])
+      params.require(:form_status_batch).permit(:email_collection => [:text, :send_email_notification], status_ids: [])
     end
 
     def action_from_button
@@ -38,6 +39,8 @@ module Admin
         'disable_replies'
       elsif params[:enable_replies]
         'enable_replies'
+      elsif params[:restore]
+        'restore'
       end
     end
 

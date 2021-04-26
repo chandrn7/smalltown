@@ -11,7 +11,7 @@ module Admin
     def index
       authorize :status, :index?
 
-      @statuses = @account.statuses.where(visibility: [:public, :unlisted])
+      @statuses = @account.statuses.with_discarded.where(visibility: [:public, :unlisted])
 
       if params[:media]
         account_media_status_ids = @account.media_attachments.attached.reorder(nil).select(:status_id).group(:status_id)
@@ -25,7 +25,7 @@ module Admin
     def show
       authorize :status, :index?
 
-      @statuses = @account.statuses.where(id: params[:id])
+      @statuses = @account.statuses.with_discarded.where(id: params[:id])
       authorize @statuses.first, :show?
 
       @form = Form::StatusBatch.new
@@ -48,7 +48,7 @@ module Admin
     private
 
     def form_status_batch_params
-      params.require(:form_status_batch).permit(:action, :email_text => [:text], status_ids: [])
+      params.require(:form_status_batch).permit(:action, :email_collection => [:text, :send_email_notification], status_ids: [])
     end
 
     def set_account
@@ -75,6 +75,8 @@ module Admin
         'disable_replies'
       elsif params[:enable_replies]
         'enable_replies'
+      elsif params[:restore]
+        'restore'
       end
     end
   end

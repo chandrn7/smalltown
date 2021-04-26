@@ -16,6 +16,52 @@ code {
   .input {
     margin-bottom: 15px;
     overflow: hidden;
+
+    &.boolean {
+      position: relative;
+      margin-bottom: 0;
+
+      .label_input > label {
+        font-family: inherit;
+        font-size: 14px;
+        padding-top: 5px;
+        color: $primary-text-color;
+        display: block;
+        width: auto;
+      }
+
+      .label_input,
+      .hint {
+        padding-left: 28px;
+      }
+
+      .label_input__wrapper {
+        position: static;
+      }
+
+      label.checkbox {
+        position: absolute;
+        top: 2px;
+        left: 0;
+      }
+
+      label a {
+        color: $highlight-text-color;
+        text-decoration: underline;
+
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+
+      .recommended {
+        position: absolute;
+        margin: 0 4px;
+        margin-top: -2px;
+      }
+    }
   }
 
   .input.with_block_label {
@@ -36,6 +82,26 @@ code {
 
     ul {
       columns: 2;
+    }
+  }
+
+  .input.with_label {
+    .label_input > label {
+      font-family: inherit;
+      font-size: 14px;
+      color: $primary-text-color;
+      display: block;
+      margin-bottom: 8px;
+      word-wrap: break-word;
+      font-weight: 500;
+    }
+
+    .hint {
+      margin-top: 6px;
+    }
+
+    ul {
+      flex: 390px;
     }
   }
 
