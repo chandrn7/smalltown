@@ -104,7 +104,17 @@
 - unless @report.statuses.empty?
   %hr.spacer/
 
-  = form_for(@form, url: admin_report_reported_statuses_path(@report.id)) do |f|
+  = form_for(@form, url: admin_report_reported_statuses_path(@report.id), html: { class: 'moderation_form' }) do |f|
+    = f.simple_fields_for :email_collection do |email_form|
+      .fields-group
+        = email_form.input :send_email_notification, as: :boolean, wrapper: :with_label, :input_html => { :checked => true }, label: t('admin.statuses.email_form.send_email_notification.title'), hint: t('admin.reports.email_form.send_email_notification.desc_html')
+      
+      %br/
+      .fields-group
+        = email_form.input :text, as: :text, wrapper: :with_block_label, label: t('admin.statuses.email_form.text.title'), hint: t('admin.statuses.email_form.text.desc_html'), required: false
+
+    %hr.spacer/
+
     .batch-table
       .batch-table__toolbar
         %label.batch-table__toolbar__select.batch-checkbox-all
@@ -116,6 +126,7 @@
             = f.button safe_join([fa_icon('comments-o'), t('admin.statuses.batch.disable_replies')]), name: :disable_replies, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
             = f.button safe_join([fa_icon('comments'), t('admin.statuses.batch.enable_replies')]), name: :enable_replies, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
           = f.button safe_join([fa_icon('trash'), t('admin.statuses.batch.delete')]), name: :delete, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
+          = f.button safe_join([fa_icon('recycle'), t('admin.statuses.batch.restore')]), name: :restore, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
       .batch-table__body
         = render partial: 'admin/reports/status', collection: @report.statuses, locals: { f: f }
 

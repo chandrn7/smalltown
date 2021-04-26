@@ -11,6 +11,128 @@ code {
   margin: 0 auto;
 }
 
+.moderation_form {
+
+  .input {
+    margin-bottom: 15px;
+    overflow: hidden;
+
+    &.boolean {
+      position: relative;
+      margin-bottom: 0;
+
+      .label_input > label {
+        font-family: inherit;
+        font-size: 14px;
+        padding-top: 5px;
+        color: $primary-text-color;
+        display: block;
+        width: auto;
+      }
+
+      .label_input,
+      .hint {
+        padding-left: 28px;
+      }
+
+      .label_input__wrapper {
+        position: static;
+      }
+
+      label.checkbox {
+        position: absolute;
+        top: 2px;
+        left: 0;
+      }
+
+      label a {
+        color: $highlight-text-color;
+        text-decoration: underline;
+
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .input.with_block_label {
+    max-width: none;
+
+    & > label {
+      font-family: inherit;
+      font-size: 16px;
+      color: $primary-text-color;
+      display: block;
+      font-weight: 500;
+      padding-top: 5px;
+    }
+
+    .hint {
+      margin-bottom: 15px;
+    }
+  }
+
+  .input.with_label {
+    .label_input > label {
+      font-family: inherit;
+      font-size: 14px;
+      color: $primary-text-color;
+      display: block;
+      margin-bottom: 8px;
+      word-wrap: break-word;
+      font-weight: 500;
+    }
+
+    .hint {
+      margin-top: 6px;
+    }
+  }
+
+  .title {
+    color: #d9e1e8;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .hint {
+    color: $darker-text-color;
+
+    a {
+      color: $highlight-text-color;
+    }
+  }
+
+  span.hint {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  textarea {
+    box-sizing: border-box;
+    font-size: 16px;
+    color: $primary-text-color;
+    display: block;
+    width: 100%;
+    outline: 0;
+    font-family: inherit;
+    resize: vertical;
+    background: darken($ui-base-color, 10%);
+    border: 1px solid darken($ui-base-color, 14%);
+    border-radius: 4px;
+    padding: 10px;
+
+    &::placeholder {
+      color: lighten($darker-text-color, 4%);
+    }
+  }
+}
+
 .simple_form {
   &.hidden {
     display: none;

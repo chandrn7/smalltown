@@ -71,7 +71,6 @@ class Report < ApplicationRecord
       target_account.update(trust_level: Account::TRUST_LEVELS[:trusted])
     end
 
-    RemovalWorker.push_bulk(Status.with_discarded.discarded.where(id: status_ids).pluck(:id)) { |status_id| [status_id, { immediate: true }] }
     update!(action_taken: true, action_taken_by_account_id: acting_account.id)
   end
 
