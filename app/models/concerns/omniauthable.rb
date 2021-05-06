@@ -47,9 +47,8 @@ module Omniauthable
 
       strategy          = Devise.omniauth_configs[auth.provider.to_sym].strategy
       assume_verified   = strategy&.security&.assume_email_is_verified
-      email_is_verified = auth.info.verified || auth.info.verified_email || assume_verified
+      email_is_verified = auth.info.verified || auth.info.verified_email || auth.info.email_verified || assume_verified
       email             = auth.info.verified_email || auth.info.email
-      email             = nil unless email_is_verified
 
       user = User.find_by(email: email) if email_is_verified
 
@@ -58,7 +57,7 @@ module Omniauthable
       user = User.new(user_params_from_auth(email, auth))
 
       user.account.avatar_remote_url = auth.info.image if auth.info.image =~ /\A#{URI::DEFAULT_PARSER.make_regexp(%w(http https))}\z/
-      user.skip_confirmation!
+      user.skip_confirmation! if email_is_verified
       user.save!
       user
     end
