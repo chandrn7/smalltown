@@ -240,7 +240,7 @@ GEM
     fuubar (2.5.0)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
-    gitlab-omniauth-openid-connect (0.4.0)
+    gitlab-omniauth-openid-connect (0.5.0)
       addressable (~> 2.7)
       omniauth (~> 1.9)
       openid_connect (~> 1.2)
@@ -758,7 +758,7 @@ DEPENDENCIES
   fog-core (<= 2.1.0)
   fog-openstack (~> 0.3)
   fuubar (~> 2.5)
-  gitlab-omniauth-openid-connect (~> 0.4.0)
+  gitlab-omniauth-openid-connect (~> 0.5.0)
   hamlit-rails (~> 0.2)
   health_check!
   hiredis (~> 0.6)
