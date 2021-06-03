@@ -76,6 +76,7 @@ defaults: &defaults
   user_filter_languages: true
   support_url: ''
   safari_svg_color: ''
+  disable_replies: false
 
 development:
   <<: *defaults

@@ -2684,6 +2684,10 @@
       {
         "defaultMessage": "Direct",
         "id": "privacy.direct.short"
+      },
+      {
+        "defaultMessage": "Replies disabled",
+        "id": "status.replies_disabled"
       }
     ],
     "path": "app/javascript/mastodon/features/status/components/detailed_status.json"

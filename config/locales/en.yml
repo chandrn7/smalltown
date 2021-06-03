@@ -606,6 +606,9 @@ en:
       default_noindex:
         desc_html: Affects all users who have not changed this setting themselves
         title: Opt users out of search engine indexing by default
+      disable_replies:
+        desc_html: Effective only if the servers you federate with are compliant. Thus it's only recommended if your server is in limited federation mode.
+        title: Allow moderators to disable replies
       dms_enabled:
         desc_html: Allow users to send direct messages
         title: Enable direct messages
@@ -1309,6 +1312,7 @@ en:
       other: 'contained the disallowed hashtags: %{tags}'
     errors:
       in_reply_not_found: The post you are trying to reply to does not appear to exist.
+      replies_disabled: The post you are trying to reply to has replies disabled.
     language_detection: Automatically detect language
     open_in_web: Open in web
     over_character_limit: character limit of %{max} exceeded
