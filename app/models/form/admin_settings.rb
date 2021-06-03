@@ -45,6 +45,7 @@ class Form::AdminSettings
     android_icon
     safari_svg
     safari_svg_color
+    disable_replies
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -65,6 +66,7 @@ class Form::AdminSettings
     featured_tags
     sso_auto_approval
     user_filter_languages
+    disable_replies
   ).freeze
 
   UPLOAD_KEYS = %i(

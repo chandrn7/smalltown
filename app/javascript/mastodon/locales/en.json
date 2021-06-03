@@ -414,6 +414,7 @@
   "status.reblogs.empty": "No one has boosted this post yet. When someone does, they will show up here.",
   "status.redraft": "Delete & re-draft",
   "status.remove_bookmark": "Remove bookmark",
+  "status.replies_disabled": "Replies disabled",
   "status.reply": "Reply",
   "status.replyAll": "Reply to thread",
   "status.report": "Report @{name}",

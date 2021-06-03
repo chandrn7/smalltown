@@ -1544,6 +1544,7 @@ a .account__avatar {
 .detailed-status__display-name,
 .detailed-status__datetime,
 .detailed-status__application,
+.detailed-status__replies-disabled,
 .account__display-name {
   text-decoration: none;
 }
@@ -1577,6 +1578,7 @@ a.account__display-name {
 }
 
 .detailed-status__application,
+.detailed-status__replies-disabled,
 .detailed-status__datetime {
   color: inherit;
 }

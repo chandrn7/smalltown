@@ -22,6 +22,7 @@ const messages = defineMessages({
   unlisted_short: { id: 'privacy.unlisted.short', defaultMessage: 'Unlisted' },
   private_short: { id: 'privacy.private.short', defaultMessage: 'Followers-only' },
   direct_short: { id: 'privacy.direct.short', defaultMessage: 'Direct' },
+  replies_disabled: { id: 'status.replies_disabled', defaultMessage: 'Replies disabled' },
 });
 
 export default  @injectIntl
@@ -116,6 +117,8 @@ class DetailedStatus extends ImmutablePureComponent {
     let reblogLink = '';
     let reblogIcon = 'retweet';
     let favouriteLink = '';
+    let repliesDisabledIcon = 'comments-o'
+    let repliesDisabledLink = '';
 
     if (this.props.measureHeight) {
       outerStyle.height = `${this.state.height}px`;
@@ -189,6 +192,14 @@ class DetailedStatus extends ImmutablePureComponent {
     const visibilityIcon = visibilityIconInfo[status.get('visibility')];
     const visibilityLink = <React.Fragment> · <Icon id={visibilityIcon.icon} title={visibilityIcon.text} /></React.Fragment>;
 
+    if (status.get('replies_disabled')){
+      repliesDisabledLink = <React.Fragment>
+                              <React.Fragment> · </React.Fragment>
+                              <Icon id={repliesDisabledIcon} /> 
+                              <span className='detailed-status__replies-disabled'> {intl.formatMessage(messages.replies_disabled)}</span>
+                            </React.Fragment>;
+    }
+
     if (['private', 'direct'].includes(status.get('visibility'))) {
       reblogLink = '';
     } else if (this.context.router) {
@@ -252,7 +263,7 @@ class DetailedStatus extends ImmutablePureComponent {
           <div className='detailed-status__meta'>
             <a className='detailed-status__datetime' href={status.get('url')} target='_blank' rel='noopener noreferrer'>
               <FormattedDate value={new Date(status.get('created_at'))} hour12={false} year='numeric' month='short' day='2-digit' hour='2-digit' minute='2-digit' />
-            </a>{visibilityLink}{applicationLink}{reblogLink} · {favouriteLink}
+            </a>{visibilityLink}{applicationLink}{reblogLink} · {favouriteLink}{repliesDisabledLink}
           </div>
         </div>
       </div>

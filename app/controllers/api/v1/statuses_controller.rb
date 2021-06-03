@@ -36,20 +36,24 @@ class Api::V1::StatusesController < Api::BaseController
   end
 
   def create
-    @status = PostStatusService.new.call(current_user.account,
-                                         text: status_params[:status],
-                                         thread: @thread,
-                                         media_ids: status_params[:media_ids],
-                                         sensitive: status_params[:sensitive],
-                                         spoiler_text: status_params[:spoiler_text],
-                                         visibility: status_params[:visibility],
-                                         scheduled_at: status_params[:scheduled_at],
-                                         application: doorkeeper_token.application,
-                                         poll: status_params[:poll],
-                                         idempotency: request.headers['Idempotency-Key'],
-                                         with_rate_limit: true)
+    if @thread == nil || !@thread.replies_disabled?
+      @status = PostStatusService.new.call(current_user.account,
+                                          text: status_params[:status],
+                                          thread: @thread,
+                                          media_ids: status_params[:media_ids],
+                                          sensitive: status_params[:sensitive],
+                                          spoiler_text: status_params[:spoiler_text],
+                                          visibility: status_params[:visibility],
+                                          scheduled_at: status_params[:scheduled_at],
+                                          application: doorkeeper_token.application,
+                                          poll: status_params[:poll],
+                                          idempotency: request.headers['Idempotency-Key'],
+                                          with_rate_limit: true)
 
-    render json: @status, serializer: @status.is_a?(ScheduledStatus) ? REST::ScheduledStatusSerializer : REST::StatusSerializer
+      render json: @status, serializer: @status.is_a?(ScheduledStatus) ? REST::ScheduledStatusSerializer : REST::StatusSerializer
+    else
+      render json: { error: I18n.t('statuses.errors.replies_disabled') }, status: 404
+    end
   end
 
   def destroy
