@@ -176,11 +176,11 @@
         "id": "error.unexpected_crash.explanation"
       },
       {
-        "defaultMessage": "Try disabling them and refreshing the page. If that does not help, you may still be able to use Mastodon through a different browser or native app.",
+        "defaultMessage": "Try disabling them and refreshing the page. If that does not help, you may still be able to use {title} through a different browser or native app.",
         "id": "error.unexpected_crash.next_steps_addons"
       },
       {
-        "defaultMessage": "Try refreshing the page. If that does not help, you may still be able to use Mastodon through a different browser or native app.",
+        "defaultMessage": "Try refreshing the page. If that does not help, you may still be able to use {title} through a different browser or native app.",
         "id": "error.unexpected_crash.next_steps"
       },
       {
@@ -242,7 +242,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Hide {number, plural, one {image} other {images}}",
+        "defaultMessage": "{number, plural, one {Hide image} other {Hide images}}",
         "id": "media_gallery.toggle_visible"
       },
       {
@@ -917,6 +917,10 @@
       {
         "defaultMessage": "Moderator",
         "id": "account.badges.moderator"
+      },
+      {
+        "defaultMessage": "Joined {date}",
+        "id": "account.joined"
       }
     ],
     "path": "app/javascript/mastodon/features/account/components/header.json"
@@ -1635,6 +1639,40 @@
   {
     "descriptors": [
       {
+        "defaultMessage": "Follow",
+        "id": "account.follow"
+      },
+      {
+        "defaultMessage": "Unfollow",
+        "id": "account.unfollow"
+      }
+    ],
+    "path": "app/javascript/mastodon/features/follow_recommendations/components/account.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Follow people you'd like to see posts from! Here are some suggestions.",
+        "id": "follow_recommendations.heading"
+      },
+      {
+        "defaultMessage": "Posts from people you follow will show up in chronological order on your home feed. Don't be afraid to make mistakes, you can unfollow people just as easily any time!",
+        "id": "follow_recommendations.lead"
+      },
+      {
+        "defaultMessage": "Looks like no suggestions could be generated for you. You can try using search to look for people you might know or explore trending hashtags.",
+        "id": "empty_column.follow_recommendations"
+      },
+      {
+        "defaultMessage": "Done",
+        "id": "follow_recommendations.done"
+      }
+    ],
+    "path": "app/javascript/mastodon/features/follow_recommendations/index.json"
+  },
+  {
+    "descriptors": [
+      {
         "defaultMessage": "Authorize",
         "id": "follow_request.authorize"
       },
@@ -1897,88 +1935,15 @@
         "id": "home.hide_announcements"
       },
       {
-        "defaultMessage": "Your home timeline is empty! Visit {public} or use search to get started and meet other users.",
+        "defaultMessage": "Your home timeline is empty! Follow more people to fill it up. {suggestions}",
         "id": "empty_column.home"
       },
       {
-        "defaultMessage": "the public timeline",
-        "id": "empty_column.home.public_timeline"
+        "defaultMessage": "See some suggestions",
+        "id": "empty_column.home.suggestions"
       }
     ],
     "path": "app/javascript/mastodon/features/home_timeline/index.json"
-  },
-  {
-    "descriptors": [
-      {
-        "defaultMessage": "First steps",
-        "id": "introduction.welcome.headline"
-      },
-      {
-        "defaultMessage": "Welcome! In a few moments, you'll be able to participate in the conversation on {domain}.",
-        "id": "introduction.welcome.text"
-      },
-      {
-        "defaultMessage": "Let's go!",
-        "id": "introduction.welcome.action"
-      },
-      {
-        "defaultMessage": "Home",
-        "id": "introduction.federation.home.headline"
-      },
-      {
-        "defaultMessage": "Posts from people you follow will appear in your home feed.",
-        "id": "introduction.federation.home.text"
-      },
-      {
-        "defaultMessage": "Local",
-        "id": "introduction.federation.local.headline"
-      },
-      {
-        "defaultMessage": "Public posts from everyone on {domain} will appear in the local feed.",
-        "id": "introduction.federation.local.text"
-      },
-      {
-        "defaultMessage": "Federated",
-        "id": "introduction.federation.federated.headline"
-      },
-      {
-        "defaultMessage": "If your site chooses to interact with other social media sites, posts from the other sites will appear in the federated feed.",
-        "id": "introduction.federation.federated.text"
-      },
-      {
-        "defaultMessage": "Next",
-        "id": "introduction.federation.action"
-      },
-      {
-        "defaultMessage": "Reply",
-        "id": "introduction.interactions.reply.headline"
-      },
-      {
-        "defaultMessage": "You can reply to other people's and your own posts, which will chain them together in a conversation.",
-        "id": "introduction.interactions.reply.text"
-      },
-      {
-        "defaultMessage": "Boost",
-        "id": "introduction.interactions.reblog.headline"
-      },
-      {
-        "defaultMessage": "You can share other people's posts with your followers by boosting them.",
-        "id": "introduction.interactions.reblog.text"
-      },
-      {
-        "defaultMessage": "Favourite",
-        "id": "introduction.interactions.favourite.headline"
-      },
-      {
-        "defaultMessage": "You can save a post for later, and let the author know that you liked it, by favouriting it.",
-        "id": "introduction.interactions.favourite.text"
-      },
-      {
-        "defaultMessage": "Finish tutorial!",
-        "id": "introduction.interactions.action"
-      }
-    ],
-    "path": "app/javascript/mastodon/features/introduction/index.json"
   },
   {
     "descriptors": [
@@ -2293,6 +2258,10 @@
         "id": "notifications.permission_required"
       },
       {
+        "defaultMessage": "Unread notification markers",
+        "id": "notifications.column_settings.unread_markers.category"
+      },
+      {
         "defaultMessage": "Quick filter bar",
         "id": "notifications.column_settings.filter_bar.category"
       },
@@ -2426,7 +2395,7 @@
         "id": "notifications_permission_banner.title"
       },
       {
-        "defaultMessage": "To receive notifications when Mastodon isn't open, enable desktop notifications. You can control precisely which types of interactions generate desktop notifications through the {icon} button above once they're enabled.",
+        "defaultMessage": "To receive notifications when {title} isn't open, enable desktop notifications. You can control precisely which types of interactions generate desktop notifications through the {icon} button above once they're enabled.",
         "id": "notifications_permission_banner.how_to_control"
       },
       {
@@ -2464,7 +2433,7 @@
         "id": "notifications.mark_as_read"
       },
       {
-        "defaultMessage": "You don't have any notifications yet. Interact with others to start the conversation.",
+        "defaultMessage": "You don't have any notifications yet. When other people interact with you, you will see it here.",
         "id": "empty_column.notifications"
       }
     ],
@@ -3245,7 +3214,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "Your draft will be lost if you leave Mastodon.",
+        "defaultMessage": "Your draft will be lost if you leave.",
         "id": "ui.beforeunload"
       }
     ],

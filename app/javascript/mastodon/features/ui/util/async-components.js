@@ -157,3 +157,7 @@ export function Directory () {
 export function FeaturedTopics () {
   return import(/* webpackChunkName: "features/featured_topics" */'../../featured_topics');
 }
+
+export function FollowRecommendations () {
+  return import(/* webpackChunkName: "features/follow_recommendations" */'../../follow_recommendations');
+}
