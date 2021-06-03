@@ -52,10 +52,12 @@ import {
   Search,
   Directory,
   FeaturedTopics,
+  FollowRecommendations,
 } from './util/async-components';
 import { me } from '../../initial_state';
 import { previewState as previewMediaState } from './components/media_modal';
 import { previewState as previewVideoState } from './components/video_modal';
+import { closeOnboarding, INTRODUCTION_VERSION } from 'mastodon/actions/onboarding';
 
 // Dummy import, to make sure that <Status /> ends up in the application bundle.
 // Without this it ends up in ~8 very commonly used bundles.
@@ -72,6 +74,7 @@ const mapStateToProps = state => ({
   hasMediaAttachments: state.getIn(['compose', 'media_attachments']).size > 0,
   canUploadMore: !state.getIn(['compose', 'media_attachments']).some(x => ['audio', 'video'].includes(x.get('type'))) && state.getIn(['compose', 'media_attachments']).size < 4,
   dropdownMenuIsOpen: state.getIn(['dropdown_menu', 'openId']) !== null,
+  firstLaunch: state.getIn(['settings', 'introductionVersion'], 0) < INTRODUCTION_VERSION,
 });
 
 const keyMap = {
@@ -169,6 +172,7 @@ class SwitchingColumnsArea extends React.PureComponent {
           <WrappedRoute path='/bookmarks' component={BookmarkedStatuses} content={children} />
           <WrappedRoute path='/pinned' component={PinnedStatuses} content={children} componentParams={{ shouldUpdateScroll: this.shouldUpdateScroll }} />
 
+          <WrappedRoute path='/start' component={FollowRecommendations} content={children} />
           <WrappedRoute path='/search' component={Search} content={children} />
           <WrappedRoute path='/directory' component={Directory} content={children} componentParams={{ shouldUpdateScroll: this.shouldUpdateScroll }} />
 
@@ -217,6 +221,7 @@ class UI extends React.PureComponent {
     intl: PropTypes.object.isRequired,
     dropdownMenuIsOpen: PropTypes.bool,
     layout: PropTypes.string.isRequired,
+    firstLaunch: PropTypes.bool,
   };
 
   state = {
@@ -352,10 +357,15 @@ class UI extends React.PureComponent {
       navigator.serviceWorker.addEventListener('message', this.handleServiceWorkerPostMessage);
     }
 
-    this.props.dispatch(fetchMarkers());
+    // On first launch, redirect to the follow recommendations page
+    if (this.props.firstLaunch) {
+      this.context.router.history.replace('/start');
+      this.props.dispatch(closeOnboarding());
+    }
+
     this.props.dispatch(expandHomeTimeline());
     this.props.dispatch(expandNotifications());
-
+    setTimeout(() => this.props.dispatch(fetchMarkers()), 500);
     setTimeout(() => this.props.dispatch(fetchFilters()), 500);
 
     this.hotkeys.__mousetrap__.stopCallback = (e, element) => {

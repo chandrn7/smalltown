@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { version, source_url } from 'mastodon/initial_state';
+import { version, source_url, title } from 'mastodon/initial_state';
 import StackTrace from 'stacktrace-js';
 
 export default class ErrorBoundary extends React.PureComponent {
@@ -86,9 +86,17 @@ export default class ErrorBoundary extends React.PureComponent {
           </p>
           <p>
             { likelyBrowserAddonIssue ? (
-              <FormattedMessage id='error.unexpected_crash.next_steps_addons' defaultMessage='Try disabling them and refreshing the page. If that does not help, you may still be able to use Mastodon through a different browser or native app.' />
+              <FormattedMessage 
+                id='error.unexpected_crash.next_steps_addons' 
+                defaultMessage='Try disabling them and refreshing the page. If that does not help, you may still be able to use {title} through a different browser or native app.' 
+                values={{ title: <span>{title}</span> }}
+              />
             ) : (
-              <FormattedMessage id='error.unexpected_crash.next_steps' defaultMessage='Try refreshing the page. If that does not help, you may still be able to use Mastodon through a different browser or native app.' />
+              <FormattedMessage 
+                id='error.unexpected_crash.next_steps' 
+                defaultMessage='Try refreshing the page. If that does not help, you may still be able to use {title} through a different browser or native app.' 
+                values={{ title: <span>{title}</span> }}
+              />
             )}
           </p>
           <p className='error-boundary__footer'>Mastodon v{version} · <a href={source_url} rel='noopener noreferrer' target='_blank'><FormattedMessage id='errors.unexpected_crash.report_issue' defaultMessage='Report issue' /></a> · <button onClick={this.handleCopyStackTrace} className={copied ? 'copied' : ''}><FormattedMessage id='errors.unexpected_crash.copy_stacktrace' defaultMessage='Copy stacktrace to clipboard' /></button></p>
