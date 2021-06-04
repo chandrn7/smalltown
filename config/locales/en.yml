@@ -607,10 +607,10 @@ en:
         desc_html: Affects all users who have not changed this setting themselves
         title: Opt users out of search engine indexing by default
       disable_replies:
-        desc_html: Effective only if the servers you federate with are compliant. Thus it's only recommended if your server is in limited federation mode.
+        desc_html: Enable moderators to disable replies on a thread. Effective only if the servers you federate with are compliant. Thus it's only recommended if your server is in limited federation mode.
         title: Allow moderators to disable replies
       dms_enabled:
-        desc_html: Allow users to send direct messages
+        desc_html: Allow users to exchange direct messages. Turning off direct messages is effective only if the servers you federate with are compliant. Thus turning off direct messages is only recommended if your server is in limited federation mode.
         title: Enable direct messages
       domain_blocks:
         all: To everyone

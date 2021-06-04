@@ -13,12 +13,8 @@ class Admin::DomainAllowsController < Admin::BaseController
     authorize :domain_allow, :create?
 
     @domain_allow = DomainAllow.new(resource_params)
-    was_siloed = completely_siloed?
     if @domain_allow.save
       log_action :create, @domain_allow
-      if was_siloed
-        Setting.dms_enabled = true
-      end
       redirect_to admin_instances_path, notice: I18n.t('admin.domain_allows.created_msg')
     else
       render :new
