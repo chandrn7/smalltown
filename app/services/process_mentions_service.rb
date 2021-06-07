@@ -50,7 +50,7 @@ class ProcessMentionsService < BaseService
   private
 
   def mention_undeliverable?(mentioned_account)
-    mentioned_account.nil? || (!mentioned_account.local? && mentioned_account.ostatus?) || (@status.visibility == "direct" && !mentioned_account.dms_enabled?)
+    mentioned_account.nil? || (!mentioned_account.local? && mentioned_account.ostatus?)
   end
 
   def create_notification(mention)

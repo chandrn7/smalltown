@@ -610,7 +610,7 @@ en:
         desc_html: Enable moderators to disable replies on a thread. Effective only if the servers you federate with are compliant. Thus it's only recommended if your server is in limited federation mode.
         title: Allow moderators to disable replies
       dms_enabled:
-        desc_html: Allow users to exchange direct messages. Turning off direct messages is effective only if the servers you federate with are compliant. Thus turning off direct messages is only recommended if your server is in limited federation mode.
+        desc_html: Allow users to exchange direct messages.
         title: Enable direct messages
       domain_blocks:
         all: To everyone
