@@ -156,6 +156,10 @@ class Account < ApplicationRecord
     %w(Application Service).include? actor_type
   end
 
+  def dms_enabled?
+    Setting.dms_enabled
+  end
+
   def instance_actor?
     id == -99
   end

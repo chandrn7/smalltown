@@ -274,7 +274,7 @@ class ActionBar extends React.PureComponent {
 
     return (
       <div className='detailed-status__action-bar'>
-        <div className='detailed-status__button'><IconButton title={intl.formatMessage(messages.reply)} disabled={status.get('replies_disabled')} icon={status.get('in_reply_to_account_id') === status.getIn(['account', 'id']) ? 'reply' : replyIcon} onClick={this.handleReplyClick} /></div>
+        <div className='detailed-status__button'><IconButton title={intl.formatMessage(messages.reply)} disabled={status.get('replies_disabled') || (!dmsEnabled && status.get('visibility') === 'direct')} icon={status.get('in_reply_to_account_id') === status.getIn(['account', 'id']) ? 'reply' : replyIcon} onClick={this.handleReplyClick} /></div>
         <div className='detailed-status__button' ><IconButton className={classNames({ reblogPrivate })} disabled={!publicStatus && !reblogPrivate} active={status.get('reblogged')} title={reblogTitle} icon='retweet' onClick={this.handleReblogClick} /></div>
         <div className='detailed-status__button'><IconButton className='star-icon' animate active={status.get('favourited')} title={intl.formatMessage(messages.favourite)} icon='star' onClick={this.handleFavouriteClick} /></div>
         {shareButton}

@@ -109,6 +109,7 @@ class NotifyService < BaseService
     blocked ||= optional_non_following_and_direct?               # Options
     blocked ||= conversation_muted?
     blocked ||= send("blocked_#{@notification.type}?")           # Type-dependent filters
+    blocked ||= direct_message? && !Setting.dms_enabled
     blocked
   end
 

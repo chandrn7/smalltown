@@ -79,10 +79,6 @@
 
     .fields-group
       = f.input :show_known_fediverse_at_about_page, as: :boolean, wrapper: :with_label, label: t('admin.settings.show_known_fediverse_at_about_page.title'), hint: t('admin.settings.show_known_fediverse_at_about_page.desc_html')
-  
-  - if completely_siloed?
-    .fields-group
-      = f.input :dms_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.dms_enabled.title'), hint: t('admin.settings.dms_enabled.desc_html')
 
   - if whitelist_mode?
     .fields-group
@@ -92,6 +88,8 @@
     .fields-group
       = f.input :disable_replies, as: :boolean, wrapper: :with_label, label: t('admin.settings.disable_replies.title'), hint: t('admin.settings.disable_replies.desc_html')
 
+  .fields-group
+    = f.input :dms_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.dms_enabled.title'), hint: t('admin.settings.dms_enabled.desc_html')
 
   .fields-group
     = f.input :show_staff_badge, as: :boolean, wrapper: :with_label, label: t('admin.settings.show_staff_badge.title'), hint: t('admin.settings.show_staff_badge.desc_html')

@@ -87,10 +87,8 @@ class Api::V1::StatusesController < Api::BaseController
       if params[:visibility] == 'unlisted'
         not_found
       end
-      if completely_siloed?
-        if !Setting.dms_enabled && params[:visibility] == 'direct'
-          not_found
-        end
+      if params[:visibility] == 'direct'  && !Setting.dms_enabled
+        not_found
       end
     end
   end

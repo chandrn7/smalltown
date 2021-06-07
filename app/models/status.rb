@@ -327,17 +327,15 @@ class Status < ApplicationRecord
         where(visibility: visibility)
       elsif target_account.blocking?(account) || (account.domain.present? && target_account.domain_blocking?(account.domain)) # get rid of blocked peeps
         none
-      elsif account.id == target_account.id # author can see own stuff
-        all
       else
         # followers can see followers-only stuff, but also things they are mentioned in.
         # non-followers can see everything that isn't private/direct, but can see stuff they are mentioned in.
-        visibility.push(:private) if account.following?(target_account)
+        visibility.push(:private) if account.following?(target_account) || account.id == target_account.id
 
         scope = left_outer_joins(:reblog)
 
         scope.where(visibility: visibility)
-             .or(scope.where(id: account.mentions.select(:status_id)))
+             .or(scope.where(id: account.mentions.select(:status_id)).where.not(visibility: :direct))
              .merge(scope.where(reblog_of_id: nil).or(scope.where.not(reblogs_statuses: { account_id: account.excluded_from_timeline_account_ids })))
       end
     end
