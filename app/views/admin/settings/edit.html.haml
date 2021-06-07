@@ -87,9 +87,9 @@
       = f.input :featured_tags, as: :boolean, wrapper: :with_label, label: t('admin.settings.featured_tags.title'), hint: t('admin.settings.featured_tags.desc_html')
     .fields-group
       = f.input :disable_replies, as: :boolean, wrapper: :with_label, label: t('admin.settings.disable_replies.title'), hint: t('admin.settings.disable_replies.desc_html')
-    .fields-group
-      = f.input :dms_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.dms_enabled.title'), hint: t('admin.settings.dms_enabled.desc_html')
 
+  .fields-group
+    = f.input :dms_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.dms_enabled.title'), hint: t('admin.settings.dms_enabled.desc_html')
 
   .fields-group
     = f.input :show_staff_badge, as: :boolean, wrapper: :with_label, label: t('admin.settings.show_staff_badge.title'), hint: t('admin.settings.show_staff_badge.desc_html')
