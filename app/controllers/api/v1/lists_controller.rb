@@ -41,8 +41,4 @@ class Api::V1::ListsController < Api::BaseController
   def list_params
     params.permit(:title, :replies_policy)
   end
-
-  def require_lists!
-    not_found if !Setting.lists
-  end
 end

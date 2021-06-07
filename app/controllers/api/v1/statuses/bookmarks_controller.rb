@@ -38,8 +38,4 @@ class Api::V1::Statuses::BookmarksController < Api::BaseController
   rescue Mastodon::NotPermittedError
     not_found
   end
-
-  def require_bookmarks!
-    not_found if !Setting.bookmarks
-  end
 end

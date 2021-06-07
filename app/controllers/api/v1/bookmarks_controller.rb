@@ -59,8 +59,4 @@ class Api::V1::BookmarksController < Api::BaseController
   def pagination_params(core_params)
     params.slice(:limit).permit(:limit).merge(core_params)
   end
-
-  def require_bookmarks!
-    not_found if !Setting.bookmarks
-  end
 end

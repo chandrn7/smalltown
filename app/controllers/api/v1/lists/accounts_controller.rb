@@ -95,8 +95,4 @@ class Api::V1::Lists::AccountsController < Api::BaseController
   def unlimited?
     params[:limit] == '0'
   end
-
-  def require_lists!
-    not_found if !Setting.lists
-  end
 end

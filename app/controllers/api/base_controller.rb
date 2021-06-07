@@ -107,6 +107,14 @@ class Api::BaseController < ApplicationController
     end
   end
 
+  def require_bookmarks!
+    not_found if !Setting.bookmarks
+  end
+
+  def require_lists!
+    not_found if !Setting.lists
+  end
+
   def render_empty
     render json: {}, status: 200
   end

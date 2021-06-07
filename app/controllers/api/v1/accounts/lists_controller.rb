@@ -16,8 +16,4 @@ class Api::V1::Accounts::ListsController < Api::BaseController
   def set_account
     @account = Account.find(params[:account_id])
   end
-
-  def require_lists!
-    not_found if !Setting.lists
-  end
 end
