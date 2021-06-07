@@ -8,7 +8,7 @@ class Api::V1::StatusesController < Api::BaseController
   before_action :require_user!, except:  [:show, :context]
   before_action :set_status, only:       [:show, :context]
   before_action :set_thread, only:       [:create]
-  # before_action :check_visibility!, only: [:create]
+  before_action :check_visibility!, only: [:create]
 
   override_rate_limit_headers :create, family: :statuses
 
