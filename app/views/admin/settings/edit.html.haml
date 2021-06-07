@@ -95,6 +95,15 @@
     = f.input :show_staff_badge, as: :boolean, wrapper: :with_label, label: t('admin.settings.show_staff_badge.title'), hint: t('admin.settings.show_staff_badge.desc_html')
 
   .fields-group
+    = f.input :bookmarks, as: :boolean, wrapper: :with_label, label: t('admin.settings.bookmarks.title'), hint: t('admin.settings.bookmarks.desc_html')
+
+  .fields-group
+    = f.input :lists, as: :boolean, wrapper: :with_label, label: t('admin.settings.lists.title'), hint: t('admin.settings.lists.desc_html')
+
+  .fields-group
+    = f.input :relationships, as: :boolean, wrapper: :with_label, label: t('admin.settings.relationships.title'), hint: t('admin.settings.relationships.desc_html')
+
+  .fields-group
     = f.input :open_deletion, as: :boolean, wrapper: :with_label, label: t('admin.settings.registrations.deletion.title'), hint: t('admin.settings.registrations.deletion.desc_html')
 
   .fields-group

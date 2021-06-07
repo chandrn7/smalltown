@@ -10,7 +10,7 @@ defaults: &defaults
   site_contact_username: ''
   site_contact_email: ''
   registrations_mode: 'open'
-  profile_directory: true
+  profile_directory: false
   closed_registrations_message: ''
   open_deletion: true
   min_invite_role: 'admin'
@@ -77,6 +77,9 @@ defaults: &defaults
   support_url: ''
   safari_svg_color: ''
   disable_replies: false
+  bookmarks: false
+  lists: false
+  relationships: false
 
 development:
   <<: *defaults

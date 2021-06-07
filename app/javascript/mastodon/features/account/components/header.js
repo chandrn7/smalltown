@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import Button from 'mastodon/components/button';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { autoPlayGif, me, isStaff, showStaffBadge, whitelistMode, dmsEnabled } from 'mastodon/initial_state';
+import { autoPlayGif, me, isStaff, showStaffBadge, whitelistMode, dmsEnabled, lists } from 'mastodon/initial_state';
 import classNames from 'classnames';
 import Icon from 'mastodon/components/icon';
 import IconButton from 'mastodon/components/icon_button';
@@ -193,7 +193,9 @@ class Header extends ImmutablePureComponent {
       menu.push(null);
       menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
       menu.push({ text: intl.formatMessage(messages.favourites), to: '/favourites' });
-      if (!whitelistMode) { menu.push({ text: intl.formatMessage(messages.lists), to: '/lists' }); }
+      if (lists) { 
+        menu.push({ text: intl.formatMessage(messages.lists), to: '/lists' }); 
+      }
       menu.push(null);
       menu.push({ text: intl.formatMessage(messages.mutes), to: '/mutes' });
       menu.push({ text: intl.formatMessage(messages.blocks), to: '/blocks' });
@@ -209,7 +211,9 @@ class Header extends ImmutablePureComponent {
         }
 
         menu.push({ text: intl.formatMessage(account.getIn(['relationship', 'endorsed']) ? messages.unendorse : messages.endorse), action: this.props.onEndorseToggle });
-        if (!whitelistMode) { menu.push({ text: intl.formatMessage(messages.add_or_remove_from_list), action: this.props.onAddToList }); }
+        if (lists) { 
+          menu.push({ text: intl.formatMessage(messages.add_or_remove_from_list), action: this.props.onAddToList }); 
+        }
         menu.push(null);
       }
 

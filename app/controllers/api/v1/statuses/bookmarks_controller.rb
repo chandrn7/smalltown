@@ -6,7 +6,7 @@ class Api::V1::Statuses::BookmarksController < Api::BaseController
   before_action -> { doorkeeper_authorize! :write, :'write:bookmarks' }
   before_action :require_user!
   before_action :set_status, only: [:create]
-  before_action :require_open_federation!
+  before_action :require_bookmarks!
 
   def create
     current_account.bookmarks.find_or_create_by!(account: current_account, status: @status)
@@ -37,5 +37,9 @@ class Api::V1::Statuses::BookmarksController < Api::BaseController
     authorize @status, :show?
   rescue Mastodon::NotPermittedError
     not_found
+  end
+
+  def require_bookmarks!
+    not_found if !Setting.bookmarks
   end
 end

@@ -4,7 +4,7 @@ class Api::V1::BookmarksController < Api::BaseController
   before_action -> { doorkeeper_authorize! :read, :'read:bookmarks' }
   before_action :require_user!
   after_action :insert_pagination_headers
-  before_action :require_open_federation!
+  before_action :require_bookmarks!
 
   def index
     @statuses = load_statuses
@@ -58,5 +58,9 @@ class Api::V1::BookmarksController < Api::BaseController
 
   def pagination_params(core_params)
     params.slice(:limit).permit(:limit).merge(core_params)
+  end
+
+  def require_bookmarks!
+    not_found if !Setting.bookmarks
   end
 end

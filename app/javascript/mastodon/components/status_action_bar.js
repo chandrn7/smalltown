@@ -6,7 +6,7 @@ import IconButton from './icon_button';
 import DropdownMenuContainer from '../containers/dropdown_menu_container';
 import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { me, isStaff, whitelistMode, dmsEnabled } from '../initial_state';
+import { me, isStaff, dmsEnabled, bookmarks } from '../initial_state';
 import classNames from 'classnames';
 
 const messages = defineMessages({
@@ -240,7 +240,7 @@ class StatusActionBar extends ImmutablePureComponent {
 
     menu.push(null);
 
-    if (!whitelistMode) { menu.push({ text: intl.formatMessage(status.get('bookmarked') ? messages.removeBookmark : messages.bookmark), action: this.handleBookmarkClick }); }
+    if (bookmarks) { menu.push({ text: intl.formatMessage(status.get('bookmarked') ? messages.removeBookmark : messages.bookmark), action: this.handleBookmarkClick }); }
 
     if (writtenByMe && publicStatus) {
       menu.push({ text: intl.formatMessage(status.get('pinned') ? messages.unpin : messages.pin), action: this.handlePinClick });

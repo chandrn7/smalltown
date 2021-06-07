@@ -594,6 +594,9 @@ en:
       android_icon:
         desc_html: Displayed when someone pins your site to their homescreen on Android. 192x192px recommended. (ex. android-chrome-192x192.png)
         title: Android icon
+      bookmarks:
+        desc_html: Allow users to bookmark posts.
+        title: Enable bookmarks
       bootstrap_timeline_accounts:
         desc_html: Separate multiple usernames by comma. These accounts will be guaranteed to be shown in follow recommendations
         title: Recommend these accounts to new users
@@ -634,6 +637,9 @@ en:
       ios_icon:
         desc_html: Displayed when someone pins your site to their homescreen on iOS. 180x180px recommended. (ex. apple-touch-icon.png)
         title: iOS icon
+      lists:
+        desc_html: Allow users to create lists of accounts.
+        title: Enable lists
       mascot:
         desc_html: Displayed on multiple pages. At least 293×205px recommended. When not set, falls back to default mascot
         title: Mascot image
@@ -671,6 +677,9 @@ en:
           none: Nobody can sign up
           open: Anyone can sign up
         title: Registrations mode
+      relationships:
+        desc_html: Display a tab with detailed information about follow relationships
+        title: Enable relationships tab
       safari_svg:
         desc_html: Displayed on Safari tabs (ex. safari-pinned-tab.svg)
         title: Safari tab icon
