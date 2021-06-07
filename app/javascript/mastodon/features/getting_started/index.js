@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { me, profile_directory, showTrends, completelySiloed, whitelistMode, dmsEnabled } from '../../initial_state';
+import { me, profile_directory, showTrends, completelySiloed, dmsEnabled, bookmarks, lists } from '../../initial_state';
 import { fetchFollowRequests } from 'mastodon/actions/accounts';
 import { List as ImmutableList } from 'immutable';
 import NavigationContainer from '../compose/containers/navigation_container';
@@ -137,9 +137,9 @@ class GettingStarted extends ImmutablePureComponent {
 
     navItems.push(
       ... dmsEnabled ? [<ColumnLink key='direct' icon='envelope' text={intl.formatMessage(messages.direct)} to='/timelines/direct' />] : [],
-      ... whitelistMode ? [] : [<ColumnLink key='bookmark' icon='bookmark' text={intl.formatMessage(messages.bookmarks)} to='/bookmarks' />],
+      ... bookmarks ? [<ColumnLink key='bookmark' icon='bookmark' text={intl.formatMessage(messages.bookmarks)} to='/bookmarks' />] : [],
       <ColumnLink key='favourites' icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
-      ... whitelistMode ? [] : [<ColumnLink key='lists' icon='list-ul' text={intl.formatMessage(messages.lists)} to='/lists' />],
+      ... lists ? [<ColumnLink key='lists' icon='list-ul' text={intl.formatMessage(messages.lists)} to='/lists' />] : [],
     );
 
     height += 48*4;

@@ -33,5 +33,8 @@ export const dmsEnabled = getMeta('dms_enabled');
 export const featuredTopics = getMeta('featured_topics');
 export const support_url = getMeta('support_url');
 export const android_icon = getMeta('android_icon');
+export const bookmarks = getMeta('bookmarks');
+export const lists = getMeta('lists');
+export const relationships = getMeta('relationships');
 
 export default initialState;

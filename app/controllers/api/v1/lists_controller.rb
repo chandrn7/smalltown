@@ -6,7 +6,7 @@ class Api::V1::ListsController < Api::BaseController
 
   before_action :require_user!
   before_action :set_list, except: [:index, :create]
-  before_action :require_open_federation!
+  before_action :require_lists!
 
   def index
     @lists = List.where(account: current_account).all

@@ -46,6 +46,9 @@ class Form::AdminSettings
     safari_svg
     safari_svg_color
     disable_replies
+    bookmarks
+    lists
+    relationships
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -67,6 +70,9 @@ class Form::AdminSettings
     sso_auto_approval
     user_filter_languages
     disable_replies
+    bookmarks
+    lists
+    relationships
   ).freeze
 
   UPLOAD_KEYS = %i(

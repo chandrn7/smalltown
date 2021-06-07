@@ -3,7 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import DropdownMenuContainer from '../../../containers/dropdown_menu_container';
 import { defineMessages, injectIntl } from 'react-intl';
-import { whitelistMode } from 'mastodon/initial_state';
+import { bookmarks, lists } from 'mastodon/initial_state';
 
 const messages = defineMessages({
   edit_profile: { id: 'account.edit_profile', defaultMessage: 'Edit profile' },
@@ -44,8 +44,8 @@ class ActionBar extends React.PureComponent {
     menu.push(null);
     menu.push({ text: intl.formatMessage(messages.follow_requests), to: '/follow_requests' });
     menu.push({ text: intl.formatMessage(messages.favourites), to: '/favourites' });
-    if (!whitelistMode) { menu.push({ text: intl.formatMessage(messages.bookmarks), to: '/bookmarks' }); }
-    if (!whitelistMode) { menu.push({ text: intl.formatMessage(messages.lists), to: '/lists' }); }
+    if (bookmarks) { menu.push({ text: intl.formatMessage(messages.bookmarks), to: '/bookmarks' }); }
+    if (lists) { menu.push({ text: intl.formatMessage(messages.lists), to: '/lists' }); }
     menu.push(null);
     menu.push({ text: intl.formatMessage(messages.mutes), to: '/mutes' });
     menu.push({ text: intl.formatMessage(messages.blocks), to: '/blocks' });

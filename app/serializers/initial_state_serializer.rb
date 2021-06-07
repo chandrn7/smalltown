@@ -33,6 +33,9 @@ class InitialStateSerializer < ActiveModel::Serializer
       featured_topics: ActiveModelSerializers::SerializableResource.new(FeaturedTopic.order(created_at: :desc), each_serializer: REST::FeaturedTopicSerializer),
       support_url: Setting.support_url,
       android_icon: instance_presenter.android_icon&.file&.url,
+      bookmarks: Setting.bookmarks,
+      lists: Setting.lists,
+      relationships: Setting.relationships,
     }
 
     if object.current_account

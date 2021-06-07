@@ -77,6 +77,9 @@ defaults: &defaults
   support_url: ''
   safari_svg_color: ''
   disable_replies: false
+  bookmarks: false
+  lists: false
+  relationships: false
 
 development:
   <<: *defaults

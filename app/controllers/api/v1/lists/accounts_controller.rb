@@ -6,7 +6,7 @@ class Api::V1::Lists::AccountsController < Api::BaseController
 
   before_action :require_user!
   before_action :set_list
-  before_action :require_open_federation!
+  before_action :require_lists!
 
   after_action :insert_pagination_headers, only: :show
 

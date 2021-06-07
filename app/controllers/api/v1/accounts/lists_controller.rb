@@ -4,7 +4,7 @@ class Api::V1::Accounts::ListsController < Api::BaseController
   before_action -> { doorkeeper_authorize! :read, :'read:lists' }
   before_action :require_user!
   before_action :set_account
-  before_action :require_open_federation!
+  before_action :require_lists!
 
   def index
     @lists = @account.suspended? ? [] : @account.lists.where(account: current_account)
