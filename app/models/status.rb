@@ -85,6 +85,7 @@ class Status < ApplicationRecord
   scope :recent, -> { reorder(id: :desc) }
   scope :remote, -> { where(local: false).where.not(uri: nil) }
   scope :local,  -> { where(local: true).or(where(uri: nil)) }
+  scope :staff, -> { where(visibility: %w(public private unlisted)) }
   scope :with_accounts, ->(ids) { where(id: ids).includes(:account) }
   scope :without_replies, -> { where('statuses.reply = FALSE OR statuses.in_reply_to_account_id = statuses.account_id') }
   scope :without_reblogs, -> { where('statuses.reblog_of_id IS NULL') }
@@ -330,7 +331,7 @@ class Status < ApplicationRecord
       else
         # followers can see followers-only stuff, but also things they are mentioned in.
         # non-followers can see everything that isn't private/direct, but can see stuff they are mentioned in.
-        visibility.push(:private) if account.following?(target_account) || account.id == target_account.id
+        visibility.push(:private) if account.following?(target_account) || account.id == target_account.id || account.user.staff?
 
         scope = left_outer_joins(:reblog)
 

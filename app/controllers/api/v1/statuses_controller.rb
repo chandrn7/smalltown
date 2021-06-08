@@ -83,13 +83,12 @@ class Api::V1::StatusesController < Api::BaseController
   end
 
   def check_visibility!
-    if whitelist_mode?
-      if params[:visibility] == 'unlisted'
+    if params[:visibility] == 'direct'  && !Setting.dms_enabled
+      not_found
+    elsif params[:visibility] == 'private'  && !Setting.allow_private_accounts
+      not_found
+    elsif params[:visibility] == 'unlisted' && whitelist_mode?
         not_found
-      end
-      if params[:visibility] == 'direct'  && !Setting.dms_enabled
-        not_found
-      end
     end
   end
 

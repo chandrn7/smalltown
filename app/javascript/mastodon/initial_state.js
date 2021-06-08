@@ -36,5 +36,6 @@ export const android_icon = getMeta('android_icon');
 export const bookmarks = getMeta('bookmarks');
 export const lists = getMeta('lists');
 export const relationships = getMeta('relationships');
+export const allowPrivateAccounts = getMeta('allow_private_accounts');
 
 export default initialState;

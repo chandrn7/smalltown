@@ -49,6 +49,7 @@ class Form::AdminSettings
     bookmarks
     lists
     relationships
+    allow_private_accounts
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -73,6 +74,7 @@ class Form::AdminSettings
     bookmarks
     lists
     relationships
+    allow_private_accounts
   ).freeze
 
   UPLOAD_KEYS = %i(

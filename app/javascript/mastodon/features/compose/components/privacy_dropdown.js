@@ -8,7 +8,7 @@ import spring from 'react-motion/lib/spring';
 import { supportsPassiveEvents } from 'detect-passive-events';
 import classNames from 'classnames';
 import Icon from 'mastodon/components/icon';
-import { whitelistMode, dmsEnabled } from '../../../initial_state';
+import { whitelistMode, dmsEnabled, allowPrivateAccounts } from '../../../initial_state';
 
 const messages = defineMessages({
   public_short: { id: 'privacy.public.short', defaultMessage: 'Public' },
@@ -237,7 +237,7 @@ class PrivacyDropdown extends React.PureComponent {
     this.options = [
       { icon: 'globe', value: 'public', text: formatMessage(messages.public_short), meta: formatMessage(messages.public_long) },
       ... whitelistMode ? [] : [{ icon: 'unlock', value: 'unlisted', text: formatMessage(messages.unlisted_short), meta: formatMessage(messages.unlisted_long) }],
-      { icon: 'lock', value: 'private', text: formatMessage(messages.private_short), meta: formatMessage(messages.private_long) },
+      ... allowPrivateAccounts ? { icon: 'lock', value: 'private', text: formatMessage(messages.private_short), meta: formatMessage(messages.private_long) } : [],
     ];
 
     if (!this.props.noDirect && dmsEnabled) {

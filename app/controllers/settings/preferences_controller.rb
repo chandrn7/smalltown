@@ -16,6 +16,16 @@ class Settings::PreferencesController < Settings::BaseController
 
   private
 
+  # def get_selectable_visibilities
+  #   selectable = Status.visibilities.keys - %w(direct limited)
+  #   # if Rails.configuration.x.whitelist_mode
+  #   #   selectable = selectable - %w(unlisted)
+  #   # end
+  #   if !Setting.allow_private_accounts
+  #     selectable = selectable - %w(private)
+  #   end
+  # end
+
   def after_update_redirect_path
     settings_preferences_path
   end

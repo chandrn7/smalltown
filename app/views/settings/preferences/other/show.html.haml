@@ -21,7 +21,7 @@
 
   .fields-row
     .fields-group.fields-row__column.fields-row__column-6
-      = f.input :setting_default_privacy, collection: Status.selectable_visibilities, wrapper: :with_label, include_blank: false, label_method: lambda { |visibility| safe_join([I18n.t("statuses.visibilities.#{visibility}"), I18n.t("statuses.visibilities.#{visibility}_long")], ' - ') }, required: false, hint: false
+      = f.input :setting_default_privacy, collection: Setting.allow_private_accounts ? Status.selectable_visibilities : Status.selectable_visibilities - %w(private), wrapper: :with_label, include_blank: false, label_method: lambda { |visibility| safe_join([I18n.t("statuses.visibilities.#{visibility}"), I18n.t("statuses.visibilities.#{visibility}_long")], ' - ') }, required: false, hint: false
 
     .fields-group.fields-row__column.fields-row__column-6
       = f.input :setting_default_language, collection: [nil] + filterable_languages.sort, wrapper: :with_label, label_method: lambda { |locale| locale.nil? ? I18n.t('statuses.language_detection') : human_locale(locale) }, required: false, include_blank: false, hint: false
