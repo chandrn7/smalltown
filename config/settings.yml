@@ -80,6 +80,7 @@ defaults: &defaults
   bookmarks: false
   lists: false
   relationships: false
+  allow_private_accounts: false
 
 development:
   <<: *defaults

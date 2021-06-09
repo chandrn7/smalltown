@@ -41,18 +41,20 @@ class Form::StatusBatch
   end
 
   def delete_or_restore_statuses(delete_statuses)
-    if delete_statuses
-      Status.where(id: status_ids).reorder(nil).find_each do |status|
-        status.discard
-        Tombstone.find_or_create_by(uri: status.uri, account: status.account, by_moderator: true)
-        log_action :destroy, status
-      end
-    else
-      Status.with_discarded.where(id: status_ids).reorder(nil).find_each do |status|
-        status.undiscard
-        tombstone = Tombstone.find_by(uri: status.uri, account: status.account, by_moderator: true)
-        tombstone&.destroy!
-        log_action :restore, status
+    ApplicationRecord.transaction do
+      if delete_statuses
+        Status.where(id: status_ids).reorder(nil).find_each do |status|
+          status.discard
+          Tombstone.find_or_create_by(uri: status.uri, account: status.account, by_moderator: true)
+          log_action :destroy, status
+        end
+      else
+        Status.with_discarded.where(id: status_ids).reorder(nil).find_each do |status|
+          status.undiscard
+          tombstone = Tombstone.find_by(uri: status.uri, account: status.account, by_moderator: true)
+          tombstone&.destroy!
+          log_action :restore, status
+        end
       end
     end
     
@@ -61,6 +63,8 @@ class Form::StatusBatch
       process_email!
     end
     true
+  rescue ActiveRecord::RecordInvalid
+    false
   end
 
   def change_replies(replies_disabled)

@@ -92,6 +92,9 @@
     = f.input :dms_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.dms_enabled.title'), hint: t('admin.settings.dms_enabled.desc_html')
 
   .fields-group
+    = f.input :allow_private_accounts, as: :boolean, wrapper: :with_label, label: t('admin.settings.allow_private_accounts.title'), hint: t('admin.settings.allow_private_accounts.desc_html')
+
+  .fields-group
     = f.input :show_staff_badge, as: :boolean, wrapper: :with_label, label: t('admin.settings.show_staff_badge.title'), hint: t('admin.settings.show_staff_badge.desc_html')
 
   .fields-group

@@ -27,6 +27,7 @@ class PublicFeed
     scope.merge!(remote_only_scope) if remote_only?
     scope.merge!(account_filters_scope) if account?
     scope.merge!(media_only_scope) if media_only?
+    scope.merge!(staff_scope) if account.user.staff?
 
     scope.cache_ids.to_a_paginated_by_id(limit, max_id: max_id, since_id: since_id, min_id: min_id)
   end
@@ -88,5 +89,9 @@ class PublicFeed
       scope.merge!(Status.not_domain_blocked_by_account(account)) unless local_only?
       scope.merge!(Status.in_chosen_languages(account)) if account.chosen_languages.present?
     end
+  end
+
+  def staff_scope
+    Status.staff
   end
 end

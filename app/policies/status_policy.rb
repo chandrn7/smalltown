@@ -17,7 +17,7 @@ class StatusPolicy < ApplicationPolicy
     if requires_mention?
       owned? || mention_exists?
     elsif private?
-      owned? || following_author? || mention_exists?
+      owned? || following_author? || mention_exists? || staff?
     else
       current_account.nil? || (!author_blocking? && !author_blocking_domain?)
     end

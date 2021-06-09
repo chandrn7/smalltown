@@ -36,6 +36,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       bookmarks: Setting.bookmarks,
       lists: Setting.lists,
       relationships: Setting.relationships,
+      allow_private_accounts: Setting.allow_private_accounts,
     }
 
     if object.current_account
