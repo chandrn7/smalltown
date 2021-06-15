@@ -6,7 +6,7 @@ __Smalltown__ is designed for civic communities looking to run their own social 
 
 Some of our changes are wanted by the Mastodon project, others are not—we will do our best to merge relevant changes to Mastodon.
 
-Please check out our [wiki](https://github.com/chandrn7/civic-logic/wiki) for a list of Smalltown-exclusive features. Some but not all of these are covered in this document.
+Please [check out our wiki](https://github.com/chandrn7/civic-logic/wiki) for a list of Smalltown-exclusive features. Some but not all of them are covered in this document.
 
 ## Support this project
 
