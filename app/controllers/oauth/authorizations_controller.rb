@@ -6,6 +6,7 @@ class Oauth::AuthorizationsController < Doorkeeper::AuthorizationsController
   before_action :store_current_location
   before_action :authenticate_resource_owner!
   before_action :set_cache_headers
+  before_action :check_staff!
 
   include Localized
 
@@ -31,5 +32,9 @@ class Oauth::AuthorizationsController < Doorkeeper::AuthorizationsController
 
   def set_cache_headers
     response.headers['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
+  end
+
+  def check_staff!
+    return not_found unless current_user.staff? || Setting.non_staff_development
   end
 end

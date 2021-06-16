@@ -598,7 +598,7 @@ en:
         desc_html: Displayed when someone pins your site to their homescreen on Android. 192x192px recommended. (ex. android-chrome-192x192.png)
         title: Android icon
       bookmarks:
-        desc_html: Allow users to bookmark posts.
+        desc_html: Allow users to bookmark posts
         title: Enable bookmarks
       bootstrap_timeline_accounts:
         desc_html: Separate multiple usernames by comma. These accounts will be guaranteed to be shown in follow recommendations
@@ -616,7 +616,7 @@ en:
         desc_html: Enable moderators to disable replies on a thread. Effective only if the servers you federate with are compliant. Thus it's only recommended if your server is in limited federation mode.
         title: Allow moderators to disable replies
       dms_enabled:
-        desc_html: Allow users to exchange direct messages.
+        desc_html: Allow users to exchange direct messages
         title: Enable direct messages
       domain_blocks:
         all: To everyone
@@ -633,7 +633,7 @@ en:
         title: Favicon image
       featured_tags:
         desc_html: Allow users to feature hashtags on their profile
-        title: Enable featured hashtags
+        title: Enable personal featured hashtags
       hero:
         desc_html: Displayed on the frontpage. At least 600x100px recommended. When not set, falls back to server thumbnail
         title: Hero image
@@ -641,14 +641,14 @@ en:
         desc_html: Displayed when someone pins your site to their homescreen on iOS. 180x180px recommended. (ex. apple-touch-icon.png)
         title: iOS icon
       lists:
-        desc_html: Allow users to create lists of accounts.
+        desc_html: Allow users to create lists of accounts
         title: Enable lists
       mascot:
         desc_html: Displayed on multiple pages. At least 293×205px recommended. When not set, falls back to default mascot
         title: Mascot image
       non_staff_development:
-        desc_html: Allow non-staff users to create applications with API access through the UI
-        title: Enable the development tab for non-staff
+        desc_html: Allow users who aren't staff to create applications and access the API
+        title: Allow users who aren't staff to access the API
       peers_api_enabled:
         desc_html: Domain names this server has encountered in the fediverse
         title: Publish list of discovered servers in the API
@@ -681,8 +681,8 @@ en:
           open: Anyone can sign up
         title: Registrations mode
       relationships:
-        desc_html: Display a tab with detailed information about follow relationships
-        title: Enable relationships tab
+        desc_html: Display a page with detailed information about follows and followers
+        title: Enable advanced relationships page
       safari_svg:
         desc_html: Displayed on Safari tabs (ex. safari-pinned-tab.svg)
         title: Safari tab icon
@@ -709,8 +709,8 @@ en:
         title: Custom terms of service
       site_title: Server name
       support_url: 
-        desc_html: Displayed in the link footer. Provide a URL where people can go to help fund your site. The appropriate HTTP prefix is required.
-        title: Link to fund
+        desc_html: Displayed in the link footer. Provide a URL where people can go to help support your site. The appropriate HTTP prefix is required.
+        title: Link to support
       thumbnail:
         desc_html: Used for previews via OpenGraph and API. 1200x630px recommended
         title: Server thumbnail
