@@ -26,7 +26,7 @@ Mastodon allows for some site functionality to be configured through the admin d
 
 Smalltown extends this customization, allowing admins to customize additional functionality through the dashboard. Some examples:
 * Whether to allow direct messages
-* Whether to allow locked posts and accounts
+* Whether to allow private posts and accounts
 * Whether to include bookmarks and lists
 * Uploading custom icons and favicons
 
