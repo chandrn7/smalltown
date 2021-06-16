@@ -54,7 +54,7 @@ Mastodon comes with a lot of Mastodon related branding. We removed much of the M
 We also simplified the UI. Mastodon comes with a lot of features for power users, but this can be overwhelming for less technically savvy users. Some examples:
 * We removed verified links
 * We removed many of the footer links and some functionality on the /about landing pages
-* We enabled admins to remove personal “featured hashtags”, bookmarks, lists, and an advanced “relationships” page
+* We enabled admins to remove personal “featured hashtags”, bookmarks, lists, and the advanced “relationships” page
 
 [For a full list of UI changes and detailed documentation check out the wiki](https://github.com/chandrn7/civic-logic/wiki).
 
