@@ -646,6 +646,9 @@ en:
       mascot:
         desc_html: Displayed on multiple pages. At least 293×205px recommended. When not set, falls back to default mascot
         title: Mascot image
+      max_status_chars:
+        desc_html: Set a custom max character count for posts. Default is 500.
+        title: Max post characters
       non_staff_development:
         desc_html: Allow users who aren't staff to create applications and access the API
         title: Allow users who aren't staff to access the API

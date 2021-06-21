@@ -25,8 +25,11 @@
     .fields-row__column.fields-row__column-6.fields-group
       = f.input :site_contact_email, wrapper: :with_label, label: t('admin.settings.contact_information.email')
 
-  .fields-group
-    = f.input :support_url, wrapper: :with_block_label, label: t('admin.settings.support_url.title'), hint: t('admin.settings.support_url.desc_html')
+  .fields-row
+    .fields-row__column.fields-row__column-6.fields-group
+      = f.input :support_url, wrapper: :with_block_label, label: t('admin.settings.support_url.title'), hint: t('admin.settings.support_url.desc_html')
+    .fields-row__column.fields-row__column-6.fields-group
+      = f.input :max_status_chars, wrapper: :with_block_label, label: t('admin.settings.max_status_chars.title'), hint: t('admin.settings.max_status_chars.desc_html')
 
   .fields-group
     = f.input :site_short_description, wrapper: :with_block_label, as: :text, label: t('admin.settings.site_short_description.title'), hint: t('admin.settings.site_short_description.desc_html', title: site_title), input_html: { rows: 2 }

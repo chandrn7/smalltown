@@ -50,6 +50,7 @@ class Form::AdminSettings
     lists
     relationships
     allow_private_accounts
+    max_status_chars
   ).freeze
 
   BOOLEAN_KEYS = %i(
