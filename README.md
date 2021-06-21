@@ -14,6 +14,10 @@ Much of the work on this project was inspired by [Darius Kazemi's](https://tinys
 
 This project also couldn't exist without Mastodon so please consider [supporting the Mastodon project](https://www.patreon.com/mastodon) too.
 
+## Installation
+
+Please see [this article in the wiki](https://github.com/chandrn7/civic-logic/wiki/How-to-setup-a-site-that-runs-Smalltown) for instructions on how to setup a site that runs Smalltown.
+
 ## OpenID Single Sign On
 
 Mastodon currently allows you to set up Single Sign On (SSO) with frameworks including SAML, LDAP, PAM, and CAS. However, it does not support [OpenID](https://openid.net/connect/). OpenID is widely used and makes it easier for users to sign up through popular services like Google and Facebook, or through an organization where they already have an identity, like their local newspaper. This makes life easier for both users and admins.
