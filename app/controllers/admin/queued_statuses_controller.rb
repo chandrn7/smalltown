@@ -18,7 +18,7 @@ module Admin
     def create
       authorize :status, :update?
 
-      @form         = Form::StatusBatch.new(form_status_batch_params.merge(current_account: current_account, action: action_from_button))
+      @form         = Form::StatusBatch.new(form_status_batch_params.merge(current_account: current_account, action: action_from_button, queue: true))
       flash[:alert] = I18n.t('admin.statuses.failed_to_execute') unless @form.save
 
       redirect_to admin_queued_statuses_path(current_params)

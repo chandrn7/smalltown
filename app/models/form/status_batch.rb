@@ -5,7 +5,7 @@ class Form::StatusBatch
   include AccountableConcern
   include Authorization
 
-  attr_accessor :status_ids, :action, :current_account, :email_collection, :target_account
+  attr_accessor :status_ids, :action, :current_account, :email_collection, :target_account, :queue
   attr_reader :warning
 
   def save
@@ -27,16 +27,14 @@ class Form::StatusBatch
     media_attached_status_ids = MediaAttachment.where(status_id: status_ids).pluck(:status_id)
 
     ApplicationRecord.transaction do
-      Status.where(id: media_attached_status_ids).reorder(nil).find_each do |status|
+      Status.unscope(where: :pending).where(id: media_attached_status_ids).reorder(nil).find_each do |status|
         status.update!(sensitive: sensitive)
         log_action :update, status
+        handle_queue_email(status)
       end
+      handle_non_queue_email
     end
-    
-    if send_email_notification?
-      process_warning!
-      process_email!
-    end
+
     true
   rescue ActiveRecord::RecordInvalid
     false
@@ -44,26 +42,23 @@ class Form::StatusBatch
 
   def delete_or_restore_statuses(delete_statuses)
     ApplicationRecord.transaction do
-      if delete_statuses
-        Status.where(id: status_ids).reorder(nil).find_each do |status|
+      Status.unscope(where: :pending).with_discarded.where(id: status_ids).reorder(nil).find_each do |status|
+        if delete_statuses
           status.discard
-          Tombstone.find_or_create_by(uri: status.uri, account: status.account, by_moderator: true)
+          status.update!(pending: false) if status.pending
+          Tombstone.find_or_create_by!(uri: status.uri, account: status.account, by_moderator: true)
           log_action :destroy, status
-        end
-      else
-        Status.with_discarded.where(id: status_ids).reorder(nil).find_each do |status|
+        else
           status.undiscard
           tombstone = Tombstone.find_by(uri: status.uri, account: status.account, by_moderator: true)
           tombstone&.destroy!
           log_action :restore, status
         end
+        handle_queue_email(status)
       end
+      handle_non_queue_email
     end
     
-    if send_email_notification?
-      process_warning!
-      process_email!
-    end
     true
   rescue ActiveRecord::RecordInvalid
     false
@@ -71,7 +66,7 @@ class Form::StatusBatch
 
   def change_replies(replies_disabled)
     ApplicationRecord.transaction do
-      Status.where(id: status_ids).reorder(nil).find_each do |status|
+      Status.unscope(where: :pending).where(id: status_ids).reorder(nil).find_each do |status|
         if replies_disabled
           ConversationRepliesDisabled.find_or_create_by!(conversation_id: status.conversation_id)
         else 
@@ -79,13 +74,11 @@ class Form::StatusBatch
           disabled&.destroy!
         end
         log_action :update, status
+        handle_queue_email(status)
       end
+      handle_non_queue_email
     end
     
-    if send_email_notification?
-      process_warning!
-      process_email!
-    end
     true
   rescue ActiveRecord::RecordInvalid
     false
@@ -95,28 +88,26 @@ class Form::StatusBatch
     ApplicationRecord.transaction do
       Status.unscope(where: :pending).where(id: status_ids).reorder(nil).find_each do |status|
         status.update!(pending: false)
+        log_action :update, status
         if status.local?
           PostStatusService.new.postprocess_status(status)
         else
           ActivityPub::Activity.distribute(status)
         end
-        log_action :update, status
+        handle_queue_email(status)
       end
+      handle_non_queue_email
     end
 
-    if send_email_notification?
-      process_warning!
-      process_email!
-    end
     true
   rescue ActiveRecord::RecordInvalid
     false
   end
 
-  def process_warning!
-    authorize(target_account, :warn?)
+  def process_warning(account)
+    authorize(account, :warn?)
 
-    @warning = AccountWarning.create!(target_account: target_account,
+    warning = AccountWarning.create!(target_account: account,
                                       account: current_account,
                                       action: action,
                                       text: get_email_text)
@@ -125,10 +116,11 @@ class Form::StatusBatch
     # custom text from someone. Otherwise it's just noise.
 
     log_action(:create, warning) if warning.text.present?
+    return warning
   end
 
-  def process_email!
-    UserMailer.warning(target_account.user, warning, status_ids).deliver_later!
+  def process_email(account, warning, status_ids)
+    UserMailer.warning(account.user, warning, status_ids).deliver_later!
   end
 
   def get_email_text
@@ -140,5 +132,19 @@ class Form::StatusBatch
 
   def send_email_notification?
     ActiveModel::Type::Boolean.new.cast(email_collection[:send_email_notification])
+  end
+
+  def handle_queue_email(status)
+    if send_email_notification? && queue
+      warning = process_warning(status.account)
+      process_email(status.account, warning, [status.id])
+    end
+  end
+
+  def handle_non_queue_email
+    if send_email_notification? && !queue
+      warning = process_warning(target_account)
+      process_email(target_account, warning, status_ids)
+    end
   end
 end

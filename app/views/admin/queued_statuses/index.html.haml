@@ -16,6 +16,7 @@
 = form_for(@form, url: admin_queued_statuses_path, html: { class: 'moderation_form' }) do |f|
   = hidden_field_tag :page, params[:page]
   = hidden_field_tag :media, params[:media]
+  = hidden_field_tag :media, params[:queue]
 
   = f.simple_fields_for :email_collection do |email_form|
     .fields-group

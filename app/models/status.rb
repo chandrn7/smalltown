@@ -392,7 +392,7 @@ class Status < ApplicationRecord
   end
 
   def set_pending
-    return if direct_visibility?
+    return if direct_visibility? || account.user.staff?
     self.pending = Setting.status_queue ? true : false
   end
 
