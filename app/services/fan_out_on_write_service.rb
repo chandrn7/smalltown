@@ -7,7 +7,6 @@ class FanOutOnWriteService < BaseService
     raise Mastodon::RaceConditionError if status.visibility.nil?
 
     if status.direct_visibility?
-      deliver_to_mentioned_followers(status)
       deliver_to_own_conversation(status)
     elsif status.limited_visibility?
       deliver_to_mentioned_followers(status)

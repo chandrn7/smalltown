@@ -711,6 +711,9 @@ en:
         desc_html: You can write your own privacy policy, terms of service or other legalese. You can use HTML tags
         title: Custom terms of service
       site_title: Server name
+      status_queue: 
+        desc_html: All posts will be queued pending staff approval.
+        title: Queue posts
       support_url: 
         desc_html: Displayed in the link footer. Provide a URL where people can go to help support your site. The appropriate HTTP prefix is required.
         title: Link to support
@@ -733,9 +736,13 @@ en:
     site_uploads:
       delete: Delete uploaded file
       destroyed_msg: Site upload successfully deleted!
+    status_queue:
+      title: Post queue
+      pending: Pending
     statuses:
       back_to_account: Back to account page
       batch:
+        approve: Approve
         delete: Delete
         disable_replies: Disable replies
         enable_replies: Enable replies
@@ -1484,6 +1491,7 @@ en:
       title: Sign in attempt
     warning:
       explanation:
+        approve: Your post has been approved.
         delete: Your post has been deleted.
         disable: You can no longer login to your account or use it in any other way, but your profile and other data remains intact.
         disable_replies: Replies have been turned off for your post. No one will be able to reply to your original post or any existing replies.
@@ -1498,6 +1506,7 @@ en:
       review_server_policies: Review server policies
       statuses: 'Specifically, for:'
       subject:
+        approve: Your post has been approved
         delete: Your post has been deleted
         disable: Your account %{acct} has been frozen
         disable_replies: Replies have been turned off for your post
@@ -1510,6 +1519,7 @@ en:
         silence: Your account %{acct} has been limited
         suspend: Your account %{acct} has been suspended
       title:
+        approve: Post approved
         delete: Post deleted
         disable: Account frozen
         disable_replies: Replies disabled for your post

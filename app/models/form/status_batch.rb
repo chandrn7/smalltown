@@ -16,6 +16,8 @@ class Form::StatusBatch
       delete_or_restore_statuses(action == 'delete')
     when 'disable_replies', 'enable_replies'
       change_replies(action == 'disable_replies')
+    when 'approve'
+      approve_statuses
     end
   end
 
@@ -80,6 +82,28 @@ class Form::StatusBatch
       end
     end
     
+    if send_email_notification?
+      process_warning!
+      process_email!
+    end
+    true
+  rescue ActiveRecord::RecordInvalid
+    false
+  end
+
+  def approve_statuses
+    ApplicationRecord.transaction do
+      Status.unscope(where: :pending).where(id: status_ids).reorder(nil).find_each do |status|
+        status.update!(pending: false)
+        if status.local?
+          PostStatusService.new.postprocess_status(status)
+        else
+          ActivityPub::Activity.distribute(status)
+        end
+        log_action :update, status
+      end
+    end
+
     if send_email_notification?
       process_warning!
       process_email!

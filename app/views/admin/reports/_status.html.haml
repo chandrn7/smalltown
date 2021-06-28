@@ -22,12 +22,17 @@
         = react_component :media_gallery, height: 343, sensitive: status.proper.sensitive?, visible: false, media: status.proper.media_attachments.map { |a| ActiveModelSerializers::SerializableResource.new(a, serializer: REST::MediaAttachmentSerializer).as_json }
 
     .detailed-status__meta
+      = admin_account_inline_link_to(status.account)
+      ·
       = link_to ActivityPub::TagManager.instance.url_for(status), class: 'detailed-status__datetime', target: stream_link_target, rel: 'noopener noreferrer' do
         %time.formatted{ datetime: status.created_at.iso8601, title: l(status.created_at) }= l(status.created_at)
       - if status.discarded?
         ·
         %span.negative-hint= t('admin.statuses.deleted')
       ·
+      - if status.pending
+        %span.warning-hint= t('admin.status_queue.pending')
+        ·
       - if status.reblog?
         = fa_icon('retweet fw')
         = t('statuses.boosted_from_html', acct_link: admin_account_inline_link_to(status.proper.account))

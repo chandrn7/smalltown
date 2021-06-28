@@ -158,26 +158,6 @@ export function submitCompose(routerHistory) {
 
       dispatch(insertIntoTagHistory(response.data.tags, status));
       dispatch(submitComposeSuccess({ ...response.data }));
-
-      // To make the app more responsive, immediately push the status
-      // into the columns
-      const insertIfOnline = timelineId => {
-        const timeline = getState().getIn(['timelines', timelineId]);
-
-        if (timeline && timeline.get('items').size > 0 && timeline.getIn(['items', 0]) !== null && timeline.get('online')) {
-          dispatch(updateTimeline(timelineId, { ...response.data }));
-        }
-      };
-
-      if (response.data.visibility !== 'direct') {
-        insertIfOnline('home');
-      }
-
-      if (response.data.in_reply_to_id === null && response.data.visibility === 'public') {
-        insertIfOnline('community');
-        insertIfOnline('public');
-        insertIfOnline(`account:${response.data.account.id}`);
-      }
     }).catch(function (error) {
       dispatch(submitComposeFail(error));
     });

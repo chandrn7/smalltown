@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_001928) do
+ActiveRecord::Schema.define(version: 2021_06_23_172216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,15 @@ ActiveRecord::Schema.define(version: 2021_05_07_001928) do
     t.datetime "last_status_at"
     t.integer "lock_version", default: 0, null: false
     t.index ["account_id"], name: "index_account_stats_on_account_id", unique: true
+  end
+
+  create_table "account_tag_stats", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "accounts_count", default: 0, null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_account_tag_stats_on_tag_id", unique: true
   end
 
   create_table "account_warning_presets", force: :cascade do |t|
@@ -413,7 +422,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_001928) do
     t.datetime "updated_at", null: false
     t.index ["tag_id"], name: "index_featured_topics_on_tag_id"
   end
-  
+
   create_table "follow_recommendation_suppressions", force: :cascade do |t|
     t.bigint "account_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -827,6 +836,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_001928) do
     t.bigint "in_reply_to_account_id"
     t.bigint "poll_id"
     t.datetime "deleted_at"
+    t.boolean "pending", default: false, null: false
     t.index ["account_id", "id", "visibility", "updated_at"], name: "index_statuses_20190820", order: { id: :desc }, where: "(deleted_at IS NULL)"
     t.index ["id", "account_id"], name: "index_statuses_local_20190824", order: { id: :desc }, where: "((local OR (uri IS NULL)) AND (deleted_at IS NULL) AND (visibility = 0) AND (reblog_of_id IS NULL) AND ((NOT reply) OR (in_reply_to_account_id = account_id)))"
     t.index ["id", "account_id"], name: "index_statuses_public_20200119", order: { id: :desc }, where: "((deleted_at IS NULL) AND (visibility = 0) AND (reblog_of_id IS NULL) AND ((NOT reply) OR (in_reply_to_account_id = account_id)))"

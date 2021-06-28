@@ -18,7 +18,6 @@ class ActivityPub::Activity::Announce < ActivityPub::Activity
         reblog: original_status,
         uri: @json['id'],
         created_at: @json['published'],
-        override_timestamps: @options[:override_timestamps],
         visibility: visibility_from_audience
       )
 

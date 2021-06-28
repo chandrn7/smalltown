@@ -81,7 +81,8 @@ defaults: &defaults
   lists: false
   relationships: false
   allow_private_accounts: false
-  max_status_chars: ''
+  max_status_chars: '500'
+  status_queue: false
 
 development:
   <<: *defaults

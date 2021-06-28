@@ -1407,6 +1407,10 @@
       {
         "defaultMessage": "Learn more",
         "id": "compose_form.direct_message_warning_learn_more"
+      },
+      {
+        "defaultMessage": "{title} is currently queuing posts. That means this post won't show up on timelines until it's approved by site staff.",
+        "id": "compose_form.queue_warning"
       }
     ],
     "path": "app/javascript/mastodon/features/compose/containers/warning_container.json"

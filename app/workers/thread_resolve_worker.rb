@@ -7,7 +7,7 @@ class ThreadResolveWorker
   sidekiq_options queue: 'pull', retry: 3
 
   def perform(child_status_id, parent_url)
-    child_status  = Status.find(child_status_id)
+    child_status  = Status.unscope(where: :pending).find(child_status_id)
     parent_status = FetchRemoteStatusService.new.call(parent_url)
 
     return if parent_status.nil?

@@ -36,13 +36,22 @@ class PostStatusService < BaseService
       schedule_status!
     else
       process_status!
-      postprocess_status!
+      postprocess_status(@status) unless @status.pending
       bump_potential_friendship!
     end
 
     redis.setex(idempotency_key, 3_600, @status.id) if idempotency_given?
 
     @status
+  end
+
+  def postprocess_status(status)
+    process_hashtags_service.call(status)
+    process_mentions_service.call(status)
+    LinkCrawlWorker.perform_async(status.id) unless status.spoiler_text?
+    DistributionWorker.perform_async(status.id)
+    ActivityPub::DistributionWorker.perform_async(status.id)
+    PollExpirationNotifyWorker.perform_at(status.poll.expires_at, status.poll.id) if status.poll
   end
 
   private
@@ -65,9 +74,6 @@ class PostStatusService < BaseService
     ApplicationRecord.transaction do
       @status = @account.statuses.create!(status_attributes)
     end
-
-    process_hashtags_service.call(@status)
-    process_mentions_service.call(@status)
   end
 
   def schedule_status!
@@ -85,13 +91,6 @@ class PostStatusService < BaseService
     else
       raise ActiveRecord::RecordInvalid
     end
-  end
-
-  def postprocess_status!
-    LinkCrawlWorker.perform_async(@status.id) unless @status.spoiler_text?
-    DistributionWorker.perform_async(@status.id)
-    ActivityPub::DistributionWorker.perform_async(@status.id)
-    PollExpirationNotifyWorker.perform_at(@status.poll.expires_at, @status.poll.id) if @status.poll
   end
 
   def validate_media!

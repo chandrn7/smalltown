@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Warning from '../components/warning';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { me } from '../../../initial_state';
+import { statusQueueEnabled, title } from '../../../initial_state';
 
 const buildHashtagRE = () => {
   try {
@@ -31,20 +31,11 @@ const buildHashtagRE = () => {
 const APPROX_HASHTAG_RE = buildHashtagRE();
 
 const mapStateToProps = state => ({
-  needsLockWarning: state.getIn(['compose', 'privacy']) === 'private' && !state.getIn(['accounts', me, 'locked']),
-  hashtagWarning: state.getIn(['compose', 'privacy']) !== 'public' && APPROX_HASHTAG_RE.test(state.getIn(['compose', 'text'])),
   directMessageWarning: state.getIn(['compose', 'privacy']) === 'direct',
+  queueWarning: statusQueueEnabled,
 });
 
-const WarningWrapper = ({ needsLockWarning, hashtagWarning, directMessageWarning }) => {
-  if (needsLockWarning) {
-    return <Warning message={<FormattedMessage id='compose_form.lock_disclaimer' defaultMessage='Your account is not {locked}. Anyone can follow you to view your follower-only posts.' values={{ locked: <a href='/settings/profile'><FormattedMessage id='compose_form.lock_disclaimer.lock' defaultMessage='locked' /></a> }} />} />;
-  }
-
-  if (hashtagWarning) {
-    return <Warning message={<FormattedMessage id='compose_form.hashtag_warning' defaultMessage="This post won't be listed under any hashtag as it is unlisted. Only public posts can be searched by hashtag." />} />;
-  }
-
+const WarningWrapper = ({ directMessageWarning, queueWarning }) => {
   if (directMessageWarning) {
     const message = (
       <span>
@@ -53,6 +44,10 @@ const WarningWrapper = ({ needsLockWarning, hashtagWarning, directMessageWarning
     );
 
     return <Warning message={message} />;
+  }
+  
+  if(queueWarning){
+    return <Warning message={<FormattedMessage id='compose_form.queue_warning' defaultMessage="{title} is currently queuing posts. That means this post won't show up on timelines until it's approved by site staff." values={{ title: <span>{title}</span> }} />} />;
   }
 
   return null;

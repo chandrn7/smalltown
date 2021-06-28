@@ -1,0 +1,43 @@
+- content_for :header_tags do
+  = javascript_pack_tag 'admin', async: true, crossorigin: 'anonymous'
+
+- content_for :page_title do
+  = t('admin.status_queue.title')
+
+.filters
+  .filter-subset
+    %strong= t('admin.statuses.media.title')
+    %ul
+      %li= link_to t('admin.statuses.no_media'), admin_queued_statuses_path(current_params.merge(media: nil)), class: !params[:media] && 'selected'
+      %li= link_to t('admin.statuses.with_media'), admin_queued_statuses_path(current_params.merge(media: true)), class: params[:media] && 'selected'
+
+%hr.spacer/
+
+= form_for(@form, url: admin_queued_statuses_path, html: { class: 'moderation_form' }) do |f|
+  = hidden_field_tag :page, params[:page]
+  = hidden_field_tag :media, params[:media]
+
+  = f.simple_fields_for :email_collection do |email_form|
+    .fields-group
+      = email_form.input :send_email_notification, as: :boolean, wrapper: :with_label, :input_html => { :checked => false }, label: t('admin.statuses.email_form.send_email_notification.title'), hint: t('admin.statuses.email_form.send_email_notification.desc_html')
+    
+    %br/
+    .fields-group
+      = email_form.input :text, as: :text, wrapper: :with_block_label, label: t('admin.statuses.email_form.text.title'), hint: t('admin.statuses.email_form.text.desc_html'), required: false
+
+  %hr.spacer/
+
+  .batch-table
+    .batch-table__toolbar
+      %label.batch-table__toolbar__select.batch-checkbox-all
+        = check_box_tag :batch_checkbox_all, nil, false
+      .batch-table__toolbar__actions
+        = f.button safe_join([fa_icon('eye-slash'), t('admin.statuses.batch.nsfw_on')]), name: :nsfw_on, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
+        - if Setting.disable_replies
+          = f.button safe_join([fa_icon('comments-o'), t('admin.statuses.batch.disable_replies')]), name: :disable_replies, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
+        = f.button safe_join([fa_icon('trash'), t('admin.statuses.batch.delete')]), name: :delete, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
+        = f.button safe_join([fa_icon('check'), t('admin.statuses.batch.approve')]), name: :approve, class: 'table-action-link', type: :submit, data: { confirm: t('admin.reports.are_you_sure') }
+    .batch-table__body
+      = render partial: 'admin/reports/status', collection: @statuses, locals: { f: f }
+
+= paginate @statuses

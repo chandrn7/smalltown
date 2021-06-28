@@ -23,6 +23,7 @@
 #  in_reply_to_account_id :bigint(8)
 #  poll_id                :bigint(8)
 #  deleted_at             :datetime
+#  pending                :boolean          default(FALSE), not null
 #
 
 class Status < ApplicationRecord
@@ -37,10 +38,6 @@ class Status < ApplicationRecord
   rate_limit by: :account, family: :statuses
 
   self.discard_column = :deleted_at
-
-  # If `override_timestamps` is set at creation time, Snowflake ID creation
-  # will be based on current time instead of `created_at`
-  attr_accessor :override_timestamps
 
   update_index('statuses#status', :proper)
 
@@ -81,6 +78,7 @@ class Status < ApplicationRecord
   accepts_nested_attributes_for :poll
 
   default_scope { recent.kept }
+  default_scope { where(pending: false) }
 
   scope :recent, -> { reorder(id: :desc) }
   scope :remote, -> { where(local: false).where.not(uri: nil) }
@@ -270,6 +268,7 @@ class Status < ApplicationRecord
   before_validation :set_visibility
   before_validation :set_conversation
   before_validation :set_local
+  before_create :set_pending
 
   after_create :set_poll_id
 
@@ -390,6 +389,11 @@ class Status < ApplicationRecord
     self.visibility = reblog.visibility if reblog? && visibility.nil?
     self.visibility = (account.locked? ? :private : :public) if visibility.nil?
     self.sensitive  = false if sensitive.nil?
+  end
+
+  def set_pending
+    return if direct_visibility?
+    self.pending = Setting.status_queue ? true : false
   end
 
   def set_conversation
