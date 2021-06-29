@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class StatusLengthValidator < ActiveModel::Validator
-  MAX_CHARS = (Setting.max_status_chars || 500).to_i
+  MAX_CHARS = (ENV['MAX_STATUS_CHARS'] || 500).to_i
   URL_PLACEHOLDER = "\1#{'x' * 23}"
 
   def validate(status)
