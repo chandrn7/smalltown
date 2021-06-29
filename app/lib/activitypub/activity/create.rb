@@ -104,6 +104,7 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
         language: detected_language,
         spoiler_text: converted_object_type? ? '' : (text_from_summary || ''),
         created_at: @object['published'],
+        override_timestamps: @options[:override_timestamps],
         reply: @object['inReplyTo'].present?,
         sensitive: @account.sensitized? || @object['sensitive'] || false,
         visibility: visibility_from_audience,

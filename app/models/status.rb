@@ -39,6 +39,10 @@ class Status < ApplicationRecord
 
   self.discard_column = :deleted_at
 
+  # If `override_timestamps` is set at creation time, Snowflake ID creation
+  # will be based on current time instead of `created_at`
+  attr_accessor :override_timestamps
+
   update_index('statuses#status', :proper)
 
   enum visibility: [:public, :unlisted, :private, :direct, :limited], _suffix: :visibility

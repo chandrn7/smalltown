@@ -85,7 +85,7 @@ class Api::V1::StatusesController < Api::BaseController
   def check_visibility!
     if params[:visibility] == 'direct'  && !Setting.dms_enabled
       not_found
-    elsif params[:visibility] == 'private'  && (!current_user.account.locked?)
+    elsif params[:visibility] == 'private'  && !current_user.account.locked?
       not_found
     elsif params[:visibility] == 'unlisted' && whitelist_mode?
         not_found
