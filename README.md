@@ -42,7 +42,7 @@ On Smalltown, admins can turn a post queue on and off. All posts submitted while
 
 Some sites are run by one or two people. They can't always find time to moderate, especially during off hours like at night. Turning a post queue on can help them safely moderate their site, allowing them to review posts before they appear on timelines. A post queue is also useful for sites that want to limit discussion to certain time periods—like a network that wants to encourage discussion outside of working hours. A post queue can also be a pro-social feature, slowing down discussion and encouraging thoughtfulness and reflection by users.
 
-[For more detailed documentation checkout the wiki](https://github.com/chandrn7/smalltown/wiki/Post-queue).
+[For more detailed documentation check out the wiki](https://github.com/chandrn7/smalltown/wiki/Post-queue).
 
 ## Featured topics
 
