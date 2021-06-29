@@ -51,6 +51,7 @@ class Form::AdminSettings
     relationships
     allow_private_accounts
     max_status_chars
+    status_queue
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -76,6 +77,7 @@ class Form::AdminSettings
     lists
     relationships
     allow_private_accounts
+    status_queue
   ).freeze
 
   UPLOAD_KEYS = %i(

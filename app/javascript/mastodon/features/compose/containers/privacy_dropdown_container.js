@@ -3,9 +3,11 @@ import PrivacyDropdown from '../components/privacy_dropdown';
 import { changeComposeVisibility } from '../../../actions/compose';
 import { openModal, closeModal } from '../../../actions/modal';
 import { isUserTouching } from '../../../is_mobile';
+import { me } from '../../../initial_state';
 
 const mapStateToProps = state => ({
   value: state.getIn(['compose', 'privacy']),
+  accountLocked: state.getIn(['accounts', me, 'locked']),
 });
 
 const mapDispatchToProps = dispatch => ({

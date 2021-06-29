@@ -164,7 +164,7 @@ class UserMailer < Devise::Mailer
     @resource = user
     @warning  = warning
     @instance = Rails.configuration.x.local_domain
-    @statuses = Status.with_discarded.where(id: status_ids).includes(:account) if status_ids.is_a?(Array)
+    @statuses = Status.unscope(where: :pending).with_discarded.where(id: status_ids).includes(:account) if status_ids.is_a?(Array)
 
     I18n.with_locale(@resource.locale || I18n.default_locale) do
       mail to: @resource.email,

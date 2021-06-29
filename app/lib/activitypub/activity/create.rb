@@ -84,7 +84,7 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
 
     resolve_thread(@status)
     fetch_replies(@status)
-    distribute(@status)
+    distribute(@status) unless @status.pending
     forward_for_reply
   end
 

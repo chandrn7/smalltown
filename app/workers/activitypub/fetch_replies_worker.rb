@@ -7,7 +7,7 @@ class ActivityPub::FetchRepliesWorker
   sidekiq_options queue: 'pull', retry: 3
 
   def perform(parent_status_id, replies_uri)
-    ActivityPub::FetchRepliesService.new.call(Status.find(parent_status_id), replies_uri)
+    ActivityPub::FetchRepliesService.new.call(Status.unscope(where: :pending).find(parent_status_id), replies_uri)
   rescue ActiveRecord::RecordNotFound
     true
   end

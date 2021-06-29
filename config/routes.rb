@@ -308,6 +308,7 @@ Rails.application.routes.draw do
     end
 
     resources :featured_topics, only: [:index, :create, :destroy]
+    resources :queued_statuses, only: [:index, :create]
   end
 
   get '/admin', to: redirect('/admin/dashboard', status: 302)
