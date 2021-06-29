@@ -22,7 +22,7 @@ Please see [this article in the wiki](https://github.com/chandrn7/civic-logic/wi
 
 Mastodon currently allows you to set up Single Sign On (SSO) with frameworks including SAML, LDAP, PAM, and CAS. However, it does not support [OpenID](https://openid.net/connect/). OpenID is widely used and makes it easier for users to sign up through popular services like Google and Facebook, or through an organization where they already have an identity, like their local newspaper. This makes life easier for both users and admins.
 
-To configure your site to use OpenID SSO, you just have to set a few environment variables. [Check out more detailed documentation about how to use this feature on the wiki](https://github.com/chandrn7/civic-logic/wiki/OpenID-SSO).
+To configure your Smalltown site to use OpenID SSO, you just have to set a few environment variables. [Check out more detailed documentation about how to use this feature on the wiki](https://github.com/chandrn7/civic-logic/wiki/OpenID-SSO).
 
 ## More customization through the admin dashboard
 
@@ -35,6 +35,14 @@ Smalltown extends this customization, allowing admins to customize additional fu
 * Uploading custom icons and favicons
 
 [For a full list and detailed documentation check out the wiki](https://github.com/chandrn7/civic-logic/wiki).
+
+## Post queue
+
+On Smalltown, admins can turn a post queue on and off. All posts submitted while the queue is on must be approved by site staff before they appear on timelines. 
+
+Some sites are run by one or two people. They can't always find time to moderate, especially during off hours like at night. Turning a post queue on can help them safely moderate their site, allowing them to review posts before they appear on timelines. A post queue is also useful for sites that want to limit discussion to certain time periods—like a network that wants to encourage discussion outside of working hours. A post queue can also be a pro-social feature, slowing down discussion and encouraging thoughtfulness and reflection by users.
+
+[For more detailed documentation checkout the wiki](https://github.com/chandrn7/smalltown/wiki/Post-queue).
 
 ## Featured topics
 
