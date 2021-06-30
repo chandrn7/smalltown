@@ -38,7 +38,6 @@ class Form::AdminSettings
     non_staff_development
     featured_tags
     sso_auto_approval
-    user_filter_languages
     support_url
     favicon
     ios_icon
@@ -70,7 +69,6 @@ class Form::AdminSettings
     non_staff_development
     featured_tags
     sso_auto_approval
-    user_filter_languages
     disable_replies
     bookmarks
     lists
