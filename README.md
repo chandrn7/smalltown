@@ -26,7 +26,7 @@ To configure your Smalltown site to use OpenID SSO, you just have to set a few e
 
 ## More customization through the admin dashboard
 
-Mastodon allows for some site functionality to be configured through the admin dashboard. This makes it easier for administrators to make changes without technical know-how. 
+Mastodon allows for some site functionality to be configured through the admin dashboard. This makes it easier for admins to make changes without technical know-how. 
 
 Smalltown extends this customization, allowing admins to customize additional functionality through the dashboard. Some examples:
 * Whether to allow direct messages
