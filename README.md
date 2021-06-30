@@ -2,7 +2,7 @@
 
 Mastodon is a **free, open-source social network server** based on ActivityPub. This is *not* the official version of Mastodon; this is a separate version (i.e. a fork). For more information on Mastodon, you can see the [official website](https://joinmastodon.org) and the [upstream repo](https://github.com/tootsuite/mastodon).
 
-__Smalltown__ is designed for civic communities looking to run their own social networks, though any community that is well-defined and has a purpose may find it useful. It is intended for sites that use Mastodon’s [limited federation mode](https://docs.joinmastodon.org/admin/config/#limited_federation_mode) (federation whitelist) and are either completely siloed or federate with a few, trusted servers.
+__Smalltown__ is designed for civic communities looking to run their own social networks, though any community that is well-defined and has a purpose may find it useful. It is intended for sites that use Mastodon’s [limited federation mode](https://docs.joinmastodon.org/admin/config/#limited_federation_mode) (federation whitelist) and are either completely siloed or federate with a few, trusted sites.
 
 Some of our changes are wanted by the Mastodon project, others are not—we will do our best to merge relevant changes to Mastodon.
 
