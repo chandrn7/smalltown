@@ -70,10 +70,9 @@ defaults: &defaults
   show_domain_blocks_rationale: 'disabled'
   require_invite_text: false
   dms_enabled: true
-  non_staff_development: true
-  featured_tags: true
+  non_staff_development: false
+  featured_tags: false
   sso_auto_approval: false
-  user_filter_languages: true
   support_url: ''
   safari_svg_color: ''
   disable_replies: false

@@ -32,11 +32,10 @@
   .fields-group
     = f.input :setting_show_application, as: :boolean, wrapper: :with_label, recommended: true
 
-  - if Setting.user_filter_languages
-    %h4= t 'preferences.public_timelines'
+  %h4= t 'preferences.public_timelines'
 
-    .fields-group
-      = f.input :chosen_languages, collection: filterable_languages.sort, wrapper: :with_block_label, include_blank: false, label_method: lambda { |locale| human_locale(locale) }, required: false, as: :check_boxes, collection_wrapper_tag: 'ul', item_wrapper_tag: 'li'
+  .fields-group
+    = f.input :chosen_languages, collection: filterable_languages.sort, wrapper: :with_block_label, include_blank: false, label_method: lambda { |locale| human_locale(locale) }, required: false, as: :check_boxes, collection_wrapper_tag: 'ul', item_wrapper_tag: 'li'
 
   .actions
     = f.button :button, t('generic.save_changes'), type: :submit
