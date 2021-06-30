@@ -52,7 +52,7 @@ It can be difficult to find posts that you’re interested in, especially if you
 
 ## Restore deleted posts
 
-Sometimes moderators make mistakes. Unfortunately, Mastodon doesn’t allow moderators to restore posts that have been deleted. We think being able to restore posts is an important accountability mechanism that can increase trust and transparency between users and moderators. Smalltown allows moderators to restore posts up to 14 days after they’ve been deleted.
+Sometimes moderators make mistakes. Unfortunately, Mastodon doesn’t allow moderators to restore posts that have been deleted. We think being able to restore posts is an important accountability mechanism that can increase trust and transparency between users and moderators. Smalltown allows site staff to restore posts up to 14 days after they’ve been deleted.
 
 [For more detailed documentation check out the wiki](https://github.com/chandrn7/civic-logic/wiki/Restore-deleted-posts).
 
