@@ -82,7 +82,6 @@ defaults: &defaults
   relationships: false
   allow_private_accounts: false
   status_queue: false
-  post_digest_enabled: true
 
 development:
   <<: *defaults

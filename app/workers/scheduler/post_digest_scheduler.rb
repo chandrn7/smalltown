@@ -6,7 +6,7 @@ class Scheduler::PostDigestScheduler
     sidekiq_options retry: 0
   
     def perform
-      return unless ENV['POST_DIGEST_ENABLED']
+      return unless ENV['POST_DIGEST_ENABLED'] == 'true'
       
       time_limit = ENV['POST_DIGEST_DAY'] ? 7.days.ago : 1.day.ago
       status_ids = Status.with_public_visibility.where('created_at >= ?', time_limit).where(reply: false).pluck(:id).to_a.sample(10)
