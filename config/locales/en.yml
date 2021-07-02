@@ -1477,6 +1477,10 @@ en:
       explanation: You requested a full backup of your %{title} account. It's now ready for download!
       subject: Your archive is ready for download
       title: Archive takeout
+    post_digest:
+      title: Your post digest!
+      statuses: 'Here''s some of what''s happened on %{title} recently:'
+      subject: Your post digest!
     sign_in_token:
       details: 'Here are details of the attempt:'
       explanation: 'We detected an attempt to sign in to your account from an unrecognized IP address. If this is you, please enter the security code below on the sign in challenge page:'

@@ -264,6 +264,10 @@ class User < ApplicationRecord
     settings.notification_emails['trending_tag']
   end
 
+  def allows_post_digest_emails?
+    settings.notification_emails['post_digest']
+  end
+
   def hides_network?
     @hides_network ||= settings.hide_network
   end

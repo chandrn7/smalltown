@@ -173,6 +173,16 @@ class UserMailer < Devise::Mailer
     end
   end
 
+  def post_digest(user, status_ids)
+    @resource = user
+    @instance = Rails.configuration.x.local_domain
+    @statuses = Status.where(id: status_ids)
+
+    I18n.with_locale(@resource.locale || I18n.default_locale) do
+      mail to: @resource.email, subject: I18n.t("user_mailer.post_digest.subject")
+    end
+  end
+
   def sign_in_token(user, remote_ip, user_agent, timestamp)
     @resource   = user
     @instance   = Rails.configuration.x.local_domain
