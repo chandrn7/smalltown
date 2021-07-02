@@ -3,7 +3,7 @@
 class Scheduler::StatusCleanupScheduler
     include Sidekiq::Worker
   
-    sidekiq_options lock: :until_executed, retry: 0
+    sidekiq_options retry: 0
   
     def perform
       clean_discarded_statuses!

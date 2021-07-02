@@ -49,6 +49,10 @@
     cron: '0 10 * * 2'
     class: Scheduler::EmailScheduler
     queue: scheduler
+  post_digest_scheduler:
+    cron: '0 <%= ENV['POST_DIGEST_HOUR'] || 16 %> * * <%= ENV['POST_DIGEST_DAY'] || '*' %> <%= ENV['POST_DIGEST_ZONE'] || 'America/New_York' %>'
+    class: Scheduler::PostDigestScheduler
+    queue: scheduler
   backup_cleanup_scheduler:
     cron: '<%= Random.rand(0..59) %> <%= Random.rand(3..5) %> * * *'
     class: Scheduler::BackupCleanupScheduler

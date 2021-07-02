@@ -1,0 +1,15 @@
+<%= t "user_mailer.post_digest.title" %>
+
+===
+
+<% if !@statuses.nil? && !@statuses.empty? %>
+<%= t('user_mailer.warning.statuses') %>
+
+<% @statuses.each do |status| %>
+
+<%= render 'notification_mailer/status', status: status %>
+---
+<% end %>
+<% else %>
+---
+<% end %>

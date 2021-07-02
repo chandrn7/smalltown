@@ -48,6 +48,7 @@ defaults: &defaults
     report: true
     pending_account: true
     trending_tag: true
+    post_digest: true
   interactions:
     must_be_follower: false
     must_be_following: false
@@ -81,6 +82,7 @@ defaults: &defaults
   relationships: false
   allow_private_accounts: false
   status_queue: false
+  post_digest_enabled: true
 
 development:
   <<: *defaults

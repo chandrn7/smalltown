@@ -1,0 +1,40 @@
+%table.email-table{ cellspacing: 0, cellpadding: 0 }
+  %tbody
+    %tr
+      %td.email-body
+        .email-container
+          %table.content-section{ cellspacing: 0, cellpadding: 0 }
+            %tbody
+              %tr
+                %td.content-cell.hero
+                  .email-row
+                    .col-6
+                      %table.column{ cellspacing: 0, cellpadding: 0 }
+                        %tbody
+                          %tr
+                            %td.column-cell.text-center.padded
+
+                              %h1= t "user_mailer.post_digest.title"
+
+%table.email-table{ cellspacing: 0, cellpadding: 0 }
+  %tbody
+    %tr
+      %td.email-body
+        .email-container
+          %table.content-section{ cellspacing: 0, cellpadding: 0 }
+            %tbody
+              %tr
+                %td.content-cell.content-start
+                  .email-row
+                    .col-6
+                      %table.column{ cellspacing: 0, cellpadding: 0 }
+                        %tbody
+                          %tr
+                            %td.column-cell.text-center
+                              - if !@statuses.nil? && !@statuses.empty?
+                                %p
+                                  %strong= t('user_mailer.post_digest.statuses', title: site_title)
+
+- if !@statuses.nil? && !@statuses.empty?
+  - @statuses.each_with_index do |status, i|
+    = render 'notification_mailer/status', status: status, i: i + 1, highlighted: true

@@ -45,6 +45,7 @@ en:
         locked: Manually control who can follow you by approving follow requests
         password: Use at least 8 characters
         phrase: Will be matched regardless of casing in text or content warning of a post
+        post_digest: Includes a selection of posts from the past %{frequency}
         scopes: Which APIs the application will be allowed to access. If you select a top-level scope, you don't need to select individual ones.
         setting_aggregate_reblogs: Do not show new boosts for posts that have been recently boosted (only affects newly-received boosts)
         setting_default_sensitive: Sensitive media is hidden by default and can be revealed with a click
@@ -196,12 +197,13 @@ en:
           sign_up_requires_approval: Limit sign-ups
         severity: Rule
       notification_emails:
-        digest: Send digest e-mails
+        digest: Send notification digest e-mails
         favourite: Someone favourited your status
         follow: Someone followed you
         follow_request: Someone requested to follow you
         mention: Someone mentioned you
         pending_account: New account needs review
+        post_digest: Send post digest e-mails
         reblog: Someone boosted your status
         report: New report is submitted
         trending_tag: An unreviewed hashtag is trending
