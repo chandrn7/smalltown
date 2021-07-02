@@ -44,6 +44,12 @@ Some sites are run by one or two people. They can't always find time to moderate
 
 [For more detailed documentation check out the wiki](https://github.com/chandrn7/smalltown/wiki/Post-queue).
 
+## Post digest
+
+On Smalltown, admins can send a post digest daily or weekly with a selection of recent posts. Sometimes people don't want to have to check a site frequently to get updates from their network. A post digest can help people stay on top of what's happening without the need to constantly refresh their Smalltown tab. It can also help people have a healthier relationship with their social media, enabling them to take control of their attention.
+
+[For more detailed documentation check out the wiki](https://github.com/chandrn7/smalltown/wiki/Post-digest).
+
 ## Featured topics
 
 It can be difficult to find posts that you’re interested in, especially if you’re new to a social network. The “Featured topics” page lets site staff highlight different hashtags that they think may be relevant to a wide range of people.
