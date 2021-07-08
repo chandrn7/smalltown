@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Api::V1::Timelines::PublicController < Api::BaseController
+  skip_before_action :require_authenticated_user!
   before_action :require_user!, only: [:show], if: :require_auth?
-  before_action :check_local!
   after_action :insert_pagination_headers, unless: -> { @statuses.empty? }
 
   def show
@@ -14,10 +14,6 @@ class Api::V1::Timelines::PublicController < Api::BaseController
 
   def require_auth?
     !Setting.timeline_preview
-  end
-
-  def check_local!
-    return not_found if completely_siloed? && (!params.has_key?(:local) || params[:local] == "false")
   end
 
   def load_statuses

@@ -35,6 +35,6 @@ class Oauth::AuthorizationsController < Doorkeeper::AuthorizationsController
   end
 
   def check_staff!
-    return not_found unless current_user.staff? || Setting.non_staff_development
+    return not_found unless current_user&.staff? || Setting.non_staff_development
   end
 end

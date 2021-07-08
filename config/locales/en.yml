@@ -3,6 +3,7 @@ en:
   about:
     about_hashtag_html: These are public posts tagged with <strong>#%{hashtag}</strong>. You can interact with them if you have an account anywhere in the fediverse.
     about_mastodon_html: '%{title} is adapted from Mastodon, a social network based on open web protocols, free, open-source software, ethical design, and decentralization.'
+    about_public_timeline_html: These are public posts from %{title}
     about_this: About
     active_count_after: active
     active_footnote: Monthly Active Users (MAU)

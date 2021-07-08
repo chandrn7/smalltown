@@ -3,6 +3,8 @@
 
 - content_for :header_tags do
   %meta{ name: 'robots', content: 'noindex' }/
+  %link{ rel: 'alternate', type: 'application/rss+xml', href: public_timeline_url(format: 'rss') }/
+  
   = javascript_pack_tag 'about', crossorigin: 'anonymous'
 
 .page-header
