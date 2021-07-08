@@ -719,7 +719,7 @@ en:
         desc_html: Used for previews via OpenGraph and API. 1200x630px recommended
         title: Server thumbnail
       timeline_preview:
-        desc_html: Display link to public timeline on landing page and allow API access to the public timeline without authentication
+        desc_html: Display link to public timeline on landing page and allow API and RSS access to the public timeline without authentication
         title: Allow unauthenticated access to public timeline
       title: Site settings
       trendable_by_default:
