@@ -30,33 +30,6 @@
           %table.content-section{ cellspacing: 0, cellpadding: 0 }
             %tbody
               %tr
-                %td.content-cell.content-start
-                  .email-row
-                    .col-3
-                      %table.column{ cellspacing: 0, cellpadding: 0 }
-                        %tbody
-                          %tr
-                            %td.column-cell.input-cell.text-center.padded-bottom
-                              %h5= t 'user_mailer.welcome.full_handle'
-                              %table.input{ align: 'center', cellspacing: 0, cellpadding: 0 }
-                                %tbody
-                                  %tr
-                                    %td= "@#{@resource.account.username}@#{@instance}"
-                    .col-3
-                      %table.column{ cellspacing: 0, cellpadding: 0 }
-                        %tbody
-                          %tr
-                            %td.column-cell
-                              %p= t 'user_mailer.welcome.full_handle_hint', instance: @instance
-
-%table.email-table{ cellspacing: 0, cellpadding: 0 }
-  %tbody
-    %tr
-      %td.email-body
-        .email-container
-          %table.content-section{ cellspacing: 0, cellpadding: 0 }
-            %tbody
-              %tr
                 %td.content-cell.content-start.border-top
                   .email-row
                     .col-4
@@ -135,10 +108,10 @@
                               %h5= t 'user_mailer.welcome.tips'
                               %ul
                                 %li
-                                  %span= t 'user_mailer.welcome.tip_mobile_webapp', instance: @instance
-                                %li
-                                  %span= t 'user_mailer.welcome.tip_following'
+                                  %span= t 'user_mailer.welcome.tip_home_timeline'
                                 %li
                                   %span= t 'user_mailer.welcome.tip_local_timeline', instance: @instance
                                 %li
                                   %span= t 'user_mailer.welcome.tip_federated_timeline'
+                                %li
+                                  %span= t 'user_mailer.welcome.tip_mobile_webapp', instance: @instance
