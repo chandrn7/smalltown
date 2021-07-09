@@ -189,7 +189,7 @@ p {
 p {
   font-size: 15px;
   line-height: 23px;
-  color: $ui-primary-color;
+  color: $ui-secondary-color;
   mso-line-height-rule: exactly;
   text-rendering: optimizelegibility;
 }
@@ -323,7 +323,7 @@ h5 {
 .footer {
   .column-cell,
   p {
-    color: lighten($ui-base-color, 34%);
+    color: $ui-secondary-color;
   }
 
   p {
@@ -336,7 +336,7 @@ h5 {
   }
 
   a {
-    color: lighten($ui-base-color, 34%);
+    color: $ui-secondary-color;
     text-decoration: underline;
   }
 
@@ -481,7 +481,7 @@ h5 {
     }
 
     bdi {
-      color: $white;
+      color: $ui-secondary-color;
       font-size: 16px;
       display: block;
       font-weight: 500;
@@ -503,12 +503,12 @@ h5 {
     margin-bottom: 20px;
 
     &.status-footer {
-      color: lighten($ui-base-color, 26%);
+      color: $ui-secondary-color;
       font-size: 14px;
       margin-bottom: 0;
 
       a {
-        color: lighten($ui-base-color, 26%);
+        color: $ui-secondary-color;
       }
     }
   }
@@ -526,10 +526,10 @@ ul {
 
   li {
     margin-bottom: 16px;
-    color: lighten($ui-base-color, 26%);
+    color: $ui-secondary-color;
 
     span {
-      color: $ui-primary-color;
+      color: $ui-secondary-color;
     }
   }
 }
