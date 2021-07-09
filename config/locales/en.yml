@@ -2,7 +2,7 @@
 en:
   about:
     about_hashtag_html: These are public posts tagged with <strong>#%{hashtag}</strong>. You can interact with them if you have an account anywhere in the fediverse.
-    about_mastodon_html: '%{title} is adapted from Mastodon, a social network based on open web protocols, free, open-source software, ethical design, and decentralization.'
+    about_mastodon_html: 'Smalltown is adapted from Mastodon, a social network based on open web protocols, free, open-source software, ethical design, and decentralization.'
     about_public_timeline_html: These are public posts from %{title}
     about_this: About
     active_count_after: active
@@ -12,7 +12,7 @@ en:
     apps: Mobile apps
     apps_platforms: Use %{title} from iOS, Android and other platforms
     browse_directory: Browse a profile directory and filter by interests
-    browse_local_posts: Browse a live stream of public posts from this server
+    browse_local_posts: Browse a live stream of public posts from this site
     browse_public_posts: Browse a live stream of public posts on %{title}
     contact: Contact
     contact_missing: Not set
@@ -21,16 +21,16 @@ en:
     documentation: Documentation
     federation_hint_html: Welcome to %{title}! Sign up to engage with your neighbors and forum.
     get_apps: Try a mobile app
-    hosted_on: Mastodon hosted on %{domain}
+    hosted_on: Smalltown hosted on %{domain}
     instance_actor_flash: |
-      This account is a virtual actor used to represent the server itself and not any individual user.
+      This account is a virtual actor used to represent the site itself and not any individual user.
       It is used for federation purposes and should not be blocked unless you want to block the whole instance, in which case you should use a domain block.
     learn_more: Learn more
     privacy_policy: Privacy policy
-    rules: Server rules
-    rules_html: 'Below is a summary of rules you need to follow if you want to have an account on this server:'
+    rules: Site rules
+    rules_html: 'Below is a summary of rules you need to follow if you want to have an account on this site:'
     see_whats_happening: See what's happening
-    server_stats: 'Server stats:'
+    server_stats: 'Site stats:'
     source_code: Source code
     status_count_after:
       one: post
@@ -38,22 +38,22 @@ en:
     status_count_before: Who published
     tagline: Follow friends and discover new ones
     terms: Terms of service
-    unavailable_content: Moderated servers
+    unavailable_content: Moderated sites
     unavailable_content_description:
-      domain: Server
+      domain: Site
       reason: Reason
-      rejecting_media: 'Media files from these servers will not be processed or stored, and no thumbnails will be displayed, requiring manual click-through to the original file:'
+      rejecting_media: 'Media files from these sites will not be processed or stored, and no thumbnails will be displayed, requiring manual click-through to the original file:'
       rejecting_media_title: Filtered media
-      silenced: 'Posts from these servers will be hidden in public timelines and conversations, and no notifications will be generated from their users interactions, unless you are following them:'
-      silenced_title: Silenced servers
-      suspended: 'No data from these servers will be processed, stored or exchanged, making any interaction or communication with users from these servers impossible:'
-      suspended_title: Suspended servers
-    unavailable_content_html: '%{title} generally allows you to view content from and interact with users from any other server in the fediverse. These are the exceptions that have been made on this particular server.'
+      silenced: 'Posts from these sites will be hidden in public timelines and conversations, and no notifications will be generated from their users interactions, unless you are following them:'
+      silenced_title: Silenced sites
+      suspended: 'No data from these sites will be processed, stored or exchanged, making any interaction or communication with users from these sites impossible:'
+      suspended_title: Suspended sites
+    unavailable_content_html: '%{title} generally allows you to view content from and interact with users from any other site in the fediverse. These are the exceptions that have been made on this particular site.'
     user_count_after:
       one: user
       other: users
     user_count_before: Home to
-    what_is_mastodon: What is Mastodon?
+    what_is_mastodon: What is Smalltown/Mastodon?
   accounts:
     choices_html: "%{name}'s choices:"
     endorsements_hint: You can endorse people you follow from the web interface, and they will show up here.
@@ -63,7 +63,7 @@ en:
       one: Follower
       other: Followers
     following: Following
-    instance_actor_flash: This account is a virtual actor used to represent the server itself and not any individual user. It is used for federation purposes and should not be suspended.
+    instance_actor_flash: This account is a virtual actor used to represent the site itself and not any individual user. It is used for federation purposes and should not be suspended.
     joined: Joined %{date}
     last_active: last active
     link_verified_on: Ownership of this link was checked on %{date}
@@ -525,11 +525,11 @@ en:
     relays:
       add_new: Add new relay
       delete: Delete
-      description_html: A <strong>federation relay</strong> is an intermediary server that exchanges large volumes of public posts between servers that subscribe and publish to it. <strong>It can help small and medium servers discover content from the fediverse</strong>, which would otherwise require local users manually following other people on remote servers.
+      description_html: A <strong>federation relay</strong> is an intermediary server that exchanges large volumes of public posts between sites that subscribe and publish to it. <strong>It can help small and medium sites discover content from the fediverse</strong>, which would otherwise require local users manually following other people on remote sites.
       disable: Disable
       disabled: Disabled
       enable: Enable
-      enable_hint: Once enabled, your server will subscribe to all public posts from this relay, and will begin sending this server's public posts to it.
+      enable_hint: Once enabled, your site will subscribe to all public posts from this relay, and will begin sending this site's public posts to it.
       enabled: Enabled
       inbox_url: Relay URL
       pending: Waiting for relay's approval
@@ -584,10 +584,10 @@ en:
     rules:
       add_new: Add rule
       delete: Delete
-      description_html: While most claim to have read and agree to the terms of service, usually people do not read through until after a problem arises. <strong>Make it easier to see your server's rules at a glance by providing them in a flat bullet point list.</strong> Try to keep individual rules short and simple, but try not to split them up into many separate items either.
+      description_html: While most claim to have read and agree to the terms of service, usually people do not read through until after a problem arises. <strong>Make it easier to see your site's rules at a glance by providing them in a flat bullet point list.</strong> Try to keep individual rules short and simple, but try not to split them up into many separate items either.
       edit: Edit rule
-      empty: No server rules have been defined yet.
-      title: Server rules
+      empty: No site rules have been defined yet.
+      title: Site rules
     settings:
       activity_api_enabled:
         desc_html: Counts of locally published posts, active users, and new registrations in weekly buckets
@@ -636,7 +636,7 @@ en:
         desc_html: Allow users to feature hashtags on their profile
         title: Enable personal featured hashtags
       hero:
-        desc_html: Displayed on the frontpage. At least 600x100px recommended. When not set, falls back to server thumbnail
+        desc_html: Displayed on the frontpage. At least 600x100px recommended. When not set, falls back to site thumbnail
         title: Hero image
       ios_icon:
         desc_html: Displayed when someone pins your site to their homescreen on iOS. 180x180px recommended. (ex. apple-touch-icon.png)
@@ -651,8 +651,8 @@ en:
         desc_html: Allow users who aren't staff to create applications and access the API
         title: Allow users who aren't staff to access the API
       peers_api_enabled:
-        desc_html: Domain names this server has encountered in the fediverse
-        title: Publish list of discovered servers in the API
+        desc_html: Domain names this site has encountered in the fediverse
+        title: Publish list of discovered sites in the API
       preview_sensitive_media:
         desc_html: Link previews on other websites will display a thumbnail even if the media is marked as sensitive
         title: Show sensitive media in OpenGraph previews
@@ -697,18 +697,18 @@ en:
         desc_html: Show a staff badge on a user page
         title: Show staff badge
       site_description:
-        desc_html: Introductory paragraph on the API. Describe what makes this server special and anything else important. You can use HTML tags, in particular <code>&lt;a&gt;</code> and <code>&lt;em&gt;</code>.
-        title: Server description
+        desc_html: Introductory paragraph on the API. Describe what makes this site special and anything else important. You can use HTML tags, in particular <code>&lt;a&gt;</code> and <code>&lt;em&gt;</code>.
+        title: Site description
       site_description_extended:
-        desc_html: A good place for your code of conduct, rules, guidelines and other things that set your server apart. You can use HTML tags
+        desc_html: A good place for your code of conduct, rules, guidelines and other things that set your site apart. You can use HTML tags
         title: Custom extended information
       site_short_description:
-        desc_html: Displayed in sidebar and meta tags. Describe what %{title} is in a single paragraph.
-        title: Short server description
+        desc_html: Displayed in sidebar, meta tags, and about page. Describe what %{title} is in a single paragraph.
+        title: Short site description
       site_terms:
         desc_html: You can write your own privacy policy, terms of service or other legalese. You can use HTML tags
         title: Custom terms of service
-      site_title: Server name
+      site_title: Site name
       status_queue: 
         desc_html: All posts will be queued pending staff approval.
         title: Queue posts
@@ -717,7 +717,7 @@ en:
         title: Link to support
       thumbnail:
         desc_html: Used for previews via OpenGraph and API. 1200x630px recommended
-        title: Server thumbnail
+        title: Site thumbnail
       timeline_preview:
         desc_html: Display link to public timeline on landing page and allow API and RSS access to the public timeline without authentication
         title: Allow unauthenticated access to public timeline
@@ -763,8 +763,8 @@ en:
       database_schema_check:
         message_html: There are pending database migrations. Please run them to ensure the application behaves as expected
       rules_check:
-        action: Manage server rules
-        message_html: You haven't defined any server rules.
+        action: Manage site rules
+        message_html: You haven't defined any site rules.
       sidekiq_process_check:
         message_html: No Sidekiq process running for the %{value} queue(s). Please review your Sidekiq configuration
     tags:
@@ -814,7 +814,7 @@ en:
     confirmation_dialogs: Confirmation dialogs
     discovery: Discovery
     localization:
-      body: Mastodon is translated by volunteers.
+      body: Smalltown/Mastodon is translated by volunteers.
       guide_link: https://crowdin.com/project/mastodon
       guide_link_text: Everyone can contribute.
     sensitive_content: Sensitive content
@@ -837,14 +837,14 @@ en:
   auth:
     apply_for_account: Request an invite
     change_password: Password
-    checkbox_agreement_html: By signing up, you agree to the <a href="%{rules_path}" target="_blank">server rules</a> and <a href="%{terms_path}" target="_blank">terms of service</a>
+    checkbox_agreement_html: By signing up, you agree to the <a href="%{rules_path}" target="_blank">site rules</a> and <a href="%{terms_path}" target="_blank">terms of service</a>
     checkbox_agreement_without_rules_html: By signing up, you agree to the <a href="%{terms_path}" target="_blank">terms of service</a>
     delete_account: Delete account
     delete_account_html: If you wish to delete your account, you can <a href="%{path}">proceed here</a>. You will be asked for confirmation.
     description:
       prefix_invited_by_user: "@%{name} invites you to join %{instance}!"
       prefix_sign_up: Sign up on %{title} today!
-      suffix: With an account, you will be able to follow people, post updates and exchange messages with users from any Mastodon server and more!
+      suffix: With an account, you will be able to follow people, post updates and more!
     didnt_get_confirmation: Didn't receive confirmation instructions?
     dont_have_your_security_key: Don't have your security key?
     forgot_password: Forgot your password?
@@ -926,7 +926,7 @@ en:
     success_msg: Your account was successfully deleted
     warning:
       before: 'Before proceeding, please read these notes carefully:'
-      caches: Content that has been cached by other servers may persist
+      caches: Content that has been cached by other sites may persist
       data_removal: Your posts and other data will be permanently removed
       email_change_html: You can <a href="%{path}">change your e-mail address</a> without deleting your account
       email_contact_html: If it still doesn't arrive, you can e-mail <a href="mailto:%{email}">%{email}</a> for help
@@ -1046,7 +1046,7 @@ en:
       merge_long: Keep existing records and add new ones
       overwrite: Overwrite
       overwrite_long: Replace current records with the new ones
-    preface: You can import data that you have exported from another server, such as a list of the people you are following or blocking.
+    preface: You can import data that you have exported from another site, such as a list of the people you are following or blocking.
     success: Your data was successfully uploaded and will be processed in due time
     types:
       blocking: Blocking list
@@ -1073,7 +1073,7 @@ en:
       one: 1 use
       other: "%{count} uses"
     max_uses_prompt: No limit
-    prompt: Generate and share links with others to grant access to this server
+    prompt: Generate and share links with others to grant access to this site
     table:
       expires_at: Expires
       uses: Uses
@@ -1129,8 +1129,8 @@ en:
       body: Here is a brief summary of the messages you missed since your last visit on %{since}
       mention: "%{name} mentioned you in:"
       new_followers_summary:
-        one: Also, you have acquired one new follower while being away! Yay!
-        other: Also, you have acquired %{count} new followers while being away! Amazing!
+        one: Also, you have acquired one new follower while being away!
+        other: Also, you have acquired %{count} new followers while being away!
       subject:
         one: "1 new notification since your last visit \U0001F418"
         other: "%{count} new notifications since your last visit \U0001F418"
@@ -1232,7 +1232,7 @@ en:
     no_account_html: Don't have an account? You can <a href='%{sign_up_path}' target='_blank'>sign up here</a>
     proceed: Proceed to follow
     prompt: 'You are going to follow:'
-    reason_html: "<strong>Why is this step necessary?</strong> <code>%{instance}</code> might not be the server where you are registered, so we need to redirect you to your home server first."
+    reason_html: "<strong>Why is this step necessary?</strong> <code>%{instance}</code> might not be the site where you are registered, so we need to redirect you to your home site first."
   remote_interaction:
     favourite:
       proceed: Proceed to favourite
@@ -1373,10 +1373,10 @@ en:
       <h3 id="collect">What information do we collect?</h3>
 
       <ul>
-        <li><em>Basic account information</em>: If you register on this server, you may be asked to enter a username, an e-mail address and a password. You may also enter additional profile information such as a display name and biography, and upload a profile picture and header image. The username, display name, biography, profile picture and header image are always listed publicly.</li>
-        <li><em>Posts, following and other public information</em>: The list of people you follow is listed publicly, the same is true for your followers. When you submit a message, the date and time is stored as well as the application you submitted the message from. Messages may contain media attachments, such as pictures and videos. Public and unlisted posts are available publicly. When you feature a post on your profile, that is also publicly available information. Your posts are delivered to your followers, in some cases it means they are delivered to different servers and copies are stored there. When you delete posts, this is likewise delivered to your followers. The action of reblogging or favouriting another post is always public.</li>
-        <li><em>Direct and followers-only posts</em>: All posts are stored and processed on the server. Followers-only posts are delivered to your followers and users who are mentioned in them, and direct posts are delivered only to users mentioned in them. In some cases it means they are delivered to different servers and copies are stored there. We make a good faith effort to limit the access to those posts only to authorized persons, but other servers may fail to do so. Therefore it's important to review servers your followers belong to. You may toggle an option to approve and reject new followers manually in the settings. <em>Please keep in mind that the operators of the server and any receiving server may view such messages</em>, and that recipients may screenshot, copy or otherwise re-share them. <em>Do not share any dangerous information over Mastodon.</em></li>
-        <li><em>IPs and other metadata</em>: When you log in, we record the IP address you log in from, as well as the name of your browser application. All the logged in sessions are available for your review and revocation in the settings. The latest IP address used is stored for up to 12 months. We also may retain server logs which include the IP address of every request to our server.</li>
+        <li><em>Basic account information</em>: If you register on this site, you may be asked to enter a username, an e-mail address and a password. You may also enter additional profile information such as a display name and biography, and upload a profile picture and header image. The username, display name, biography, profile picture and header image are always listed publicly.</li>
+        <li><em>Posts, following and other public information</em>: The list of people you follow is listed publicly, the same is true for your followers. When you submit a message, the date and time is stored as well as the application you submitted the message from. Messages may contain media attachments, such as pictures and videos. Public and unlisted posts are available publicly. When you feature a post on your profile, that is also publicly available information. Your posts are delivered to your followers, in some cases it means they are delivered to different sites and copies are stored there. When you delete posts, this is likewise delivered to your followers. The action of reblogging or favouriting another post is always public.</li>
+        <li><em>Direct and followers-only posts</em>: All posts are stored and processed on the site. Followers-only posts are delivered to your followers and users who are mentioned in them, and direct posts are delivered only to users mentioned in them. In some cases it means they are delivered to different sites and copies are stored there. We make a good faith effort to limit the access to those posts only to authorized persons, but other sites may fail to do so. Therefore it's important to review sites your followers belong to. You may toggle an option to approve and reject new followers manually in the settings. <em>Please keep in mind that the operators of the site and any receiving site may view such messages</em>, and that recipients may screenshot, copy or otherwise re-share them. <em>Do not share any dangerous information over Smalltown.</em></li>
+        <li><em>IPs and other metadata</em>: When you log in, we record the IP address you log in from, as well as the name of your browser application. All the logged in sessions are available for your review and revocation in the settings. The latest IP address used is stored for up to 12 months. We also may retain logs which include the IP address of every request to our site.</li>
       </ul>
 
       <hr class="spacer" />
@@ -1386,7 +1386,7 @@ en:
       <p>Any of the information we collect from you may be used in the following ways:</p>
 
       <ul>
-        <li>To provide the core functionality of Mastodon. You can only interact with other people's content and post your own content when you are logged in. For example, you may follow other people to view their combined posts in your own personalized home timeline.</li>
+        <li>To provide the core functionality of Smalltown. You can only interact with other people's content and post your own content when you are logged in. For example, you may follow other people to view their combined posts in your own personalized home timeline.</li>
         <li>To aid moderation of the community, for example comparing your IP address with other known ones to determine ban evasion or other violations.</li>
         <li>The email address you provide may be used to send you information, notifications about other people interacting with your content or sending you messages, and to respond to inquiries, and/or other requests or questions.</li>
       </ul>
@@ -1404,7 +1404,7 @@ en:
       <p>We will make a good faith effort to:</p>
 
       <ul>
-        <li>Retain server logs containing the IP address of all requests to this server, in so far as such logs are kept, no more than 90 days.</li>
+        <li>Retain logs containing the IP address of all requests to this site, in so far as such logs are kept, no more than 90 days.</li>
         <li>Retain the IP addresses associated with registered users no more than 12 months.</li>
       </ul>
 
@@ -1426,7 +1426,7 @@ en:
 
       <p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our site, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety.</p>
 
-      <p>Your public content may be downloaded by other servers in the network. Your public and followers-only posts are delivered to the servers where your followers reside, and direct messages are delivered to the servers of the recipients, in so far as those followers or recipients reside on a different server than this.</p>
+      <p>Your public content may be downloaded by other sites in the network. Your public and followers-only posts are delivered to the sites where your followers reside, and direct messages are delivered to the servers of the recipients, in so far as those followers or recipients reside on a different site than this.</p>
 
       <p>When you authorize an application to use your account, depending on the scope of permissions you approve, it may access your public profile information, your following list, your followers, your lists, all your posts, and your favourites. Applications can never access your e-mail address or password.</p>
 
@@ -1434,11 +1434,11 @@ en:
 
       <h3 id="children">Site usage by children</h3>
 
-      <p>If this server is in the EU or the EEA: Our site, products and services are all directed to people who are at least 16 years old. If you are under the age of 16, per the requirements of the GDPR (<a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">General Data Protection Regulation</a>) do not use this site.</p>
+      <p>If this site is in the EU or the EEA: Our site, products and services are all directed to people who are at least 16 years old. If you are under the age of 16, per the requirements of the GDPR (<a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">General Data Protection Regulation</a>) do not use this site.</p>
 
-      <p>If this server is in the USA: Our site, products and services are all directed to people who are at least 13 years old. If you are under the age of 13, per the requirements of COPPA (<a href="https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act">Children's Online Privacy Protection Act</a>) do not use this site.</p>
+      <p>If this site is in the USA: Our site, products and services are all directed to people who are at least 13 years old. If you are under the age of 13, per the requirements of COPPA (<a href="https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act">Children's Online Privacy Protection Act</a>) do not use this site.</p>
 
-      <p>Law requirements can be different if this server is in another jurisdiction.</p>
+      <p>Law requirements can be different if this site is in another jurisdiction.</p>
 
       <hr class="spacer" />
 
@@ -1499,10 +1499,10 @@ en:
         nsfw_on: Your post has been marked as sensitive. Media will be hidden behind a content warning.
         restore: Your post has been restored.
         sensitive: Your uploaded media files and linked media will be treated as sensitive.
-        silence: You can still use your account but only people who are already following you will see your posts on this server, and you may be excluded from various public listings. However, others may still manually follow you.
+        silence: You can still use your account but only people who are already following you will see your posts on this site, and you may be excluded from various public listings. However, others may still manually follow you.
         suspend: You can no longer use your account, and your profile and other data are no longer accessible. You can still login to request a backup of your data until the data is fully removed, but we will retain some data to prevent you from evading the suspension.
       get_in_touch: You can reply to this e-mail to get in touch with the staff of %{instance}.
-      review_server_policies: Review server policies
+      review_server_policies: Review site policies
       statuses: 'Specifically, for:'
       subject:
         approve: Your post has been approved
@@ -1532,18 +1532,18 @@ en:
         suspend: Account suspended
     welcome:
       edit_profile_action: Setup profile
-      edit_profile_step: You can customize your profile by uploading an avatar, header, changing your display name and more. If you’d like to review new followers before they’re allowed to follow you, you can lock your account.
+      edit_profile_step: You can customize your profile by uploading an avatar, header, changing your display name and more.
       explanation: Here are some tips to get you started
       final_action: Start posting
-      final_step: 'Start posting! Even without followers your public posts may be seen by others, for example on the local timeline and in hashtags. You may want to introduce yourself on the #introductions hashtag.'
+      final_step: 'Start posting! You may want to introduce yourself on the #introductions hashtag.'
       full_handle: Your full handle
-      full_handle_hint: This is what you would tell your friends so they can message or follow you from another server.
+      full_handle_hint: This is what you would tell your friends so they can message or follow you from another site.
       review_preferences_action: Change preferences
-      review_preferences_step: Make sure to set your preferences, such as which emails you'd like to receive, or what privacy level you’d like your posts to default to. If you don’t have motion sickness, you could choose to enable GIF autoplay.
+      review_preferences_step: Make sure to set your preferences, such as which emails you'd like to receive.
       subject: Welcome to %{title}
-      tip_federated_timeline: The federated timeline is a firehose view of the wider network. But it only includes people your neighbours are subscribed to, so it's not complete.
-      tip_following: You follow your server's admin(s) by default. To find more interesting people, check the local and federated timelines.
-      tip_local_timeline: The local timeline is a firehose view of people on %{instance}. These are your immediate neighbours!
+      tip_federated_timeline: The federated timeline includes posts from other sites that your site thinks you will find interesting.
+      tip_home_timeline: The home timeline only includes people you follow.
+      tip_local_timeline: The local timeline includes everyone on %{instance}.
       tip_mobile_webapp: If your Android mobile browser prompts you to add %{instance} to your homescreen, you can receive push notifications from the web app. It acts like a native app in many ways! On iOS, you can still pin %{instance} to your homescreen, but you will not receive push notifications.
       tips: Tips
       title: Welcome aboard, %{name}!

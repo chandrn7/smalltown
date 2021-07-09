@@ -97,7 +97,7 @@ class ReportModal extends ImmutablePureComponent {
 
         <div className='report-modal__container'>
           <div className='report-modal__comment'>
-            <p><FormattedMessage id='report.hint' defaultMessage='The report will be sent to your server moderators. You can provide an explanation of why you are reporting this account below:' /></p>
+            <p><FormattedMessage id='report.hint' defaultMessage='The report will be sent to your site moderators. You can provide an explanation of why you are reporting this account below:' /></p>
 
             <textarea
               className='setting-text light'
@@ -111,7 +111,7 @@ class ReportModal extends ImmutablePureComponent {
 
             {domain && (
               <div>
-                <p><FormattedMessage id='report.forward_hint' defaultMessage='The account is from another server. Send an anonymized copy of the report there as well?' /></p>
+                <p><FormattedMessage id='report.forward_hint' defaultMessage='The account is from another site. Send an anonymized copy of the report there as well?' /></p>
 
                 <div className='setting-toggle'>
                   <Toggle id='report-forward' checked={forward} disabled={isSubmitting} onChange={this.handleForwardChange} />

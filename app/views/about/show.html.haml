@@ -55,7 +55,7 @@
 
         .hero-widget__text
           %p
-            = @instance_presenter.site_short_description.html_safe.presence || t('about.about_mastodon_html', title: site_title)
+            = @instance_presenter.site_short_description.html_safe.presence || t('about.about_mastodon_html')
             = link_to about_more_path do
               = t('about.learn_more')
               = fa_icon 'angle-double-right'
