@@ -15,6 +15,6 @@
       = f.submit t('admin.accounts.change_email.label'), class: 'button'
 - else
   .simple_form
-    %p.hint= t('auth.setup.email_settings_hint_html', email: content_tag(:strong, @user.email))
+    %p.hint= t('auth.setup.email_settings_hint_html', email: content_tag(:strong, @user.unconfirmed_email ? @user.unconfirmed_email : @user.email))
 
 .form-footer= render 'auth/shared/links'
