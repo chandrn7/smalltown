@@ -40,6 +40,8 @@
                                 %p= t "user_mailer.warning.explanation.#{@warning.action}"
 
                               - unless @warning.text.blank?
+                                %p
+                                  %strong= t('user_mailer.warning.explanation_header')
                                 = Formatter.instance.linkify(@warning.text)
 
                               - if !@statuses.nil? && !@statuses.empty?

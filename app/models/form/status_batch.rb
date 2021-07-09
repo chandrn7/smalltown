@@ -9,6 +9,7 @@ class Form::StatusBatch
   attr_reader :warning
 
   def save
+    return if status_ids.nil?
     case action
     when 'nsfw_on', 'nsfw_off'
       change_sensitive(action == 'nsfw_on')

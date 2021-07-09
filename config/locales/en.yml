@@ -1504,6 +1504,7 @@ en:
       get_in_touch: You can reply to this e-mail to get in touch with the staff of %{instance}.
       review_server_policies: Review site policies
       statuses: 'Specifically, for:'
+      explanation_header: 'Explanation:'
       subject:
         approve: Your post has been approved
         delete: Your post has been deleted
