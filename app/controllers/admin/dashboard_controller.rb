@@ -29,6 +29,9 @@ module Admin
       @saml_enabled          = ENV['SAML_ENABLED'] == 'true'
       @pam_enabled           = ENV['PAM_ENABLED'] == 'true'
       @openidc_enabled       = ENV['OIDC_ENABLED'] == 'true'
+      @facebook_enabled      = ENV['FACEBOOK_ENABLED'] == 'true'
+      @google_enabled        = ENV['GOOGLE_ENABLED'] == 'true'
+      @twitter_enabled       = ENV['TWITTER_ENABLED'] == 'true'
       @hidden_service        = ENV['ALLOW_ACCESS_TO_HIDDEN_SERVICE'] == 'true'
       @trending_hashtags     = TrendingTags.get(10, filtered: false)
       @pending_tags_count    = Tag.pending_review.count

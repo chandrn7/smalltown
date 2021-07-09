@@ -102,4 +102,34 @@ Devise.setup do |config|
     oidc_options[:security][:assume_email_is_verified] = ENV['OIDC_SECURITY_ASSUME_EMAIL_IS_VERIFIED'] == 'true'
     config.omniauth :openid_connect, oidc_options
   end
+
+  if ENV['FACEBOOK_ENABLED'] == 'true'
+    fb_options = {}
+    fb_options[:redirect_at_sign_in] = ENV['OAUTH_REDIRECT_AT_SIGN_IN'] == 'true'
+    fb_options[:display_name] = 'Facebook'
+    fb_options[:secure_image_url] = true
+    fb_options[:security] = {}
+    fb_options[:security][:assume_email_is_verified] = true
+    config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], fb_options
+  end
+
+  if ENV['GOOGLE_ENABLED'] == 'true'
+    google_options = {}
+    google_options[:redirect_at_sign_in] = ENV['OAUTH_REDIRECT_AT_SIGN_IN'] == 'true'
+    google_options[:display_name] = 'Google'
+    google_options[:image_aspect_ratio] = 'square'
+    google_options[:security] = {}
+    google_options[:security][:assume_email_is_verified] = true
+    config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], google_options
+  end
+  
+  if ENV['TWITTER_ENABLED'] == 'true'
+    twitter_options = {}
+    twitter_options[:redirect_at_sign_in] = ENV['OAUTH_REDIRECT_AT_SIGN_IN'] == 'true'
+    twitter_options[:display_name] = 'Twitter'
+    twitter_options[:secure_image_url] = true
+    twitter_options[:security] = {}
+    twitter_options[:security][:assume_email_is_verified] = true
+    config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET'], twitter_options
+  end
 end

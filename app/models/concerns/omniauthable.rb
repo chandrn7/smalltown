@@ -50,6 +50,8 @@ module Omniauthable
       email_is_verified = auth.info.verified || auth.info.verified_email || auth.info.email_verified || assume_verified
       email             = auth.info.verified_email || auth.info.email
 
+      email_is_verified = false if email.nil?
+
       user = User.find_by(email: email) if email_is_verified
 
       return user unless user.nil?
@@ -70,8 +72,8 @@ module Omniauthable
         agreement: true,
         external: true,
         account_attributes: {
-          username: ensure_unique_username(ensure_valid_username(auth.uid)),
-          display_name: auth.info.full_name || [auth.info.first_name, auth.info.last_name].join(' '),
+          username: ensure_unique_username(ensure_valid_username(email || auth.uid)),
+          display_name: auth.info.full_name || auth.info.name || [auth.info.first_name, auth.info.last_name].join(' '),
         },
       }
     end
