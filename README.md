@@ -20,7 +20,7 @@ Please see [this article in the wiki](https://github.com/chandrn7/smalltown/wiki
 
 ## Single Sign On with Facebook, Google, Twitter, and OpenID
 
-Mastodon allows admins to set up Single Sign On (SSO) with frameworks including SAML, LDAP, PAM, and CAS. However, it does not support SSO through major platforms like Facebook, Google, and Twitter, or with the [OpenID](https://openid.net/connect/) framework. Most people have an identity with Facebook, Google, or Twitter—allowing SSO through them makes life easier for both users and admins. Similarly, OpenID is widely used by organizations large and small—supporting OpenID  makes it easier for users to sign up through through an organization where they already have an identity, like their local newspaper.
+Mastodon allows admins to set up Single Sign On (SSO) with frameworks including SAML, LDAP, PAM, and CAS. However, it does not support SSO through major platforms like Facebook, Google, and Twitter, nor through the [OpenID](https://openid.net/connect/) framework. Most people have an identity with Facebook, Google, or Twitter—allowing SSO through them makes life easier for both users and admins. Similarly, OpenID is widely used by organizations large and small—supporting OpenID  makes it easier for users to sign up through through an organization where they already have an identity, like their local newspaper.
 
 To configure your Smalltown site to use these options, you just have to set a few environment variables. [Check out more detailed documentation about how to use this feature on the wiki](https://github.com/chandrn7/smalltown/wiki/SSO-with-Facebook,-Google,-Twitter,-and-OpenID).
 
