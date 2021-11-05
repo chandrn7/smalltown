@@ -50,6 +50,10 @@ module ApplicationHelper
     Setting.open_deletion
   end
 
+  def home_enabled?
+    Setting.home_enabled
+  end
+
   def locale_direction
     if RTL_LOCALES.include?(I18n.locale)
       'rtl'

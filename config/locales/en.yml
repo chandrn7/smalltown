@@ -638,6 +638,9 @@ en:
       hero:
         desc_html: Displayed on the frontpage. At least 600x100px recommended. When not set, falls back to site thumbnail
         title: Hero image
+      home_enabled:
+        desc_html: Enable the home timeline and make it the default timeline
+        title: Enable the home timeline
       ios_icon:
         desc_html: Displayed when someone pins your site to their homescreen on iOS. 180x180px recommended. (ex. apple-touch-icon.png)
         title: iOS icon

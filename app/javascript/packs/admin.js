@@ -86,9 +86,49 @@ const onChangeRegistrationMode = (target) => {
       } while (element && !element.classList.contains('fields-group'));
     }
   });
+
+  [].forEach.call(document.querySelectorAll('#form_admin_settings_sso_auto_approval'), (input) => {
+    input.disabled = !enabled;
+    if (enabled) {
+      let element = input;
+      do {
+        element.classList.remove('disabled');
+        element = element.parentElement;
+      } while (element && !element.classList.contains('fields-group'));
+    } else {
+      let element = input;
+      do {
+        element.classList.add('disabled');
+        element = element.parentElement;
+      } while (element && !element.classList.contains('fields-group'));
+    }
+  });
 };
 
 delegate(document, '#form_admin_settings_registrations_mode', 'change', ({ target }) => onChangeRegistrationMode(target));
+
+const onChangeHomeEnabled = (target) => {
+  const enabled = target.checked;
+
+  [].forEach.call(document.querySelectorAll('#form_admin_settings_allow_private_accounts'), (input) => {
+    input.disabled = !enabled;
+    if (enabled) {
+      let element = input;
+      do {
+        element.classList.remove('disabled');
+        element = element.parentElement;
+      } while (element && !element.classList.contains('fields-group'));
+    } else {
+      let element = input;
+      do {
+        element.classList.add('disabled');
+        element = element.parentElement;
+      } while (element && !element.classList.contains('fields-group'));
+    }
+  });
+};
+
+delegate(document, '#form_admin_settings_home_enabled', 'change', ({ target }) => onChangeHomeEnabled(target));
 
 ready(() => {
   const domainBlockSeverityInput = document.getElementById('domain_block_severity');
@@ -99,4 +139,7 @@ ready(() => {
 
   const registrationMode = document.getElementById('form_admin_settings_registrations_mode');
   if (registrationMode) onChangeRegistrationMode(registrationMode);
+
+  const homeEnabled = document.getElementById('form_admin_settings_home_enabled');
+  if (homeEnabled) onChangeHomeEnabled(homeEnabled);
 });

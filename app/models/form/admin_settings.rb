@@ -50,6 +50,7 @@ class Form::AdminSettings
     relationships
     allow_private_accounts
     status_queue
+    home_enabled
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -75,6 +76,7 @@ class Form::AdminSettings
     relationships
     allow_private_accounts
     status_queue
+    home_enabled
   ).freeze
 
   UPLOAD_KEYS = %i(
