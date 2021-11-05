@@ -22,8 +22,4 @@ module DomainControlHelper
   def whitelist_mode?
     Rails.configuration.x.whitelist_mode
   end
-
-  def completely_siloed?
-    whitelist_mode? && DomainAllow.count() == 0
-  end
 end

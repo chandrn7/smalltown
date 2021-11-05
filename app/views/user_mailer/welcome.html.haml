@@ -107,11 +107,13 @@
                             %td.column-cell.padded
                               %h5= t 'user_mailer.welcome.tips'
                               %ul
-                                %li
-                                  %span= t 'user_mailer.welcome.tip_home_timeline'
+                                - if Setting.home_enabled
+                                  %li
+                                    %span= t 'user_mailer.welcome.tip_home_timeline'
                                 %li
                                   %span= t 'user_mailer.welcome.tip_local_timeline', instance: @instance
-                                %li
-                                  %span= t 'user_mailer.welcome.tip_federated_timeline'
+                                - unless (Rails.configuration.x.whitelist_mode && DomainAllow.count() == 0)
+                                  %li
+                                    %span= t 'user_mailer.welcome.tip_federated_timeline'
                                 %li
                                   %span= t 'user_mailer.welcome.tip_mobile_webapp', instance: @instance
