@@ -37,5 +37,6 @@ export const bookmarks = getMeta('bookmarks');
 export const lists = getMeta('lists');
 export const relationships = getMeta('relationships');
 export const statusQueueEnabled = getMeta('status_queue')
+export const homeEnabled = getMeta('home_enabled')
 
 export default initialState;

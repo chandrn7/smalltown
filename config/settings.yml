@@ -82,6 +82,7 @@ defaults: &defaults
   relationships: false
   allow_private_accounts: false
   status_queue: false
+  home_enabled: true
 
 development:
   <<: *defaults

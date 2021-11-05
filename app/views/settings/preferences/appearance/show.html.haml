@@ -15,13 +15,6 @@
     .flash-message.translation-prompt
       #{t 'appearance.localization.body'} #{content_tag(:a, t('appearance.localization.guide_link_text'), href: t('appearance.localization.guide_link'), target: "_blank", rel: "noopener")}
 
-  %h4= t 'appearance.advanced_web_interface'
-
-  %p.hint= t 'appearance.advanced_web_interface_hint'
-
-  .fields-group
-    = f.input :setting_advanced_layout, as: :boolean, wrapper: :with_label, hint: false
-
   %h4= t 'appearance.animations_and_accessibility'
 
   .fields-group

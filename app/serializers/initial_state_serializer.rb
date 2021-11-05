@@ -37,6 +37,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       lists: Setting.lists,
       relationships: Setting.relationships,
       status_queue: Setting.status_queue,
+      home_enabled: Setting.home_enabled,
     }
 
     if object.current_account
