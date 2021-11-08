@@ -168,6 +168,9 @@ class PollForm extends ImmutablePureComponent {
             <option value={86400}>{intl.formatMessage(messages.days, { number: 1 })}</option>
             <option value={259200}>{intl.formatMessage(messages.days, { number: 3 })}</option>
             <option value={604800}>{intl.formatMessage(messages.days, { number: 7 })}</option>
+            <option value={1209600}>{intl.formatMessage(messages.days, { number: 14 })}</option>
+            <option value={1814400}>{intl.formatMessage(messages.days, { number: 21 })}</option>
+            <option value={2419200}>{intl.formatMessage(messages.days, { number: 28 })}</option>
           </select>
         </div>
       </div>
