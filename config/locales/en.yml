@@ -592,6 +592,11 @@ en:
       activity_api_enabled:
         desc_html: Counts of locally published posts, active users, and new registrations in weekly buckets
         title: Publish aggregate statistics about user activity in the API
+      agreement_mode:
+        modes:
+          default: Users agree to site rules and terms of service
+          research: Users agree to site rules, terms of service, and research consent form
+        title: Sign-up agreement mode
       allow_private_accounts:
         desc_html: Let users restrict their posts and account to approved followers only
         title: Allow private posts and accounts
@@ -842,6 +847,7 @@ en:
     change_password: Password
     checkbox_agreement_html: By signing up, you agree to the <a href="%{rules_path}" target="_blank">site rules</a> and <a href="%{terms_path}" target="_blank">terms of service</a>
     checkbox_agreement_without_rules_html: By signing up, you agree to the <a href="%{terms_path}" target="_blank">terms of service</a>
+    checkbox_agreement_research_html: By signing up, you agree to the <a href="%{rules_path}" target="_blank">site rules</a>, <a href="%{terms_path}" target="_blank">terms of service</a>, and <a href="%{research_consent_path}" target="_blank">research consent form</a>
     delete_account: Delete account
     delete_account_html: If you wish to delete your account, you can <a href="%{path}">proceed here</a>. You will be asked for confirmation.
     description:

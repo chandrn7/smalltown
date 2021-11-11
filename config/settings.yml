@@ -83,6 +83,7 @@ defaults: &defaults
   allow_private_accounts: false
   status_queue: false
   home_enabled: true
+  agreement_mode: 'default'
 
 development:
   <<: *defaults

@@ -29,7 +29,7 @@
         - User.omniauth_providers.each do |provider|
           = link_to t("auth.providers.#{Devise.omniauth_configs[provider].strategy.display_name}", default: Devise.omniauth_configs[provider].strategy.display_name.to_s.chomp("_oauth2").capitalize), omniauth_authorize_path(:user, provider), class: "button button-#{Devise.omniauth_configs[provider].strategy.display_name}", method: :post, disabled: closed_registrations?
 
-  %p.lead= t('auth.checkbox_agreement_html', rules_path: about_more_path, terms_path: terms_path)
+  %p.lead= Setting.agreement_mode == 'research' ? t('auth.checkbox_agreement_research_html', rules_path: about_more_path, terms_path: terms_path, research_consent_path: terms_path) : t('auth.checkbox_agreement_html', rules_path: about_more_path, terms_path: terms_path)
 
   - if closed_registrations? && @instance_presenter.closed_registrations_message.present?
     .simple_form__overlay-area__overlay

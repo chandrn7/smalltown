@@ -51,6 +51,7 @@ class Form::AdminSettings
     allow_private_accounts
     status_queue
     home_enabled
+    agreement_mode
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -100,6 +101,7 @@ class Form::AdminSettings
   validates :bootstrap_timeline_accounts, existing_username: { multiple: true }
   validates :show_domain_blocks, inclusion: { in: %w(disabled users all) }
   validates :show_domain_blocks_rationale, inclusion: { in: %w(disabled users all) }
+  validates :agreement_mode, inclusion: { in: %w(default research) }
 
   def initialize(_attributes = {})
     super

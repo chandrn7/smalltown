@@ -29,6 +29,9 @@
     = f.input :support_url, wrapper: :with_block_label, label: t('admin.settings.support_url.title'), hint: t('admin.settings.support_url.desc_html')
 
   .fields-group
+    = f.input :agreement_mode, collection: %w(default research), wrapper: :with_label, label: t('admin.settings.agreement_mode.title'), include_blank: false, label_method: lambda { |mode| I18n.t("admin.settings.agreement_mode.modes.#{mode}") }
+
+  .fields-group
     = f.input :site_short_description, wrapper: :with_block_label, as: :text, label: t('admin.settings.site_short_description.title'), hint: t('admin.settings.site_short_description.desc_html', title: site_title), input_html: { rows: 2 }
 
   .fields-group
