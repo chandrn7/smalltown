@@ -5,7 +5,7 @@ import IconButton from '../../../components/icon_button';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import DropdownMenuContainer from '../../../containers/dropdown_menu_container';
 import { defineMessages, injectIntl } from 'react-intl';
-import { me, isStaff, dmsEnabled, bookmarks } from '../../../initial_state';
+import { me, isStaff, dmsEnabled, bookmarks, reblogsEnabled, shareEnabled } from '../../../initial_state';
 import classNames from 'classnames';
 
 const messages = defineMessages({
@@ -195,9 +195,9 @@ class ActionBar extends React.PureComponent {
     let menu = [];
 
     if (publicStatus) {
-      menu.push({ text: intl.formatMessage(messages.copy), action: this.handleCopy });
-      menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });
-      menu.push(null);
+      if (shareEnabled) {menu.push({ text: intl.formatMessage(messages.copy), action: this.handleCopy });}
+      if (shareEnabled || isStaff) {menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });}
+      if (shareEnabled || isStaff) {menu.push(null);}
     }
 
     if (writtenByMe) {
@@ -248,7 +248,7 @@ class ActionBar extends React.PureComponent {
       }
     }
 
-    const shareButton = ('share' in navigator) && publicStatus && (
+    const shareButton = ('share' in navigator) && publicStatus && shareEnabled && (
       <div className='detailed-status__button'><IconButton title={intl.formatMessage(messages.share)} icon='share-alt' onClick={this.handleShare} /></div>
     );
 
@@ -275,7 +275,7 @@ class ActionBar extends React.PureComponent {
     return (
       <div className='detailed-status__action-bar'>
         <div className='detailed-status__button'><IconButton title={intl.formatMessage(messages.reply)} disabled={status.get('replies_disabled') || (!dmsEnabled && status.get('visibility') === 'direct')} icon={status.get('in_reply_to_account_id') === status.getIn(['account', 'id']) ? 'reply' : replyIcon} onClick={this.handleReplyClick} /></div>
-        <div className='detailed-status__button' ><IconButton className={classNames({ reblogPrivate })} disabled={!publicStatus && !reblogPrivate} active={status.get('reblogged')} title={reblogTitle} icon='retweet' onClick={this.handleReblogClick} /></div>
+        { reblogsEnabled && <div className='detailed-status__button' ><IconButton className={classNames({ reblogPrivate })} disabled={!publicStatus && !reblogPrivate} active={status.get('reblogged')} title={reblogTitle} icon='retweet' onClick={this.handleReblogClick} /></div>}
         <div className='detailed-status__button'><IconButton className='star-icon' animate active={status.get('favourited')} title={intl.formatMessage(messages.favourite)} icon='star' onClick={this.handleFavouriteClick} /></div>
         {shareButton}
         {bookmarks && <div className='detailed-status__button'><IconButton className='bookmark-icon' active={status.get('bookmarked')} title={intl.formatMessage(messages.bookmark)} icon='bookmark' onClick={this.handleBookmarkClick} /></div>}

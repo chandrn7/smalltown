@@ -667,6 +667,9 @@ en:
       profile_directory:
         desc_html: Allow users to be discoverable
         title: Enable profile directory
+      reblogs_enabled:
+        desc_html: Allow users to reblog (essentially the same as Twitter's retweet functionality)
+        title: Enable reblogs
       registrations:
         closed_message:
           desc_html: Displayed on frontpage when registrations are closed. You can use HTML tags
@@ -698,6 +701,9 @@ en:
       safari_svg_color:
         desc_html: "Color used to draw the Safari tab icon (ex. #2B90D9)"
         title: Safari tab icon color
+      share_enabled:
+        desc_html: Display share related buttons (copy link, embed, native share)
+        title: Enable share buttons
       show_known_fediverse_at_about_page:
         desc_html: When disabled, restricts the public timeline linked from the landing page to showing only local content
         title: Include federated content on unauthenticated public timeline page

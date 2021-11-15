@@ -52,6 +52,8 @@ class Form::AdminSettings
     status_queue
     home_enabled
     agreement_mode
+    reblogs_enabled
+    share_enabled
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -78,6 +80,8 @@ class Form::AdminSettings
     allow_private_accounts
     status_queue
     home_enabled
+    reblogs_enabled
+    share_enabled
   ).freeze
 
   UPLOAD_KEYS = %i(
