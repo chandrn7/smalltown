@@ -115,6 +115,10 @@ class Api::BaseController < ApplicationController
     not_found if !Setting.lists
   end
 
+  def require_reblogs!
+    not_found if !Setting.reblogs_enabled
+  end
+
   def render_empty
     render json: {}, status: 200
   end

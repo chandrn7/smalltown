@@ -95,6 +95,12 @@
     = f.input :dms_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.dms_enabled.title'), hint: t('admin.settings.dms_enabled.desc_html')
 
   .fields-group
+    = f.input :reblogs_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.reblogs_enabled.title'), hint: t('admin.settings.reblogs_enabled.desc_html')
+
+  .fields-group
+    = f.input :share_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.share_enabled.title'), hint: t('admin.settings.share_enabled.desc_html')
+
+  .fields-group
     = f.input :home_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.home_enabled.title'), hint: t('admin.settings.home_enabled.desc_html')
 
   .fields-group

@@ -38,6 +38,8 @@ class InitialStateSerializer < ActiveModel::Serializer
       relationships: Setting.relationships,
       status_queue: Setting.status_queue,
       home_enabled: Setting.home_enabled,
+      reblogs_enabled: Setting.reblogs_enabled,
+      share_enabled: Setting.share_enabled,
     }
 
     if object.current_account

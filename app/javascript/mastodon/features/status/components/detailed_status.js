@@ -16,6 +16,7 @@ import classNames from 'classnames';
 import Icon from 'mastodon/components/icon';
 import AnimatedNumber from 'mastodon/components/animated_number';
 import PictureInPicturePlaceholder from 'mastodon/components/picture_in_picture_placeholder';
+import { reblogsEnabled } from '../../../initial_state';
 
 const messages = defineMessages({
   public_short: { id: 'privacy.public.short', defaultMessage: 'Public' },
@@ -263,7 +264,7 @@ class DetailedStatus extends ImmutablePureComponent {
           <div className='detailed-status__meta'>
             <a className='detailed-status__datetime' href={status.get('url')} target='_blank' rel='noopener noreferrer'>
               <FormattedDate value={new Date(status.get('created_at'))} hour12={false} year='numeric' month='short' day='2-digit' hour='2-digit' minute='2-digit' />
-            </a>{visibilityLink}{applicationLink}{reblogLink} · {favouriteLink}{repliesDisabledLink}
+            </a>{visibilityLink}{applicationLink}{reblogsEnabled && reblogLink} · {favouriteLink}{repliesDisabledLink}
           </div>
         </div>
       </div>

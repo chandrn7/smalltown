@@ -84,6 +84,8 @@ defaults: &defaults
   status_queue: false
   home_enabled: true
   agreement_mode: 'default'
+  reblogs_enabled: true
+  share_enabled: true
 
 development:
   <<: *defaults

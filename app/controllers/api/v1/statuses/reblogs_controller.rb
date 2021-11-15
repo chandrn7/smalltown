@@ -5,6 +5,7 @@ class Api::V1::Statuses::ReblogsController < Api::BaseController
 
   before_action -> { doorkeeper_authorize! :write, :'write:statuses' }
   before_action :require_user!
+  before_action :require_reblogs!, only: [:create]
   before_action :set_reblog, only: [:create]
 
   override_rate_limit_headers :create, family: :statuses

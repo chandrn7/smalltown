@@ -6,7 +6,7 @@ import IconButton from './icon_button';
 import DropdownMenuContainer from '../containers/dropdown_menu_container';
 import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { me, isStaff, dmsEnabled, bookmarks } from '../initial_state';
+import { me, isStaff, dmsEnabled, bookmarks, reblogsEnabled, shareEnabled } from '../initial_state';
 import classNames from 'classnames';
 
 const messages = defineMessages({
@@ -234,8 +234,8 @@ class StatusActionBar extends ImmutablePureComponent {
     menu.push({ text: intl.formatMessage(messages.open), action: this.handleOpen });
 
     if (publicStatus) {
-      menu.push({ text: intl.formatMessage(messages.copy), action: this.handleCopy });
-      menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });
+      if (shareEnabled) {menu.push({ text: intl.formatMessage(messages.copy), action: this.handleCopy });}
+      if (shareEnabled || isStaff) {menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });}
     }
 
     menu.push(null);
@@ -246,7 +246,7 @@ class StatusActionBar extends ImmutablePureComponent {
       menu.push({ text: intl.formatMessage(status.get('pinned') ? messages.unpin : messages.pin), action: this.handlePinClick });
     }
 
-    menu.push(null);
+    if (bookmarks || writtenByMe && publicStatus) {menu.push(null);}
 
     if (writtenByMe || withDismiss) {
       menu.push({ text: intl.formatMessage(mutingConversation ? messages.unmuteConversation : messages.muteConversation), action: this.handleConversationMuteClick });
@@ -317,14 +317,14 @@ class StatusActionBar extends ImmutablePureComponent {
       reblogTitle = intl.formatMessage(messages.cannot_reblog);
     }
 
-    const shareButton = ('share' in navigator) && publicStatus && (
+    const shareButton = ('share' in navigator) && publicStatus && shareEnabled && (
       <IconButton className='status__action-bar-button' title={intl.formatMessage(messages.share)} icon='share-alt' onClick={this.handleShareClick} />
     );
 
     return (
       <div className='status__action-bar'>
         <IconButton className='status__action-bar-button' disabled={status.get('replies_disabled') || (!dmsEnabled && status.get('visibility') === 'direct')} title={replyTitle} icon={status.get('in_reply_to_account_id') === status.getIn(['account', 'id']) ? 'reply' : replyIcon} onClick={this.handleReplyClick} counter={status.get('replies_count')} obfuscateCount />
-        <IconButton className={classNames('status__action-bar-button', { reblogPrivate })} disabled={!publicStatus && !reblogPrivate}  active={status.get('reblogged')} pressed={status.get('reblogged')} title={reblogTitle} icon='retweet' onClick={this.handleReblogClick} />
+        { reblogsEnabled && <IconButton className={classNames('status__action-bar-button', { reblogPrivate })} disabled={!publicStatus && !reblogPrivate}  active={status.get('reblogged')} pressed={status.get('reblogged')} title={reblogTitle} icon='retweet' onClick={this.handleReblogClick} />}
         <IconButton className='status__action-bar-button star-icon' animate active={status.get('favourited')} pressed={status.get('favourited')} title={intl.formatMessage(messages.favourite)} icon='star' onClick={this.handleFavouriteClick} />
 
         {shareButton}

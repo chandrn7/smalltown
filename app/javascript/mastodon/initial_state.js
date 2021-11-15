@@ -38,5 +38,7 @@ export const lists = getMeta('lists');
 export const relationships = getMeta('relationships');
 export const statusQueueEnabled = getMeta('status_queue')
 export const homeEnabled = getMeta('home_enabled')
+export const reblogsEnabled = getMeta('reblogs_enabled')
+export const shareEnabled = getMeta('share_enabled')
 
 export default initialState;
