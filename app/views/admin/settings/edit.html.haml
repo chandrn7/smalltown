@@ -101,6 +101,9 @@
     = f.input :share_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.share_enabled.title'), hint: t('admin.settings.share_enabled.desc_html')
 
   .fields-group
+    = f.input :with_replies, as: :boolean, wrapper: :with_label, label: t('admin.settings.with_replies.title'), hint: t('admin.settings.with_replies.desc_html')
+
+  .fields-group
     = f.input :home_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.home_enabled.title'), hint: t('admin.settings.home_enabled.desc_html')
 
   .fields-group

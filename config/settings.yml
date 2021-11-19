@@ -86,6 +86,7 @@ defaults: &defaults
   agreement_mode: 'default'
   reblogs_enabled: true
   share_enabled: true
+  with_replies: false
 
 development:
   <<: *defaults
