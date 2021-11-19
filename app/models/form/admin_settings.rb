@@ -54,6 +54,7 @@ class Form::AdminSettings
     agreement_mode
     reblogs_enabled
     share_enabled
+    with_replies
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -82,6 +83,7 @@ class Form::AdminSettings
     home_enabled
     reblogs_enabled
     share_enabled
+    with_replies
   ).freeze
 
   UPLOAD_KEYS = %i(

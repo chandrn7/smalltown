@@ -742,6 +742,9 @@ en:
       trends:
         desc_html: Publicly display previously reviewed hashtags that are currently trending
         title: Trending hashtags
+      with_replies:
+        desc_html: Recommmended for small instances with home timeline disabled
+        title: Include replies in public timeline
     site_uploads:
       delete: Delete uploaded file
       destroyed_msg: Site upload successfully deleted!

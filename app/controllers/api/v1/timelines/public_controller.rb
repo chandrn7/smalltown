@@ -38,7 +38,8 @@ class Api::V1::Timelines::PublicController < Api::BaseController
       current_account,
       local: truthy_param?(:local),
       remote: truthy_param?(:remote),
-      only_media: truthy_param?(:only_media)
+      only_media: truthy_param?(:only_media),
+      with_replies: Setting.with_replies || truthy_param?(:with_replies)
     )
   end
 
