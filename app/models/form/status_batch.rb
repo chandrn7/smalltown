@@ -19,6 +19,8 @@ class Form::StatusBatch
       change_replies(action == 'disable_replies')
     when 'approve'
       approve_statuses
+    when 'timeline_pin', 'timeline_unpin'
+      change_pin(action == 'timeline_pin')
     end
   end
 
@@ -95,6 +97,21 @@ class Form::StatusBatch
         else
           ActivityPub::Activity.distribute(status)
         end
+        handle_queue_email(status)
+      end
+      handle_non_queue_email
+    end
+
+    true
+  rescue ActiveRecord::RecordInvalid
+    false
+  end
+
+  def change_pin(timeline_pin)
+    ApplicationRecord.transaction do
+      Status.where(id: status_ids).reorder(nil).find_each do |status|
+        status.update!(timeline_pinned: timeline_pin)
+        log_action :update, status
         handle_queue_email(status)
       end
       handle_non_queue_email

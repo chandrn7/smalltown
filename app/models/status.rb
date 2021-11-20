@@ -24,6 +24,7 @@
 #  poll_id                :bigint(8)
 #  deleted_at             :datetime
 #  pending                :boolean          default(FALSE), not null
+#  timeline_pinned        :boolean          default(FALSE), not null
 #
 
 class Status < ApplicationRecord
@@ -88,6 +89,7 @@ class Status < ApplicationRecord
   scope :remote, -> { where(local: false).where.not(uri: nil) }
   scope :local,  -> { where(local: true).or(where(uri: nil)) }
   scope :staff, -> { where(visibility: %w(public private unlisted)) }
+  scope :timeline_pinned, -> { where(timeline_pinned: true) }
   scope :with_accounts, ->(ids) { where(id: ids).includes(:account) }
   scope :without_replies, -> { where('statuses.reply = FALSE OR statuses.in_reply_to_account_id = statuses.account_id') }
   scope :without_reblogs, -> { where('statuses.reblog_of_id IS NULL') }

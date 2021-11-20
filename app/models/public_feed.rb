@@ -8,6 +8,7 @@ class PublicFeed
   # @option [Boolean] :local
   # @option [Boolean] :remote
   # @option [Boolean] :only_media
+  # @option [Boolean] :timeline_pinned
   def initialize(account, options = {})
     @account = account
     @options = options
@@ -28,6 +29,7 @@ class PublicFeed
     scope.merge!(account_filters_scope) if account?
     scope.merge!(media_only_scope) if media_only?
     scope.merge!(staff_scope) if account? && account.user.staff?
+    scope.merge!(timeline_pinned_scope) if timeline_pinned?
 
     scope.cache_ids.to_a_paginated_by_id(limit, max_id: max_id, since_id: since_id, min_id: min_id)
   end
@@ -58,6 +60,10 @@ class PublicFeed
 
   def media_only?
     options[:only_media]
+  end
+
+  def timeline_pinned?
+    options[:timeline_pinned]
   end
 
   def public_scope
@@ -93,5 +99,9 @@ class PublicFeed
 
   def staff_scope
     Status.staff
+  end
+
+  def timeline_pinned_scope
+    Status.timeline_pinned
   end
 end

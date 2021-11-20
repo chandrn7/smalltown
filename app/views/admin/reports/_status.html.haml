@@ -47,3 +47,7 @@
         ·
         = fa_icon('comments-o fw')
         = t('statuses.replies_disabled')
+      - if status.timeline_pinned
+        ·
+        = fa_icon('thumb-tack fw')
+        = t('statuses.timeline_pinned')
