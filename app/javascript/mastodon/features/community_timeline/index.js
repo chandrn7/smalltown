@@ -1,14 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import StatusListContainer from '../ui/containers/status_list_container';
 import Column from '../../components/column';
 import ColumnHeader from '../../components/column_header';
-import { expandCommunityTimeline } from '../../actions/timelines';
+import { expandCommunityTimeline, expandCommunityPinned } from '../../actions/timelines';
 import { addColumn, removeColumn, moveColumn } from '../../actions/columns';
 import ColumnSettingsContainer from './containers/column_settings_container';
 import { connectCommunityStream } from '../../actions/streaming';
+import { List as ImmutableList } from 'immutable';
+
+const emptyList = ImmutableList();
 
 const messages = defineMessages({
   title: { id: 'column.community', defaultMessage: 'Local timeline' },
@@ -24,6 +28,7 @@ const mapStateToProps = (state, { columnId }) => {
   return {
     hasUnread: !!timelineState && timelineState.get('unread') > 0,
     onlyMedia,
+    featuredStatusIds: state.getIn(['timelines', 'community:timeline_pinned', 'items'], emptyList),
   };
 };
 
@@ -47,6 +52,7 @@ class CommunityTimeline extends React.PureComponent {
     hasUnread: PropTypes.bool,
     multiColumn: PropTypes.bool,
     onlyMedia: PropTypes.bool,
+    featuredStatusIds: ImmutablePropTypes.list,
   };
 
   handlePin = () => {
@@ -72,6 +78,7 @@ class CommunityTimeline extends React.PureComponent {
     const { dispatch, onlyMedia } = this.props;
 
     dispatch(expandCommunityTimeline({ onlyMedia }));
+    dispatch(expandCommunityPinned());
     this.disconnect = dispatch(connectCommunityStream({ onlyMedia }));
   }
 
@@ -81,6 +88,7 @@ class CommunityTimeline extends React.PureComponent {
 
       this.disconnect();
       dispatch(expandCommunityTimeline({ onlyMedia }));
+      dispatch(expandCommunityPinned());
       this.disconnect = dispatch(connectCommunityStream({ onlyMedia }));
     }
   }
@@ -100,10 +108,11 @@ class CommunityTimeline extends React.PureComponent {
     const { dispatch, onlyMedia } = this.props;
 
     dispatch(expandCommunityTimeline({ maxId, onlyMedia }));
+    dispatch(expandCommunityPinned());
   }
 
   render () {
-    const { intl, shouldUpdateScroll, hasUnread, columnId, multiColumn, onlyMedia } = this.props;
+    const { intl, shouldUpdateScroll, hasUnread, columnId, multiColumn, onlyMedia, featuredStatusIds } = this.props;
     const pinned = !!columnId;
 
     return (
@@ -129,6 +138,7 @@ class CommunityTimeline extends React.PureComponent {
           emptyMessage={<FormattedMessage id='empty_column.community' defaultMessage='The local timeline is empty. Write something publicly to get the ball rolling!' />}
           shouldUpdateScroll={shouldUpdateScroll}
           bindToDocument={!multiColumn}
+          featuredStatusIds={featuredStatusIds}
         />
       </Column>
     );

@@ -761,6 +761,8 @@ en:
         nsfw_off: Mark not sensitive
         nsfw_on: Mark sensitive
         restore: Restore
+        timeline_pin: Pin
+        timeline_unpin: Unpin
       deleted: Deleted
       email_form:
         send_email_notification:
@@ -1370,6 +1372,7 @@ en:
     show_older: Show older
     show_thread: Show thread
     sign_in_to_participate: Sign in to participate in the conversation
+    timeline_pinned: Pinned
     title: '%{name}: "%{quote}"'
     visibilities:
       direct: Direct
@@ -1519,6 +1522,8 @@ en:
         sensitive: Your uploaded media files and linked media will be treated as sensitive.
         silence: You can still use your account but only people who are already following you will see your posts on this site, and you may be excluded from various public listings. However, others may still manually follow you.
         suspend: You can no longer use your account, and your profile and other data are no longer accessible. You can still login to request a backup of your data until the data is fully removed, but we will retain some data to prevent you from evading the suspension.
+        timeline_pin: Your post has been pinned to the local timeline. It will appear at the top of the local timeline for all users on the site.
+        timeline_unpin: Your post has been unpinned from the local timeline. It will no longer appear at the top of the local timeline for all users on the site.
       get_in_touch: You can reply to this e-mail to get in touch with the staff of %{instance}.
       review_server_policies: Review site policies
       statuses: 'Specifically, for:'
@@ -1536,6 +1541,8 @@ en:
         sensitive: Your account %{acct} posting media has been marked as sensitive
         silence: Your account %{acct} has been limited
         suspend: Your account %{acct} has been suspended
+        timeline_pin: Your post has been pinned
+        timeline_unpin: Your post has been unpinned
       title:
         approve: Post approved
         delete: Post deleted
@@ -1549,6 +1556,8 @@ en:
         sensitive: Your media has been marked as sensitive
         silence: Account limited
         suspend: Account suspended
+        timeline_pin: Post pinned
+        timeline_unpin: Post unpinned
     welcome:
       edit_profile_action: Setup profile
       edit_profile_step: You can customize your profile by uploading an avatar, header, changing your display name and more.

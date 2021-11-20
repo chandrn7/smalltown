@@ -76,6 +76,10 @@ module Admin
         'enable_replies'
       elsif params[:restore]
         'restore'
+      elsif params[:timeline_pin]
+        'timeline_pin'
+      elsif params[:timeline_unpin]
+        'timeline_unpin'
       end
     end
   end

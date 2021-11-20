@@ -13,7 +13,7 @@
 #
 
 class AccountWarning < ApplicationRecord
-  enum action: %i(none disable sensitive silence suspend delete disable_replies enable_replies nsfw_on nsfw_off restore approve), _suffix: :action
+  enum action: %i(none disable sensitive silence suspend delete disable_replies enable_replies nsfw_on nsfw_off restore approve timeline_pin timeline_unpin), _suffix: :action
 
   belongs_to :account, inverse_of: :account_warnings
   belongs_to :target_account, class_name: 'Account', inverse_of: :targeted_account_warnings
