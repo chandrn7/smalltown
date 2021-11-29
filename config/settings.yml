@@ -42,7 +42,7 @@ defaults: &defaults
     follow: false
     reblog: false
     favourite: false
-    mention: false
+    mention: true
     follow_request: true
     digest: true
     report: true
