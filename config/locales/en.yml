@@ -130,7 +130,7 @@ en:
       enable: Unfreeze
       enabled: Enabled
       enabled_msg: Successfully unfroze %{username}'s account
-      external: SSO
+      external: External
       external_status: Authentication type
       followers: Followers
       follows: Follows
