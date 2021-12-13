@@ -130,10 +130,13 @@ en:
       enable: Unfreeze
       enabled: Enabled
       enabled_msg: Successfully unfroze %{username}'s account
+      external: SSO
+      external_status: Authentication type
       followers: Followers
       follows: Follows
       header: Header
       inbox_url: Inbox URL
+      internal: Internal
       invite_request_text: Reasons for joining
       invited_by: Invited by
       ip: IP
@@ -367,6 +370,7 @@ en:
       authorized_fetch_mode: Secure mode
       backlog: backlogged jobs
       config: Configuration
+      external_users: external users
       feature_deletions: Account deletions
       feature_invites: Invite links
       feature_profile_directory: Profile directory

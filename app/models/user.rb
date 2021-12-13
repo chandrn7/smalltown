@@ -314,6 +314,10 @@ class User < ApplicationRecord
     @invite_code = code
   end
 
+  def external_auth?
+    encrypted_password.blank?
+  end
+
   def password_required?
     return false if external?
 
