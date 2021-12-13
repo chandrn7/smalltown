@@ -40,7 +40,7 @@ module Admin
       @profile_directory     = Setting.profile_directory
       @timeline_preview      = Setting.timeline_preview
       @trends_enabled        = Setting.trends
-      @external_user_count   = User.count { |user| user.encrypted_password.blank? }
+      @external_user_count   = User.count { |user| user.external_auth? }
     end
 
     private
