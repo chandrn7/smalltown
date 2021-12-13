@@ -161,6 +161,14 @@
               %td= admin_account_link_to @account.user.invite.user.account
               %td
 
+          %tr
+            %th= t('admin.accounts.external_status')
+            %td
+              - if @account.user&.external_auth?
+                = t('admin.accounts.external')
+              - else
+                = t('admin.accounts.internal')
+
         - else
           %tr
             %th= t('admin.accounts.inbox_url')

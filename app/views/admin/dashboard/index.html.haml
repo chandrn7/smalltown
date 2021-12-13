@@ -50,6 +50,11 @@
       .dashboard__counters__num{ title: number_with_delimiter(@queue_backlog, strip_insignificant_zeros: true) }
         = number_to_human @queue_backlog, strip_insignificant_zeros: true
       .dashboard__counters__label= t 'admin.dashboard.backlog'
+  %div
+    %div
+      .dashboard__counters__num{ title: number_with_delimiter(@external_user_count, strip_insignificant_zeros: true) }
+        = number_to_human @external_user_count, strip_insignificant_zeros: true
+      .dashboard__counters__label= t 'admin.dashboard.external_users'
 
 .dashboard__widgets
   .dashboard__widgets__users
