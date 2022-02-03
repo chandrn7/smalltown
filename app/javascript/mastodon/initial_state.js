@@ -40,5 +40,7 @@ export const statusQueueEnabled = getMeta('status_queue')
 export const homeEnabled = getMeta('home_enabled')
 export const reblogsEnabled = getMeta('reblogs_enabled')
 export const shareEnabled = getMeta('share_enabled')
+export const archiveMinStatusId = getMeta('archive_min_status_id')
+export const archiveMaxStatusId = getMeta('archive_max_status_id')
 
 export default initialState;

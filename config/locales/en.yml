@@ -607,6 +607,9 @@ en:
       android_icon:
         desc_html: Displayed when someone pins your site to their homescreen on Android. 192x192px recommended. (ex. android-chrome-192x192.png)
         title: Android icon
+      archive_status_id:
+        desc_html: Create an archive timeline that includes statuses up to and including this id. The public timeline will not include archived statuses.
+        title: Archive status id
       bookmarks:
         desc_html: Allow users to bookmark posts
         title: Enable bookmarks

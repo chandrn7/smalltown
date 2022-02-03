@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
-import { me, profile_directory, showTrends, completelySiloed, dmsEnabled, bookmarks, lists } from '../../initial_state';
+import { me, profile_directory, showTrends, completelySiloed, dmsEnabled, bookmarks, lists, homeEnabled, archiveMaxStatusId } from '../../initial_state';
 import { fetchFollowRequests } from 'mastodon/actions/accounts';
 import { List as ImmutableList } from 'immutable';
 import NavigationContainer from '../compose/containers/navigation_container';
@@ -21,6 +21,7 @@ const messages = defineMessages({
   public_timeline: { id: 'navigation_bar.public_timeline', defaultMessage: 'Federated timeline' },
   settings_subheading: { id: 'column_subheading.settings', defaultMessage: 'Settings' },
   community_timeline: { id: 'navigation_bar.community_timeline', defaultMessage: 'Local timeline' },
+  archive_timeline: { id: 'navigation_bar.archive_timeline', defaultMessage: 'Archive timeline' },
   direct: { id: 'navigation_bar.direct', defaultMessage: 'Direct messages' },
   bookmarks: { id: 'navigation_bar.bookmarks', defaultMessage: 'Bookmarks' },
   preferences: { id: 'navigation_bar.preferences', defaultMessage: 'Preferences' },
@@ -81,9 +82,10 @@ class GettingStarted extends ImmutablePureComponent {
 
   componentDidMount () {
     const { fetchFollowRequests, multiColumn } = this.props;
+    const mobileRedirectPath = homeEnabled ? '/timelines/home' : '/timelines/public/local';
 
     if (!multiColumn && window.innerWidth >= NAVIGATION_PANEL_BREAKPOINT) {
-      this.context.router.history.replace('/timelines/home');
+      this.context.router.history.replace(mobileRedirectPath);
       return;
     }
 
@@ -100,7 +102,8 @@ class GettingStarted extends ImmutablePureComponent {
       navItems.push(
         <ColumnSubheading key='header-discover' text={intl.formatMessage(messages.discover)} />,
         <ColumnLink key='community_timeline' icon='users' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />,
-        ... !completelySiloed ? [<ColumnLink key='public_timeline' icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />] : [],
+        ... completelySiloed ? [] : [<ColumnLink key='public_timeline' icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />],
+        ... archiveMaxStatusId === '' ? [] : [<ColumnLink key='archive_timeline' icon='archive' text={intl.formatMessage(messages.archive_timeline)} to='/timelines/public/archive' />],
         <ColumnLink key='featured_topics' icon='hashtag' text={intl.formatMessage(messages.featured_topics)} to='/featured_topics'/>,
       );
 

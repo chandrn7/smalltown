@@ -12,6 +12,7 @@ import Column from 'mastodon/features/ui/components/column';
 import Account from './components/account';
 import Logo from 'mastodon/components/logo';
 import Button from 'mastodon/components/button';
+import { homeEnabled } from '../../initial_state';
 
 const mapStateToProps = state => ({
   suggestions: state.getIn(['suggestions', 'items']),
@@ -54,6 +55,7 @@ class FollowRecommendations extends ImmutablePureComponent {
   handleDone = () => {
     const { dispatch } = this.props;
     const { router } = this.context;
+    const mobileRedirectPath = homeEnabled ? '/timelines/home' : '/timelines/public/local';
 
     dispatch(requestBrowserPermission((permission) => {
       if (permission === 'granted') {
@@ -67,7 +69,7 @@ class FollowRecommendations extends ImmutablePureComponent {
       }
     }));
 
-    router.history.push('/timelines/home');
+    router.history.push(mobileRedirectPath);
   }
 
   render () {

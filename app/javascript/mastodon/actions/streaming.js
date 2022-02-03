@@ -127,6 +127,14 @@ export const connectCommunityStream = ({ onlyMedia } = {}) =>
 
 /**
  * @param {Object} options
+ * @param {string} [options.maxId]
+ * @return {function(): void}
+ */
+export const connectArchiveStream = ({ maxId } = {}) =>
+  connectTimelineStream(`archive`, `public:local`, { max_id: maxId });
+
+/**
+ * @param {Object} options
  * @param {boolean} [options.onlyMedia]
  * @param {boolean} [options.onlyRemote]
  * @return {function(): void}
