@@ -10,7 +10,7 @@ module Admin
 
     def update
       authorize :settings, :update?
-      
+
       @admin_settings = Form::AdminSettings.new(settings_params)
       
       prev_archive_status_id = ''
