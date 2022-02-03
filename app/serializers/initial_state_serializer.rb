@@ -40,6 +40,8 @@ class InitialStateSerializer < ActiveModel::Serializer
       home_enabled: Setting.home_enabled,
       reblogs_enabled: Setting.reblogs_enabled,
       share_enabled: Setting.share_enabled,
+      archive_min_status_id: Setting.archive_status_id,
+      archive_max_status_id: Setting.archive_status_id == '' ? Setting.archive_status_id : Status.where('id > ?', Setting.archive_status_id).last.id.to_s
     }
 
     if object.current_account

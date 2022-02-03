@@ -953,6 +953,19 @@
   {
     "descriptors": [
       {
+        "defaultMessage": "Archive timeline",
+        "id": "column.archive"
+      },
+      {
+        "defaultMessage": "The archive timeline is empty.",
+        "id": "empty_column.archive"
+      }
+    ],
+    "path": "app/javascript/mastodon/features/archive_timeline/index.json"
+  },
+  {
+    "descriptors": [
+      {
         "defaultMessage": "Blocked users",
         "id": "column.blocks"
       },
@@ -1777,6 +1790,10 @@
       {
         "defaultMessage": "Notifications",
         "id": "tabs_bar.notifications"
+      },
+      {
+        "defaultMessage": "Archive timeline",
+        "id": "navigation_bar.archive_timeline"
       },
       {
         "defaultMessage": "Federated timeline",
@@ -3101,6 +3118,10 @@
         "id": "tabs_bar.notifications"
       },
       {
+        "defaultMessage": "Archive",
+        "id": "tabs_bar.archive_timeline"
+      },
+      {
         "defaultMessage": "Local",
         "id": "tabs_bar.local_timeline"
       },
@@ -3181,6 +3202,10 @@
       {
         "defaultMessage": "Notifications",
         "id": "tabs_bar.notifications"
+      },
+      {
+        "defaultMessage": "Archive",
+        "id": "tabs_bar.archive_timeline"
       },
       {
         "defaultMessage": "Local",

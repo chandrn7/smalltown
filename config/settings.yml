@@ -87,6 +87,7 @@ defaults: &defaults
   reblogs_enabled: true
   share_enabled: true
   with_replies: false
+  archive_status_id: ''
 
 development:
   <<: *defaults

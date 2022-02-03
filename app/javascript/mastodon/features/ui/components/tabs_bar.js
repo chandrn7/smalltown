@@ -6,13 +6,14 @@ import { debounce } from 'lodash';
 import { isUserTouching } from '../../../is_mobile';
 import Icon from 'mastodon/components/icon';
 import NotificationsCounterIcon from './notifications_counter_icon';
-import { completelySiloed, homeEnabled } from 'mastodon/initial_state';
+import { completelySiloed, homeEnabled, archiveMaxStatusId } from 'mastodon/initial_state';
 
 export const links = [
   ... !homeEnabled ? [] : [<NavLink className='tabs-bar__link' to='/timelines/home' data-preview-title-id='column.home' data-preview-icon='home' ><Icon id='home' fixedWidth /><FormattedMessage id='tabs_bar.home' defaultMessage='Home' /></NavLink>],
   <NavLink className='tabs-bar__link' to='/notifications' data-preview-title-id='column.notifications' data-preview-icon='bell' ><NotificationsCounterIcon /><FormattedMessage id='tabs_bar.notifications' defaultMessage='Notifications' /></NavLink>,
   <NavLink className='tabs-bar__link' to='/timelines/public/local' data-preview-title-id='column.community' data-preview-icon='users' ><Icon id='users' fixedWidth /><FormattedMessage id='tabs_bar.local_timeline' defaultMessage='Local' /></NavLink>,
   ... completelySiloed ? [] : [<NavLink className='tabs-bar__link' exact to='/timelines/public' data-preview-title-id='column.public' data-preview-icon='globe' ><Icon id='globe' fixedWidth /><FormattedMessage id='tabs_bar.federated_timeline' defaultMessage='Federated' /></NavLink>],
+  ... archiveMaxStatusId === '' ? [] : [<NavLink className='tabs-bar__link' to='/timelines/public/archive' data-preview-title-id='column.archive' data-preview-icon='archive' ><Icon id='archive' fixedWidth /><FormattedMessage id='tabs_bar.archive_timeline' defaultMessage='Archive' /></NavLink>],
   <NavLink className='tabs-bar__link' to='/featured_topics' data-preview-title-id='column.featured_topics' data-preview-icon='hashtag'><Icon id='hashtag' fixedWidth /><FormattedMessage id='tabs_bar.featured_topics' defaultMessage='Featured topics' /></NavLink>,
   <NavLink className='tabs-bar__link optional' to='/search' data-preview-title-id='tabs_bar.search' data-preview-icon='bell' ><Icon id='search' fixedWidth /><FormattedMessage id='tabs_bar.search' defaultMessage='Search' /></NavLink>,
   <NavLink className='tabs-bar__link' style={{ flexGrow: '0', flexBasis: '30px' }} to='/getting-started' data-preview-title-id='getting_started.heading' data-preview-icon='bars' ><Icon id='bars' fixedWidth /></NavLink>,

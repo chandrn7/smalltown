@@ -55,6 +55,7 @@ class Form::AdminSettings
     reblogs_enabled
     share_enabled
     with_replies
+    archive_status_id
   ).freeze
 
   BOOLEAN_KEYS = %i(
