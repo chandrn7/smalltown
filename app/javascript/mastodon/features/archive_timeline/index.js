@@ -61,7 +61,7 @@ class ArchiveTimeline extends React.PureComponent {
 
   componentDidMount () {
     const { dispatch } = this.props;
-    const maxId = archiveMaxStatusId;
+    const maxId = archiveMaxStatusId === 'all' ? '' : archiveMaxStatusId;
 
     dispatch(expandArchiveTimeline({ maxId }));
     this.disconnect = dispatch(connectArchiveStream({ maxId }));

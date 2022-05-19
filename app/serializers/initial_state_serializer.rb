@@ -41,7 +41,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       reblogs_enabled: Setting.reblogs_enabled,
       share_enabled: Setting.share_enabled,
       archive_min_status_id: Setting.archive_status_id,
-      archive_max_status_id: Setting.archive_status_id == '' ? Setting.archive_status_id : Status.where('id > ?', Setting.archive_status_id).last.id.to_s
+      archive_max_status_id: Setting.archive_status_id == '' ? Setting.archive_status_id : calculate_archive_max
     }
 
     if object.current_account
@@ -100,5 +100,14 @@ class InitialStateSerializer < ActiveModel::Serializer
 
   def instance_presenter
     @instance_presenter ||= InstancePresenter.new
+  end
+
+  def calculate_archive_max
+    status_list = Status.where('id > ?', Setting.archive_status_id)
+    if status_list.empty?
+      'all'
+    else
+      status_list.last.id.to_s
+    end
   end
 end
