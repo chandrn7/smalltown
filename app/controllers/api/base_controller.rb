@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::BaseController < ApplicationController
-  DEFAULT_STATUSES_LIMIT = 20
+  DEFAULT_STATUSES_LIMIT = 100
   DEFAULT_ACCOUNTS_LIMIT = 40
 
   include RateLimitHeaders
