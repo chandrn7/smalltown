@@ -103,13 +103,16 @@ export function expandTimeline(timelineId, path, params = {}, done = noOp) {
         params.since_id = b || a;
       }
     }
-
     const isLoadingRecent = !!params.since_id;
-
+    const minId = structuredClone(params.min_id);
+    params.min_id = undefined;
     dispatch(expandTimelineRequest(timelineId, isLoadingMore));
 
     api(getState).get(path, { params }).then(response => {
       const next = getLinks(response).refs.find(link => link.rel === 'next');
+      if (minId){
+        response.data = response.data.filter( response => (compareId(response.id, minId) > 0));
+      }
       dispatch(importFetchedStatuses(response.data));
       dispatch(expandTimelineSuccess(timelineId, response.data, next ? next.uri : null, response.status === 206, isLoadingRecent, isLoadingMore, isLoadingRecent && preferPendingItems));
 
@@ -126,7 +129,7 @@ export function expandTimeline(timelineId, path, params = {}, done = noOp) {
 
 export const expandHomeTimeline            = ({ maxId } = {}, done = noOp) => expandTimeline('home', '/api/v1/timelines/home', { max_id: maxId }, done);
 export const expandPublicTimeline          = ({ maxId, onlyMedia, onlyRemote } = {}, done = noOp) => expandTimeline(`public${onlyRemote ? ':remote' : ''}${onlyMedia ? ':media' : ''}`, '/api/v1/timelines/public', { remote: !!onlyRemote, max_id: maxId, only_media: !!onlyMedia }, done);
-export const expandCommunityTimeline       = ({ maxId, onlyMedia } = {}, done = noOp) => expandTimeline(`community${onlyMedia ? ':media' : ''}`, '/api/v1/timelines/public', { local: true, max_id: maxId, min_id: archiveMinStatusId, only_media: !!onlyMedia }, done);
+export const expandCommunityTimeline       = ({ maxId, onlyMedia } = {}, done = noOp) => expandTimeline(`community${onlyMedia ? ':media' : ''}`, '/api/v1/timelines/public', { local: true, max_id: maxId, min_id: ( archiveMinStatusId !== '' ? archiveMinStatusId : undefined ), only_media: !!onlyMedia }, done);
 export const expandArchiveTimeline         = ({ maxId } = {}, done = noOp) => expandTimeline(`archive`, '/api/v1/timelines/public', { local: true, max_id: maxId }, done);
 export const expandCommunityPinned         = () => expandTimeline(`community:timeline_pinned`, '/api/v1/timelines/public', { local: true, timeline_pinned: true });
 export const expandAccountTimeline         = (accountId, { maxId, withReplies } = {}) => expandTimeline(`account:${accountId}${withReplies ? ':with_replies' : ''}`, `/api/v1/accounts/${accountId}/statuses`, { exclude_replies: !withReplies, max_id: maxId });
