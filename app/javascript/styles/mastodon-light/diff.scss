@@ -665,8 +665,8 @@ html {
 }
 
 .compose-form .compose-form__warning {
-  border-color: var(--ui-highlight-color);
-  background-color: rgba(var(--ui-highlight-color), 0.1);
+  border-color: $ui-highlight-color;
+  background-color: rgba($ui-highlight-color, 0.1);
 
   &,
   a {
