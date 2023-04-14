@@ -61,7 +61,7 @@
   }
 
   &__text {
-    border-top: 2px solid $ui-highlight-color;
+    border-top: 2px solid var(--ui-highlight-color);
 
     &--columnized {
       display: flex;
@@ -129,7 +129,7 @@
     width: 14px;
     height: 14px;
     border-radius: 14px;
-    border: 1px solid $ui-highlight-color;
+    border: 1px solid var(--ui-highlight-color);
     background: transparent;
     margin: 0 3px;
     cursor: pointer;
@@ -140,7 +140,7 @@
 
     &.active {
       cursor: default;
-      background: $ui-highlight-color;
+      background: var(--ui-highlight-color);
     }
   }
 

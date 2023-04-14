@@ -19,6 +19,15 @@ $ui-primary-color: #9bcbed;
 $ui-secondary-color: $classic-base-color !default;
 $ui-highlight-color: #2b90d9;
 
+:root {
+  --ui-highlight-color: #2b90d9;
+  //Invert darkened and lightened colors
+  --ui-highlight-dark-color: #3c9add;
+  --ui-highlight-light-color: #217aba;
+  --ui-highlight-base-mix: #1c3246;
+  --ui-highlight-white-mix: #d5e9f7;
+}
+
 $primary-text-color: $black !default;
 $darker-text-color: $classic-base-color !default;
 $dark-text-color: #444b5d;

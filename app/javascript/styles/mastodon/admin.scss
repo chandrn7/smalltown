@@ -153,12 +153,12 @@ $content-width: 840px;
 
       .simple-navigation-active-leaf a {
         color: $primary-text-color;
-        background-color: $ui-highlight-color;
+        background-color: var(--ui-highlight-color);
         border-bottom: 0;
         border-radius: 0;
 
         &:hover {
-          background-color: lighten($ui-highlight-color, 5%);
+          background-color: var(--ui-highlight-light-color);
         }
       }
     }
@@ -360,7 +360,7 @@ $content-width: 840px;
       }
 
       ul .simple-navigation-active-leaf a {
-        border-bottom-color: $ui-highlight-color;
+        border-bottom-color: var(--ui-highlight-color);
       }
     }
   }
@@ -459,7 +459,7 @@ body,
 
       &.selected {
         color: $highlight-text-color;
-        border-bottom: 2px solid $ui-highlight-color;
+        border-bottom: 2px solid var(--ui-highlight-color);
       }
     }
   }
@@ -572,7 +572,7 @@ body,
   font-size: 14px;
 
   a {
-    color: $highlight-text-color;
+    color: var(--ui-highlight-color);
     text-decoration: none;
 
     &:hover {
@@ -695,7 +695,7 @@ a.name-tag,
 
 .speech-bubble {
   margin-bottom: 20px;
-  border-left: 4px solid $ui-highlight-color;
+  border-left: 4px solid var(--ui-highlight-color);
 
   &.positive {
     border-left-color: $success-green;
@@ -865,7 +865,7 @@ a.name-tag,
     border: 0;
 
     a {
-      color: lighten($ui-highlight-color, 8%);
+      color: var(--ui-highlight-light-color);
     }
 
     dl:first-child .verified {

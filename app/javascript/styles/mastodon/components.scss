@@ -24,7 +24,7 @@
   display: block;
   font-size: 15px;
   line-height: 20px;
-  color: $ui-highlight-color;
+  color: var(--ui-highlight-color);
   border: 0;
   background: transparent;
   padding: 0;
@@ -36,13 +36,13 @@
   }
 
   &:disabled {
-    color: $ui-primary-color;
+    opacity: 0.5;
     cursor: default;
   }
 }
 
 .button {
-  background-color: $ui-highlight-color;
+  background-color: var(--ui-highlight-color);
   border: 10px none;
   border-radius: 4px;
   box-sizing: border-box;
@@ -69,7 +69,7 @@
   &:active,
   &:focus,
   &:hover {
-    background-color: lighten($ui-highlight-color, 10%);
+    background-color: var(--ui-highlight-light-color);
     transition: all 200ms ease-out;
   }
 
@@ -86,7 +86,7 @@
 
   &:disabled,
   &.disabled {
-    background-color: $ui-primary-color;
+    opacity: 0.5;
     cursor: default;
   }
 
@@ -199,7 +199,7 @@
   }
 
   &.active {
-    color: $highlight-text-color;
+    color: var(--ui-highlight-color);
   }
 
   &::-moz-focus-inner {
@@ -232,10 +232,10 @@
     }
 
     &.active {
-      color: $highlight-text-color;
+      color: var(--ui-highlight-color);
 
       &.disabled {
-        color: lighten($highlight-text-color, 13%);
+        opacity: 0.5;
       }
     }
   }
@@ -301,7 +301,7 @@
   }
 
   &.active {
-    color: $highlight-text-color;
+    color: var(--ui-highlight-color);
   }
 
   &::-moz-focus-inner {
@@ -354,7 +354,7 @@
     font-weight: 500;
 
     &.active {
-      color: $highlight-text-color;
+      color: var(--ui-highlight-color);
     }
 
     input[type=checkbox] {
@@ -872,7 +872,7 @@
   }
 
   a.unhandled-link {
-    color: lighten($ui-highlight-color, 8%);
+    color: var(--ui-highlight-light-color);
   }
 
   .status__content__spoiler-link {
@@ -941,7 +941,7 @@
     }
 
     &.unhandled-link {
-      color: lighten($ui-highlight-color, 8%);
+      color: var(--ui-highlight-light-color);
     }
   }
 }
@@ -954,7 +954,7 @@
   display: block;
   font-size: 15px;
   line-height: 20px;
-  color: lighten($ui-highlight-color, 8%);
+  color: var(--ui-highlight-light-color);
   border: 0;
   background: transparent;
   padding: 0;
@@ -1500,7 +1500,7 @@ a .account__avatar {
   border-bottom: 4px solid transparent;
 
   &.active {
-    border-bottom: 4px solid $ui-highlight-color;
+    border-bottom: 4px solid var(--ui-highlight-color);
   }
 
   & > span {
@@ -1665,7 +1665,7 @@ a.account__display-name {
   position: relative;
 
   .fa {
-    color: $highlight-text-color;
+    color: var(--ui-highlight-color);
   }
 
   > span {
@@ -1953,7 +1953,7 @@ a.account__display-name {
     &:focus,
     &:hover,
     &:active {
-      background: $ui-highlight-color;
+      background: var(--ui-highlight-color);
       color: $secondary-text-color;
       outline: 0;
     }
@@ -2006,7 +2006,7 @@ a.account__display-name {
     }
 
     &:hover {
-      background: $ui-highlight-color;
+      background: var(--ui-highlight-color);
       color: $secondary-text-color;
     }
   }
@@ -2218,8 +2218,8 @@ a.account__display-name {
   }
 
   &.active {
-    border-bottom: 2px solid $highlight-text-color;
-    color: $highlight-text-color;
+    border-bottom: 2px solid var(--ui-highlight-color);
+    color: var(--ui-highlight-color);
   }
 
   span {
@@ -2392,7 +2392,7 @@ a.account__display-name {
   height: 3.9375rem;
   bottom: 1.3125rem;
   right: 1.3125rem;
-  background: darken($ui-highlight-color, 3%);
+  background: var(--ui-highlight-dark-color);
   color: $white;
   border-radius: 50%;
   font-size: 21px;
@@ -2403,7 +2403,7 @@ a.account__display-name {
   &:hover,
   &:focus,
   &:active {
-    background: lighten($ui-highlight-color, 7%);
+    background: var(--ui-highlight-light-color);
   }
 }
 
@@ -2458,7 +2458,7 @@ a.account__display-name {
     position: absolute;
     left: 9px;
     top: -13px;
-    background: $ui-highlight-color;
+    background: var(--ui-highlight-color);
     border: 2px solid lighten($ui-base-color, 8%);
     padding: 1px 6px;
     border-radius: 6px;
@@ -2730,7 +2730,7 @@ a.account__display-name {
   box-sizing: border-box;
   width: 100%;
   background: lighten($ui-base-color, 4%);
-  color: $highlight-text-color;
+  color: var(--ui-highlight-color);
   cursor: pointer;
   flex: 0 0 auto;
   font-size: 16px;
@@ -2751,7 +2751,7 @@ a.account__display-name {
   background: lighten($ui-base-color, 4%);
   border: 0;
   font-family: inherit;
-  color: $highlight-text-color;
+  color: var(--ui-highlight-color);
   cursor: pointer;
   white-space: nowrap;
   font-size: 16px;
@@ -2829,11 +2829,11 @@ a.account__display-name {
 }
 
 .react-toggle--checked .react-toggle-track {
-  background-color: $ui-highlight-color;
+  background-color: var(--ui-highlight-color);
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: lighten($ui-highlight-color, 10%);
+  background-color: var(--ui-highlight-light-color);
 }
 
 .react-toggle-track-check {
@@ -2889,7 +2889,7 @@ a.account__display-name {
 
 .react-toggle--checked .react-toggle-thumb {
   left: 27px;
-  border-color: $ui-highlight-color;
+  border-color: var(--ui-highlight-color);
 }
 
 .column-link {
@@ -2922,7 +2922,7 @@ a.account__display-name {
     }
 
     &.active {
-      color: $ui-highlight-color;
+      color: var(--ui-highlight-color);
     }
   }
 }
@@ -3352,14 +3352,14 @@ a.status-card.compact:hover {
   }
 
   a {
-    color: lighten($ui-highlight-color, 8%);
+    color: var(--ui-highlight-light-color);
     text-decoration: none;
 
     &:hover,
     &:focus,
     &:active {
       text-decoration: underline;
-      color: lighten($ui-highlight-color, 12%);
+      color: var(--ui-highlight-light-color);
     }
   }
 }
@@ -3414,7 +3414,7 @@ a.status-card.compact:hover {
   z-index: 1;
 
   &.active {
-    box-shadow: 0 1px 0 rgba($highlight-text-color, 0.3);
+    box-shadow: 0 1px 0 rgba(var(--ui-highlight-color), 0.3);
 
     &::before {
       display: block;
@@ -3428,7 +3428,7 @@ a.status-card.compact:hover {
       pointer-events: none;
       height: 28px;
       z-index: 1;
-      background: radial-gradient(ellipse, rgba($ui-highlight-color, 0.23) 0%, rgba($ui-highlight-color, 0) 60%);
+      background: radial-gradient(ellipse, rgba(var(--ui-highlight-color), 0.23) 0%, rgba(var(--ui-highlight-color), 0) 60%);
     }
   }
 
@@ -3464,13 +3464,13 @@ a.status-card.compact:hover {
   }
 
   & > .column-header__back-button {
-    color: $highlight-text-color;
+    color: var(--ui-highlight-color);
   }
 
   &.active {
     .column-header__icon {
-      color: $highlight-text-color;
-      text-shadow: 0 0 10px rgba($highlight-text-color, 0.4);
+      color: var(--ui-highlight-color);
+      text-shadow: 0 0 10px rgba(var(--ui-highlight-color), 0.4);
     }
   }
 
@@ -4253,7 +4253,7 @@ a.status-card.compact:hover {
   left: 0;
   top: 0;
   height: 6px;
-  background: $ui-highlight-color;
+  background: var(--ui-highlight-color);
   border-radius: 6px;
 }
 
@@ -4708,16 +4708,16 @@ a.status-card.compact:hover {
       }
 
       &.active {
-        color: $highlight-text-color;
+        color: var(--ui-highlight-color);
 
         &:hover,
         &:focus,
         &:active {
-          background: rgba($highlight-text-color, 0.15);
+          background: rgba(var(--ui-highlight-color), 0.15);
         }
 
         &:focus {
-          background: rgba($highlight-text-color, 0.3);
+          background: rgba(var(--ui-highlight-color), 0.3);
         }
       }
 
@@ -5205,7 +5205,7 @@ a.status-card.compact:hover {
         &:focus {
           &,
           button {
-            background: $ui-highlight-color;
+            background: var(--ui-highlight-color);
             color: $primary-text-color;
           }
         }
@@ -5313,7 +5313,7 @@ a.status-card.compact:hover {
 }
 
 .loading-bar {
-  background-color: $highlight-text-color;
+  background-color: var(--ui-highlight-color);
   height: 3px;
   position: absolute;
   top: 0;
@@ -5789,7 +5789,7 @@ a.status-card.compact:hover {
       left: 0;
       top: 50%;
       transform: translate(0, -50%);
-      background: lighten($ui-highlight-color, 8%);
+      background: var(--ui-highlight-light-color);
     }
 
     &__handle {
@@ -5802,7 +5802,7 @@ a.status-card.compact:hover {
       left: 0;
       margin-left: -6px;
       transform: translate(0, -50%);
-      background: lighten($ui-highlight-color, 8%);
+      background: var(--ui-highlight-light-color);
       box-shadow: 1px 2px 6px rgba($base-shadow-color, 0.2);
       opacity: 0;
 
@@ -5856,7 +5856,7 @@ a.status-card.compact:hover {
       height: 4px;
       border-radius: 4px;
       top: 14px;
-      background: lighten($ui-highlight-color, 8%);
+      background: var(--ui-highlight-light-color);
     }
 
     &__buffer {
@@ -5872,7 +5872,7 @@ a.status-card.compact:hover {
       height: 12px;
       top: 10px;
       margin-left: -6px;
-      background: lighten($ui-highlight-color, 8%);
+      background: var(--ui-highlight-light-color);
       box-shadow: 1px 2px 6px rgba($base-shadow-color, 0.2);
 
       .no-reduce-motion & {
@@ -6184,8 +6184,8 @@ a.status-card.compact:hover {
     vertical-align: middle;
 
     &.checked {
-      border-color: lighten($ui-highlight-color, 8%);
-      background: lighten($ui-highlight-color, 8%);
+      border-color: var(--ui-highlight-light-color);
+      background: var(--ui-highlight-light-color);
     }
   }
 }
@@ -6794,7 +6794,7 @@ noscript {
       border-top: 1px solid lighten($ui-base-color, 12%);
 
       a {
-        color: lighten($ui-highlight-color, 8%);
+        color: var(--ui-highlight-light-color);
       }
 
       dl:first-child .verified {
@@ -6985,7 +6985,7 @@ noscript {
 
   &__unread {
     display: inline-block;
-    background: $highlight-text-color;
+    background: var(--ui-highlight-color);
     border-radius: 50%;
     width: 0.625rem;
     height: 0.625rem;
@@ -7106,7 +7106,7 @@ noscript {
       top: 19px;
       right: 19px;
       display: block;
-      background: $highlight-text-color;
+      background: var(--ui-highlight-color);
       border-radius: 50%;
       width: 0.625rem;
       height: 0.625rem;
@@ -7195,7 +7195,7 @@ noscript {
     &.active {
       transition: all 100ms ease-in;
       transition-property: background-color, color;
-      background-color: mix(lighten($ui-base-color, 12%), $ui-highlight-color, 80%);
+      background-color: var(--ui-highlight-base-mix);
 
       .reactions-bar__item__count {
         color: lighten($highlight-text-color, 8%);
@@ -7255,7 +7255,7 @@ noscript {
       pointer-events: 0;
       width: 100%;
       height: 100%;
-      border-left: 2px solid $highlight-text-color;
+      border-left: 2px solid var(--ui-highlight-color);
       pointer-events: none;
     }
   }

@@ -81,12 +81,12 @@ html {
 }
 
 .column-header__button.active {
-  color: $ui-highlight-color;
+  color: var(--ui-highlight-color);
 
   &:hover,
   &:active,
   &:focus {
-    color: $ui-highlight-color;
+    color: var(--ui-highlight-color);
     background: $white;
   }
 }
@@ -373,8 +373,8 @@ html {
 }
 
 .reactions-bar__item.active {
-  background-color: mix($white, $ui-highlight-color, 80%);
-  border-color: mix(lighten($ui-base-color, 8%), $ui-highlight-color, 80%);
+  background-color: var(--ui-highlight-white-mix);
+  border-color: var(--ui-highlight-base-mix);
 }
 
 .media-modal__overlay .picture-in-picture__footer {
@@ -453,7 +453,7 @@ html {
 }
 
 .react-toggle.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background: lighten($ui-highlight-color, 10%);
+  background: var(--ui-highlight-light-color);
 }
 
 // Change the default color used for the text in an empty column or on the error column
@@ -488,7 +488,7 @@ html {
       &:active,
       &:focus {
         background: transparent;
-        border-bottom-color: $ui-highlight-color;
+        border-bottom-color: var(--ui-highlight-color);
       }
     }
   }
@@ -570,7 +570,7 @@ html {
 
 .directory__tag.active > a,
 .directory__tag.active > div {
-  border-color: $ui-highlight-color;
+  border-color: var(--ui-highlight-color);
 
   &,
   h4,
@@ -583,7 +583,7 @@ html {
   &:hover,
   &:active,
   &:focus {
-    background: $ui-highlight-color;
+    background: var(--ui-highlight-color);
   }
 }
 
@@ -658,19 +658,19 @@ html {
   }
 
   .recommended {
-    border-color: $ui-highlight-color;
-    color: $ui-highlight-color;
-    background-color: rgba($ui-highlight-color, 0.1);
+    border-color: var(--ui-highlight-color);
+    color: var(--ui-highlight-color);
+    background-color: rgba(var(--ui-highlight-color), 0.1);
   }
 }
 
 .compose-form .compose-form__warning {
-  border-color: $ui-highlight-color;
-  background-color: rgba($ui-highlight-color, 0.1);
+  border-color: var(--ui-highlight-color);
+  background-color: rgba(var(--ui-highlight-color), 0.1);
 
   &,
   a {
-    color: $ui-highlight-color;
+    color: var(--ui-highlight-color);
   }
 }
 

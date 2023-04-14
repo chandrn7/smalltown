@@ -12,6 +12,13 @@ $ui-secondary-color: $classic-secondary-color !default;
 
 // Differences
 $ui-highlight-color: #2b5fd9;
+:root {
+  --ui-highlight-color: #2b5fd9;
+  --ui-highlight-dark-color: #2456cc;
+  --ui-highlight-light-color: #4d79e0;
+  --ui-highlight-white-mix: #d5dff7;
+  --ui-highlight-base-mix: #293657;
+}
 
 $darker-text-color: lighten($ui-primary-color, 20%) !default;
 $dark-text-color: lighten($ui-primary-color, 12%) !default;

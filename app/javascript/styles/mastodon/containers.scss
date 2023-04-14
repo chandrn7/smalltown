@@ -803,7 +803,7 @@
       border-top: 0;
 
       a {
-        color: lighten($ui-highlight-color, 8%);
+        color: var(--ui-highlight-light-color);
       }
 
       dl:first-child .verified {
