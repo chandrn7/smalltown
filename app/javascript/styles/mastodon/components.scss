@@ -872,7 +872,7 @@
   }
 
   a.unhandled-link {
-    color: var(--ui-highlight-light-color);
+    color: $highlight-text-color;
   }
 
   .status__content__spoiler-link {
