@@ -567,7 +567,7 @@ code {
     width: 100%;
     border: 0;
     border-radius: 4px;
-    background: $ui-highlight-color;
+    background: var(--ui-highlight-color);
     color: $primary-text-color;
     font-size: 18px;
     line-height: inherit;
@@ -588,16 +588,16 @@ code {
     }
 
     &:hover {
-      background-color: lighten($ui-highlight-color, 5%);
+      background-color: var(--ui-highlight-light-color);
     }
 
     &:active,
     &:focus {
-      background-color: darken($ui-highlight-color, 5%);
+      background-color: var(--ui-highlight-dark-color);
     }
 
     &:disabled:hover {
-      background-color: $ui-primary-color;
+      opacity: 0.5;
     }
 
     &.negative {

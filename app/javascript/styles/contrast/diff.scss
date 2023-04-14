@@ -73,7 +73,7 @@
 }
 
 .public-layout .public-account-header__tabs__tabs .counter.active::after {
-  border-bottom: 4px solid $ui-highlight-color;
+  border-bottom: 4px solid var(--ui-highlight-color);
 }
 
 .compose-form .autosuggest-textarea__textarea::placeholder,
