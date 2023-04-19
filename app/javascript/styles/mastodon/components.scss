@@ -3,6 +3,11 @@
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+img.logo {
+  max-height: 48px;
+  max-width: 100%;
+}
+
 .animated-number {
   display: inline-flex;
   flex-direction: column;
@@ -2923,6 +2928,16 @@ a.account__display-name {
 
     &.active {
       color: var(--ui-highlight-color);
+    }
+  }
+  &--logo {
+    background: transparent;
+    padding: 10px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: transparent;
     }
   }
 }

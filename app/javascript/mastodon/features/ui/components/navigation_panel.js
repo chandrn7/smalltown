@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter, Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import Icon from 'mastodon/components/icon';
-import { profile_directory, showTrends, completelySiloed, dmsEnabled, bookmarks, lists, relationships, homeEnabled, archiveMaxStatusId } from 'mastodon/initial_state';
+import { profile_directory, showTrends, completelySiloed, dmsEnabled, bookmarks, lists, relationships, homeEnabled, archiveMaxStatusId, mascot } from 'mastodon/initial_state';
 import NotificationsCounterIcon from './notifications_counter_icon';
 import FollowRequestsNavLink from './follow_requests_nav_link';
 import ListPanel from './list_panel';
@@ -10,6 +10,13 @@ import TrendsContainer from 'mastodon/features/getting_started/containers/trends
 
 const NavigationPanel = () => (
   <div className='navigation-panel'>
+    {mascot && <div className='navigation-panel__logo'>
+      <Link to='/' className='column-link column-link--logo'> 
+        <img alt='' className="logo" draggable='false' src={mascot} />
+      </Link>
+      <hr />
+    </div>}
+
     { homeEnabled && <NavLink className='column-link column-link--transparent' to='/timelines/home' data-preview-title-id='column.home' data-preview-icon='home' ><Icon className='column-link__icon' id='home' fixedWidth /><FormattedMessage id='tabs_bar.home' defaultMessage='Home' /></NavLink>}
     <NavLink className='column-link column-link--transparent' to='/notifications' data-preview-title-id='column.notifications' data-preview-icon='bell' ><NotificationsCounterIcon className='column-link__icon' /><FormattedMessage id='tabs_bar.notifications' defaultMessage='Notifications' /></NavLink>
     <FollowRequestsNavLink />
