@@ -749,6 +749,12 @@ en:
       trends:
         desc_html: Publicly display previously reviewed hashtags that are currently trending
         title: Trending hashtags
+      tutorial:
+        desc_html: Provide an overview of your site and some quick tips about functionality. Display your custom welcome message. 
+        title: Enable a tutorial flow for new users
+      welcome_message:
+        desc_html: Displayed when the tutorial is enabled. Describe what %{title} is and what people can expect when they participate. This is a good place to summarize the rules for your site. You can use HTML tags
+        title: Custom welcome message
       with_replies:
         desc_html: Recommmended for small sites with home timeline disabled
         title: Include replies in public timeline

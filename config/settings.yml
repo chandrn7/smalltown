@@ -88,6 +88,8 @@ defaults: &defaults
   share_enabled: true
   with_replies: false
   archive_status_id: ''
+  welcome_message: ''
+  tutorial: false
 
 development:
   <<: *defaults

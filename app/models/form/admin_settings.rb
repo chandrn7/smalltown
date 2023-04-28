@@ -56,6 +56,8 @@ class Form::AdminSettings
     share_enabled
     with_replies
     archive_status_id
+    welcome_message
+    tutorial
   ).freeze
 
   BOOLEAN_KEYS = %i(
@@ -85,6 +87,7 @@ class Form::AdminSettings
     reblogs_enabled
     share_enabled
     with_replies
+    tutorial
   ).freeze
 
   UPLOAD_KEYS = %i(

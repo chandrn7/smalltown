@@ -52,7 +52,7 @@
     }
 
     img {
-      object-fit: cover;
+      object-fit: contain;
       display: block;
       margin: 0;
       width: 100%;
@@ -61,7 +61,9 @@
   }
 
   &__text {
-    border-top: 2px solid var(--ui-highlight-color);
+    &.has-image{
+      border-top: 2px solid var(--ui-highlight-color);
+    }
 
     &--columnized {
       display: flex;
@@ -94,7 +96,6 @@
     p {
       font-size: 16px;
       line-height: 24px;
-      font-weight: 400;
       color: $darker-text-color;
 
       code {
@@ -150,5 +151,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    &.no-image{
+      border-bottom: 2px solid var(--ui-highlight-color);
+    }
   }
 }

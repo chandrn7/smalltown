@@ -5,72 +5,52 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { closeOnboarding } from '../../actions/onboarding';
-import screenHello from '../../../images/screen_hello.svg';
-import screenFederation from '../../../images/screen_federation.svg';
-import screenInteractions from '../../../images/screen_interactions.svg';
 import logoTransparent from '../../../images/logo_transparent.svg';
-import { disableSwiping } from 'mastodon/initial_state';
+import { disableSwiping, mascot, title, welcomeMessage } from 'mastodon/initial_state';
 
-const FrameWelcome = ({ domain, onNext }) => (
+const FrameWelcome = ({ onNext }) => (
   <div className='introduction__frame'>
-    <div className='introduction__illustration' style={{ background: `url(${logoTransparent}) no-repeat center center / auto 80%` }}>
-      <img src={screenHello} alt='' />
-    </div>
+    {mascot && <div className='introduction__illustration' style={{ background: `url(${logoTransparent}) no-repeat center center / auto 80%` }}>
+      <img src={mascot} alt='' />
+    </div>}
 
-    <div className='introduction__text introduction__text--centered'>
+    <div className={'introduction__text introduction__text--centered' + (mascot ? " has-image" : "")}>
       <h3><FormattedMessage id='introduction.welcome.headline' defaultMessage='First steps' /></h3>
-      <p><FormattedMessage id='introduction.welcome.text' defaultMessage="Welcome! In a few moments, you'll be able to participate in the conversation on {domain}." values={{ domain: <code>{domain}</code> }} /></p>
+      <p><FormattedMessage id='introduction.welcome.text' defaultMessage="Welcome! In a few moments, you'll be able to participate in the conversation on {title}." values={{ title: <code>{title}</code> }} /></p>
     </div>
 
-    <div className='introduction__action'>
+    <div className={'introduction__action' + (mascot ? "" : " no-image")}>
       <button className='button' onClick={onNext}><FormattedMessage id='introduction.welcome.action' defaultMessage="Let's go!" /></button>
     </div>
   </div>
 );
 
 FrameWelcome.propTypes = {
-  domain: PropTypes.string.isRequired,
   onNext: PropTypes.func.isRequired,
 };
 
-const FrameFederation = ({ domain, onNext }) => (
+const FrameFederation = ({ onNext }) => (
   <div className='introduction__frame'>
-    <div className='introduction__illustration'>
-      <img src={screenFederation} alt='' />
+    <div className='introduction__text introduction__text--centered'>
+      <h3><FormattedMessage id='introduction.welcome.message' defaultMessage='Overview' /></h3>
+      <p className='rich-formatting' dangerouslySetInnerHTML={{__html: welcomeMessage || "This is a space for connecting with your commmunity online! Be respectful."}}/>
     </div>
 
-    <div className='introduction__text introduction__text--columnized'>
-      <div>
-        <h3><FormattedMessage id='introduction.federation.home.headline' defaultMessage='Home' /></h3>
-        <p><FormattedMessage id='introduction.federation.home.text' defaultMessage='Posts from people you follow will appear in your home feed.' /></p>
-      </div>
-
-      <div>
-        <h3><FormattedMessage id='introduction.federation.local.headline' defaultMessage='Local' /></h3>
-        <p><FormattedMessage id='introduction.federation.local.text' defaultMessage='Public posts from everyone on {domain} will appear in the local feed.' values={{ domain: <code>{domain}</code> }} /></p>
-      </div>
-
-      <div>
-        <h3><FormattedMessage id='introduction.federation.federated.headline' defaultMessage='Federated' /></h3>
-        <p><FormattedMessage id='introduction.federation.federated.text' defaultMessage='If your site chooses to interact with other social media sites, posts from the other sites will appear in the federated feed.' /></p>
-      </div>
-    </div>
-
-    <div className='introduction__action'>
+    <div className='introduction__action no-image'>
       <button className='button' onClick={onNext}><FormattedMessage id='introduction.federation.action' defaultMessage='Next' /></button>
     </div>
   </div>
 );
 
 FrameFederation.propTypes = {
-  domain: PropTypes.string.isRequired,
   onNext: PropTypes.func.isRequired,
 };
 
 const FrameInteractions = ({ onNext }) => (
   <div className='introduction__frame'>
-    <div className='introduction__illustration'>
-      <img src={screenInteractions} alt='' />
+
+     <div className='introduction__text introduction__text--centered'>
+      <h3><FormattedMessage id='introduction.interactions.headline' defaultMessage='Quick Tips' /></h3>
     </div>
 
     <div className='introduction__text introduction__text--columnized'>
@@ -80,17 +60,12 @@ const FrameInteractions = ({ onNext }) => (
       </div>
 
       <div>
-        <h3><FormattedMessage id='introduction.interactions.reblog.headline' defaultMessage='Boost' /></h3>
-        <p><FormattedMessage id='introduction.interactions.reblog.text' defaultMessage="You can share other people's posts with your followers by boosting them." /></p>
-      </div>
-
-      <div>
         <h3><FormattedMessage id='introduction.interactions.favourite.headline' defaultMessage='Favourite' /></h3>
         <p><FormattedMessage id='introduction.interactions.favourite.text' defaultMessage='You can save a post for later, and let the author know that you liked it, by favouriting it.' /></p>
       </div>
     </div>
 
-    <div className='introduction__action'>
+    <div className='introduction__action no-image'>
       <button className='button' onClick={onNext}><FormattedMessage id='introduction.interactions.action' defaultMessage='Finish tutorial!' /></button>
     </div>
   </div>
@@ -114,8 +89,8 @@ class Introduction extends React.PureComponent {
 
   componentWillMount () {
     this.pages = [
-      <FrameWelcome domain={this.props.domain} onNext={this.handleNext} />,
-      <FrameFederation domain={this.props.domain} onNext={this.handleNext} />,
+      <FrameWelcome onNext={this.handleNext} />,
+      <FrameFederation onNext={this.handleNext} />,
       <FrameInteractions onNext={this.handleFinish} />,
     ];
   }

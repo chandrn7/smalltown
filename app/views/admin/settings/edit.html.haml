@@ -98,6 +98,9 @@
     = f.input :dms_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.dms_enabled.title'), hint: t('admin.settings.dms_enabled.desc_html')
 
   .fields-group
+    = f.input :tutorial, as: :boolean, wrapper: :with_label, label: t('admin.settings.tutorial.title'), hint: t('admin.settings.tutorial.desc_html')
+
+  .fields-group
     = f.input :reblogs_enabled, as: :boolean, wrapper: :with_label, label: t('admin.settings.reblogs_enabled.title'), hint: t('admin.settings.reblogs_enabled.desc_html')
 
   .fields-group
@@ -166,6 +169,7 @@
 
   .fields-group
     = f.input :site_extended_description, wrapper: :with_block_label, as: :text, label: t('admin.settings.site_description_extended.title'), hint: t('admin.settings.site_description_extended.desc_html'), input_html: { rows: 8 }
+    = f.input :welcome_message, wrapper: :with_block_label, as: :text, label: t('admin.settings.welcome_message.title'), hint: t('admin.settings.welcome_message.desc_html', title: site_title), input_html: { rows: 8 }
     = f.input :closed_registrations_message, as: :text, wrapper: :with_block_label, label: t('admin.settings.registrations.closed_message.title'), hint: t('admin.settings.registrations.closed_message.desc_html'), input_html: { rows: 8 }
     = f.input :site_terms, wrapper: :with_block_label, as: :text, label: t('admin.settings.site_terms.title'), hint: t('admin.settings.site_terms.desc_html'), input_html: { rows: 8 }
     = f.input :custom_css, wrapper: :with_block_label, as: :text, input_html: { rows: 8 }, label: t('admin.settings.custom_css.title'), hint: t('admin.settings.custom_css.desc_html')

@@ -42,5 +42,7 @@ export const reblogsEnabled = getMeta('reblogs_enabled')
 export const shareEnabled = getMeta('share_enabled')
 export const archiveMinStatusId = getMeta('archive_min_status_id')
 export const archiveMaxStatusId = getMeta('archive_max_status_id')
+export const welcomeMessage = getMeta('welcome_message')
+export const tutorial = getMeta('tutorial')
 
 export default initialState;

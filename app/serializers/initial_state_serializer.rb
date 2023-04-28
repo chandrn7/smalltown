@@ -41,7 +41,9 @@ class InitialStateSerializer < ActiveModel::Serializer
       reblogs_enabled: Setting.reblogs_enabled,
       share_enabled: Setting.share_enabled,
       archive_min_status_id: Setting.archive_status_id,
-      archive_max_status_id: Setting.archive_status_id == '' ? Setting.archive_status_id : calculate_archive_max
+      archive_max_status_id: Setting.archive_status_id == '' ? Setting.archive_status_id : calculate_archive_max,
+      welcome_message: Setting.welcome_message == '' ? Setting.welcome_message : Nokogiri::HTML.fragment(Setting.welcome_message).to_s,
+      tutorial: Setting.tutorial
     }
 
     if object.current_account
