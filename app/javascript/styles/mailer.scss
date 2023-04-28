@@ -32,7 +32,7 @@ a {
   &:visited,
   span {
     text-decoration: none;
-    color: var(--ui-highlight-color);
+    color: $ui-highlight-color;
   }
 
   #outlook & {
@@ -399,7 +399,7 @@ h5 {
 }
 
 .button-primary {
-  background-color: var(--ui-highlight-dark-color);
+  background-color: darken($ui-highlight-color, 3%);
 }
 
 .text-center {
