@@ -16,7 +16,7 @@ This project also couldn't exist without Mastodon so please consider [supporting
 
 ## Installation
 
-Please see [this article in the wiki](https://github.com/chandrn7/smalltown/wiki/How-to-set-up-a-site-that-runs-Smalltown) for instructions on how to set up a site that runs Smalltown.
+Please see [this article in the wiki](https://github.com/chandrn7/smalltown/wiki/How-to-set-up-a-site-that-runs-Smalltown) for instructions on how to set up a site that runs Smalltown. We are currently up to date with Mastodon version 3.4.1.
 
 ## Single Sign On with Facebook, Google, Twitter, and OpenID
 
